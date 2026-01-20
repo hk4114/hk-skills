@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(example-skills:skill-creator)",
+      "Bash(python:*)",
+      "Bash(set:*)",
+      "Bash(powershell:*)",
+      "Bash(dir:*)"
+    ]
+  }
+}
