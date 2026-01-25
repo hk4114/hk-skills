@@ -11,3 +11,4 @@
 - [baoyu-skills](https://github.com/JimLiu/baoyu-skills/tree/main/skills)
 - [ai-partner-chat](https://github.com/eze-is/ai-partner-chat)
 - [skillsmp](https://skillsmp.com/zh)
+- [skills](https://skills.sh/)
