@@ -12,3 +12,10 @@
 - [ai-partner-chat](https://github.com/eze-is/ai-partner-chat)
 - [skillsmp](https://skillsmp.com/zh)
 - [skills](https://skills.sh/)
+
+
+
+Anthropic 官方 Skills：https://github.com/anthropics/skills
+企业级 Skills：https://github.com/mrgoonie/claudekit-skills
+https://github.com/ComposioHQ/awesome-claude-skills
+Copilot 官方 Skills：https://github.com/github/awesome-copilot/tree/main/skills
