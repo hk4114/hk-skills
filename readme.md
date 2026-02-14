@@ -1,7 +1,7 @@
 # hk-skills
 
 ## prompt-optimizer
-
+一句话目标 + 必要背景 + 约束 + 期望输出格式。这样更干净、更可控，也更贴近你真实的日常使用场景。
 - [skills](https://github.com/chujianyun/skills/tree/main/skills)
 - MIPROv2 + DSPY 实现 APO（自动提示优化）
 
