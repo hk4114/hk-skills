@@ -15,3 +15,21 @@ https://www.skillsdirectory.com/
 - [skills](https://skills.sh/)
 - [skill-from-masters](https://github.com/GBSOSS/skill-from-masters)帮你创建 Skill，在创建新 Skill 之前，会先搜索，寻找目标领域的顶级专家的思维模型和最佳实践，确保生成的 Skill 具备专业深度。
 - https://skillsmp.com/zh 
+
+
+
+
+```md
+/.claude/skills/skill-name
+    ├── SKILL.md    # 元数据+指令
+    ├── agents/     # 技能名片
+    │   └── openai.yaml
+    ├── scripts/    # 可执行脚本
+    │   └── main.py
+    ├── references/ # 补充文档（可选）
+    │   └── doc.md
+    └── assets/     # 素材资源
+        └── pic.jpg
+```
+
+`openai.yaml` 很多 AI 产品会在界面上展示一个技能列表，让用户选择或搜索。这个文件里存的就是列表中显示的名称、简介、图标等信息。它不影响 AI 的行为，纯粹是给产品界面用的
