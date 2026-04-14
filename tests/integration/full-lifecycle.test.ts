@@ -1,0 +1,66 @@
+import { describe, it, expect, beforeEach, afterEach } from "bun:test";
+import fs from "node:fs";
+import path from "node:path";
+import os from "node:os";
+import { init } from "../../src/commands/init.js";
+import { list } from "../../src/commands/list.js";
+import { enableSkill, disableSkill } from "../../src/core/activator.js";
+import { install } from "../../src/commands/install.js";
+import { loadSkillsRegistry } from "../../src/services/registry.js";
+
+describe("full-lifecycle", () => {
+  let tempDir: string;
+
+  beforeEach(() => {
+    tempDir = fs.mkdtempSync(
+      path.join(os.tmpdir(), "hk-skills-lifecycle-test-")
+    );
+
+    const customSkillDir = path.join(tempDir, "custom", "test-skill");
+    fs.mkdirSync(customSkillDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(customSkillDir, "SKILL.md"),
+      `---\nname: test-skill\n---\n\n# test-skill\n`,
+      "utf-8"
+    );
+  });
+
+  afterEach(() => {
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  });
+
+  it("runs full lifecycle: init, list, enable, disable, install", async () => {
+    init(tempDir);
+
+    expect(() => list(tempDir)).not.toThrow();
+
+    enableSkill(tempDir, "test-skill", "global");
+
+    const linkPath = path.join(tempDir, "runtime", "global", "test-skill");
+    expect(fs.existsSync(linkPath)).toBe(true);
+    expect(fs.lstatSync(linkPath).isSymbolicLink()).toBe(true);
+
+    disableSkill(tempDir, "test-skill", "global");
+
+    expect(fs.existsSync(linkPath)).toBe(false);
+
+    const localSkillPath = fs.mkdtempSync(
+      path.join(os.tmpdir(), "hk-skills-local-skill-")
+    );
+    fs.writeFileSync(
+      path.join(localSkillPath, "SKILL.md"),
+      `---\nname: local-test-skill\n---\n\n# local-test-skill\n`,
+      "utf-8"
+    );
+
+    try {
+      await install(tempDir, localSkillPath, { local: true });
+
+      const registry = loadSkillsRegistry(tempDir);
+      expect(registry["local-test-skill"]).toBeDefined();
+      expect(registry["local-test-skill"]!.installed).toBe(true);
+    } finally {
+      fs.rmSync(localSkillPath, { recursive: true, force: true });
+    }
+  });
+});
