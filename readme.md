@@ -1,58 +1,118 @@
 # hk-skills
 
-## 思路
-我想解决的最主要的问题：
-Skill 越装越多，特别是全局安装的技能，元信息占用了过多的上下文空间。
-为了解决这个问题，我相应的对策就是全局只装必要的插件，其他的就具体到项目里安装。
-但是如果仅仅是这样，依旧没有办法解决集中管理Skill这个需求。
+## 快速开始
 
-然后网上看到宝玉老师通过 symbolic link 去管理 Skill，通过 Symlink 直接链接到原始 Skills 的 Repo，大部分 Skills 应该跟着项目走，感觉是个法子，就开始动手实践。
+### 1. 初始化（只需执行一次）
 
-整体的结构是这样的：
-- custom 我自定义的skill文件夹，状态为完成的skill才会放到skills中。
-- remote 远程拉取的skill，因为远程skill需要根据Agent架构与电脑环境进行适配，所以需要放到remote文件夹下。
-  - menu.md 通过该文档维护远程skill，因为远程skill更新需要通过这里拉取最新的更新，然后根据Agent架构与电脑环境进行适配之后再放入 skills 文件夹中。
-- skills 最终的skill文件夹，所有skill都会放到这里。
-
-然后到具体项目中引用这个结构，就可以在项目中使用这些skill了。
-
-## 技能管理
-原始 Skills 的 Repo 集中管理。
-
-自定义（custom）和 远程加载（remote）经过检查、处理之后放入 Skills 中。
-
-### 搜索
-- interview: 项目需要维护一个概览页面，内容是 skills 已经安装的技能，涵盖 技能名称、触发方式、功能、完成度、来源。
-
-### 工作流
-- workflow: 根据已有的技能，给出自定义编排工作流建议。
-
-### 安装
-如果是远程的技能，需要先进行技能 Vetter 检查，重复冲突，下载的时候提醒，安装记录来源。如果是全英文技能，需要同级下生成一份中文的介绍。
-
-再统一安装到 remote 文件夹中，根据原有的设计进行本地化适配，再安装到skills文件夹里。
-
-``` 
-帮我安装skill，仓库地址是 {repo}。这个 skill 原为 {claude code} 设计，安装前请先理解其核心原理和工作逻辑，再结合你的 Agent 架构与电脑环境进行适配，使其真正融入当前环境，而非生硬移植。
+```bash
+./bin/hk-skill init
 ```
 
-如果是本地自己设计的技能，可以直接放进skills文件夹里。
+这会：
+- 创建 `registry/`、`manifests/`、`warehouse/`、`runtime/` 等运行时目录
+- 自动扫描并迁移现有的 `custom/` 和 `skills/` 中的技能
+- **只复制，不删除**原始文件
 
-### 更新
-一般出现在远程获取的skill,简单粗暴，卸载删除skill/中的技能，查询remote中维护的来源，重新获取，重新安装。
+### 2. 查看已安装的技能
 
-### 使用
-大部分 Skills 跟着项目走，在项目中（放项目目录下的 .agents/skills），通过 Symlink 直接链接到原始 Skills 的 Repo（例如本机就是：/Users/kanehua/project/hk-skills/skills）。
+```bash
+./bin/hk-skill list
+```
+
+示例输出：
+
+```
+NAME              SOURCE   STAGE    ENABLED
+----------------------------------------------------
+prompt-optimizer  local    adapted  no
+frontend-skill    adapted  adapted  no
+vetter            adapted  adapted  no
+...
+```
+
+### 3. 启用 / 禁用技能
+
+**全局启用**（所有项目可用）：
+
+```bash
+./bin/hk-skill enable vetter --global
+```
+
+这会在 `runtime/global/vetter` 创建一条**软链接**，指向 `warehouse/adapted/vetter`。
+
+**全局禁用**：
+
+```bash
+./bin/hk-skill disable vetter --global
+```
+
+**为特定项目启用**：
+
+```bash
+./bin/hk-skill enable vetter --project ./my-project
+```
+
+链接会创建在 `runtime/projects/my-project/vetter`。
+
+### 4. 安装新技能
+
+**从远程仓库安装**（自动 git clone）：
+
+```bash
+./bin/hk-skill install https://github.com/user/some-skill
+```
+
+执行流程：`fetch → vet → adapt → register`。如果检查失败，会自动回滚并清理已下载的目录。
+
+**从本地路径安装**：
+
+```bash
+./bin/hk-skill install ./local/path/to/my-skill --local
+```
+
+### 5. 在项目中使用
+
+在你的 Agent 或项目配置里，引用 `runtime/` 下的软链接路径即可读取已启用的技能：
+
+- **全局技能**：`runtime/global/<skill-name>/SKILL.md`
+- **项目技能**：`runtime/projects/<project-name>/<skill-name>/SKILL.md`
+
+例如，让 Agent 读取：
+
+```
+/Users/kanehua/project/hk-skills/runtime/global/vetter/SKILL.md
+```
+
+### 6. 查看帮助
+
+```bash
+./bin/hk-skill --help
+```
+
+### 注意事项
+
+- `.gitignore` 已配置：`registry/`、`manifests/`、`warehouse/`、`runtime/` 等运行时生成的目录**不会被提交到 Git**。这样每台机器可以独立维护自己的启用状态。
+- `init` 命令是**幂等**的，重复执行不会重复注册已有的技能。
+- 当前为 **Phase 1**，核心聚焦在技能的安装、列出、启用/禁用和迁移。更新、卸载、高级适配等功能尚未实现。
+
+---
 
 ## Phase 1 TODO / Deferred Features
 
-以下功能在 Phase 1 中尚未实现，计划后续迭代中逐步补齐：
+以下功能在 Phase 1 中尚未实现，按优先级排列，计划后续迭代逐步补齐：
 
-- **Advanced Vetter**：增强安全检查（如敏感信息、环境变量泄露检测）。
-- **Adapter Prompt Rewriting**：根据当前 Agent 架构与操作系统自动重写 skill prompt。
+### P0 - 基础生命周期
+- **Remove / Prune Commands**：卸载 skill 与清理无用依赖（先禁用关联，再删除文件）。
 - **Update Command**：支持一键更新已安装的远程 skill。
-- **Planner**：工作流编排与自动化建议。
-- **Catalog**：可搜索的 skill 目录与发现机制。
+
+### P1 - 安全与开发者体验
+- **Advanced Vetter**：增强安全检查（如敏感信息、环境变量泄露检测）。
 - **Doctor**：诊断命令，检查环境、依赖与配置健康度。
-- **Remove / Prune Commands**：卸载 skill 与清理无用依赖。
+
+### P2 - 适配与本地化
+- **Adapter Prompt Rewriting**：根据当前 Agent 架构与操作系统自动重写 skill prompt。
 - **Chinese Localization Generation**：为全英文 skill 自动生成中文介绍文档。
+
+### P3 - 生态与高级功能
+- **Catalog**：可搜索的 skill 目录与发现机制。
+- **Planner**：工作流编排与自动化建议。
