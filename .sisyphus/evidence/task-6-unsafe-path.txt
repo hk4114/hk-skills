@@ -1,0 +1,1 @@
+tests/core/discover-skills.test.ts includes a symlink test ("does not follow symlinks that escape the repo") that asserts the result equals `[]`, confirming unsafe candidates are rejected and not returned.

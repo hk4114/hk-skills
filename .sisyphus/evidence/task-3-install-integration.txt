@@ -1,0 +1,1 @@
+tests/commands/install-discovery.test.ts includes test cases for zero-match ("fails when no SKILL.md candidates are found"), single-match ("installs single discovered candidate"), and multiple-match ("fails in non-interactive mode when multiple candidates are found") discovery scenarios.

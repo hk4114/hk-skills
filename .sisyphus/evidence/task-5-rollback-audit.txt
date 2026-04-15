@@ -1,0 +1,1 @@
+src/commands/install.ts reuses the existing cleanup behavior for all failure branches: zero-match (lines 55-61), prompt cancel (lines 85-93), and vet failure (lines 103-111) each call `fs.rmSync(fetchedPath, { recursive: true, force: true })` before exiting.

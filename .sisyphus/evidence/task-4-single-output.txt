@@ -1,0 +1,1 @@
+src/commands/install.ts logs single-match discovery via `info(\`Discovered 1 skill: ${candidate.name} at ${candidate.subpath}\`)`. tests/commands/install-discovery.test.ts confirms the single-match path is vetted and the skill is registered successfully.

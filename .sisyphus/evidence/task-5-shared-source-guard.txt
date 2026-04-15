@@ -1,0 +1,1 @@
+git diff --name-only confirms no changes to src/commands/remove.ts or tests/integration/shared-source.test.ts. Only tests/core/discover-skills.test.ts is modified in the working tree.

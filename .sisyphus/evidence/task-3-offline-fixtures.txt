@@ -1,0 +1,1 @@
+tests/commands/install-discovery.test.ts uses purely local/synthetic fixtures via createTempRoot and mocked fetchRemote implementations; no external network requests are made during discovery tests.

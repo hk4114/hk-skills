@@ -144,10 +144,10 @@ describe("discoverSkills", () => {
 
     const result = discoverSkills(repo);
     expect(result.length).toBe(1);
-    expect(result[0].subpath.startsWith("/")).toBe(false);
-    expect(result[0].subpath.endsWith("/")).toBe(false);
-    expect(result[0].subpath.includes("SKILL.md")).toBe(false);
-    expect(result[0].subpath).toBe("tools/my-tool");
+    expect(result[0]!.subpath.startsWith("/")).toBe(false);
+    expect(result[0]!.subpath.endsWith("/")).toBe(false);
+    expect(result[0]!.subpath.includes("SKILL.md")).toBe(false);
+    expect(result[0]!.subpath).toBe("tools/my-tool");
 
     fs.rmSync(repo, { recursive: true, force: true });
   });

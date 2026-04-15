@@ -1,0 +1,1 @@
+src/commands/install.ts (lines 67-79) handles non-TTY by listing all discovered candidates in the error output and appending a rerun hint: "Rerun with: hk-skill install <source> --subpath <subpath>". tests/commands/install-discovery.test.ts asserts the error message contains candidate names.

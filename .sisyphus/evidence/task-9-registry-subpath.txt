@@ -1,0 +1,1 @@
+tests/commands/install-discovery.test.ts asserts `registry["skill-a"]!.subpath` equals `"packages/skill-a"` — a normalized directory path with no trailing slash and no SKILL.md filename.

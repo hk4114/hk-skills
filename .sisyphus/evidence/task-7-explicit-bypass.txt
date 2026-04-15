@@ -1,0 +1,1 @@
+tests/commands/install.test.ts includes "vets and adapts subpath directory when subpath option is provided", which passes `{ subpath: "packages/foo" }` directly to install and confirms discovery is bypassed and the specified subpath is vetted, adapted, and registered.
