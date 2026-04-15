@@ -9,6 +9,7 @@ import { remove } from "./commands/remove.js";
 import { update } from "./commands/update.js";
 import { vet } from "./commands/vet.js";
 import { adaptCommand } from "./commands/adapt.js";
+import { catalog } from "./commands/catalog.js";
 import { getRootPath } from "./utils/paths.js";
 
 const program = new Command();
@@ -87,6 +88,13 @@ program
   .description("Re-adapt a skill to the current environment")
   .action(async (name: string) => {
     await adaptCommand(getRootPath(), name);
+  });
+
+program
+  .command("catalog")
+  .description("Generate searchable skill catalog as docs/catalog.md")
+  .action(() => {
+    catalog(getRootPath());
   });
 
 program.parse();
