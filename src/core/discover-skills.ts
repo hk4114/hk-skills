@@ -85,6 +85,7 @@ function walk(
           results.push({ subpath, name: parsed.frontmatter.name });
         }
       } catch {
+        // Skip files that cannot be read or parsed
       }
     }
 

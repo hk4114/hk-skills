@@ -64,7 +64,7 @@ export async function install(root: string, source: string, options?: { local?: 
       info(`Discovered 1 skill: ${candidate.name}${candidate.subpath ? ` at ${candidate.subpath}` : ""}`);
       effectiveSubpath = candidate.subpath;
     } else {
-      if (!process.stdin.isTTY) {
+      if (!process.stdin.isTTY || !process.stdout.isTTY) {
         const lines = [
           "Multiple skills found in repository. Use --subpath to specify which one to install.",
           ...candidates.map((c) => `  ${c.name} (${c.subpath || "root"})`),

@@ -296,8 +296,10 @@ describe("install autodiscovery", () => {
     const repoUrl = "https://github.com/user/prompt-cancel";
     const source_id = "github.com_user_prompt-cancel@main";
 
-    const originalIsTTY = process.stdin.isTTY;
+    const originalStdinIsTTY = process.stdin.isTTY;
+    const originalStdoutIsTTY = process.stdout.isTTY;
     (process.stdin as any).isTTY = true;
+    (process.stdout as any).isTTY = true;
 
     fetchRemoteSpy = spyOn(fetcher, "fetchRemote").mockImplementation(
       async (root, url) => {
@@ -349,7 +351,8 @@ describe("install autodiscovery", () => {
       );
       expect(fs.existsSync(fetchedPath)).toBe(false);
     } finally {
-      (process.stdin as any).isTTY = originalIsTTY;
+      (process.stdin as any).isTTY = originalStdinIsTTY;
+      (process.stdout as any).isTTY = originalStdoutIsTTY;
     }
   });
 });

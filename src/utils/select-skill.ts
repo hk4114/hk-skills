@@ -4,9 +4,9 @@ export async function promptSelectSkill(
   message: string,
   choices: { name: string; subpath: string }[]
 ): Promise<string | null> {
-  console.log(message);
+  process.stdout.write(message + "\n");
   choices.forEach((c, i) => {
-    console.log(`${i + 1}) ${c.name} (${c.subpath || "root"})`);
+    process.stdout.write(`${i + 1}) ${c.name} (${c.subpath || "root"})\n`);
   });
 
   const rl = readline.createInterface({
