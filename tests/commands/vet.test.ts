@@ -3,28 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
 import * as vetter from "../../src/core/vetter.js";
-import { resolveSourcePath } from "../../src/core/activator.js";
-import * as logger from "../../src/utils/logger.js";
-
-// Stand-in for the vet command until src/commands/vet.ts is implemented
-function vet(root: string, name: string): void {
-  let skillPath: string;
-  try {
-    skillPath = resolveSourcePath(root, name);
-  } catch {
-    logger.error("Skill not found");
-    process.exit(1);
-  }
-
-  const result = vetter.vet(skillPath);
-  if (result.passed) {
-    logger.success(`Vet passed for ${name}`);
-  } else {
-    for (const err of result.errors) {
-      logger.error(err);
-    }
-  }
-}
+import { vet } from "../../src/commands/vet.js";
 
 describe("vet", () => {
   let tempDir: string;

@@ -7,6 +7,7 @@ import { enable } from "./commands/enable.js";
 import { disable } from "./commands/disable.js";
 import { remove } from "./commands/remove.js";
 import { update } from "./commands/update.js";
+import { vet } from "./commands/vet.js";
 import { getRootPath } from "./utils/paths.js";
 
 const program = new Command();
@@ -36,6 +37,13 @@ program
   .description("List installed skills")
   .action(() => {
     list(getRootPath());
+  });
+
+program
+  .command("vet <name>")
+  .description("Vet a skill for correctness")
+  .action((name: string) => {
+    vet(getRootPath(), name);
   });
 
 program
