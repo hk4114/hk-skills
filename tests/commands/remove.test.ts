@@ -43,10 +43,16 @@ describe("remove", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id: "test-source",
       },
     });
     saveSourcesRegistry(tempDir, {
-      "test-skill": [{ repo: "https://github.com/example/test-skill.git", ref: "main" }],
+      "test-source": {
+        type: "remote",
+        repo: "https://github.com/example/test-skill.git",
+        ref: "main",
+        local_path: path.join(tempDir, "warehouse", "remote", "test-source"),
+      },
     });
     saveProjectsRegistry(tempDir, {
       "my-app": { path: "/fake/path/my-app", skills: ["test-skill"] },
@@ -76,6 +82,8 @@ describe("remove", () => {
 
   it("removes an unenabled skill and cleans all registry entries and files", async () => {
     exitSpy.mockRestore();
+    fs.mkdirSync(path.join(tempDir, "warehouse", "remote", "test-source"), { recursive: true });
+    fs.writeFileSync(path.join(tempDir, "warehouse", "remote", "test-source", "SKILL.md"), "# Remote", "utf-8");
 
     await remove(tempDir, "test-skill", { promptConfirm: async () => true });
 
@@ -83,13 +91,14 @@ describe("remove", () => {
     expect(skills["test-skill"]).toBeUndefined();
 
     const sources = loadSourcesRegistry(tempDir);
-    expect(sources["test-skill"]).toBeUndefined();
+    expect(sources["test-source"]).toBeUndefined();
 
     const projects = loadProjectsRegistry(tempDir);
     expect(projects["my-app"]!.skills).not.toContain("test-skill");
 
     expect(fs.existsSync(path.join(tempDir, "warehouse", "adapted", "test-skill"))).toBe(false);
     expect(fs.existsSync(path.join(tempDir, "manifests", "test-skill.yaml"))).toBe(false);
+    expect(fs.existsSync(path.join(tempDir, "warehouse", "remote", "test-source"))).toBe(false);
   });
 
   it("disables global and project symlinks before removing files", async () => {
@@ -141,6 +150,7 @@ describe("remove", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id: "test-source",
       },
       "used-skill": {
         manifest: "manifests/used-skill.yaml",
@@ -148,6 +158,7 @@ describe("remove", () => {
         enabled_global: true,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id: "used-source",
       },
       "unused-skill": {
         manifest: "manifests/unused-skill.yaml",
@@ -155,6 +166,27 @@ describe("remove", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id: "unused-source",
+      },
+    });
+    saveSourcesRegistry(tempDir, {
+      "test-source": {
+        type: "remote",
+        repo: "https://github.com/example/test-skill.git",
+        ref: "main",
+        local_path: path.join(tempDir, "warehouse", "remote", "test-source"),
+      },
+      "used-source": {
+        type: "remote",
+        repo: "https://github.com/example/used-skill.git",
+        ref: "main",
+        local_path: path.join(tempDir, "warehouse", "remote", "used-source"),
+      },
+      "unused-source": {
+        type: "remote",
+        repo: "https://github.com/example/unused-skill.git",
+        ref: "main",
+        local_path: path.join(tempDir, "warehouse", "remote", "unused-source"),
       },
     });
 
@@ -178,6 +210,7 @@ describe("remove", () => {
         enabled_global: true,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id: "test-source",
       },
     });
 
@@ -210,5 +243,71 @@ describe("remove", () => {
     await expect(
       remove(tempDir, "test-skill", { unused: true, yes: true })
     ).rejects.toThrow("process.exit called");
+  });
+
+  it("preserves source entry and remote directory when another skill still references the same source_id", async () => {
+    exitSpy.mockRestore();
+    fs.mkdirSync(path.join(tempDir, "warehouse", "remote", "shared-source"), { recursive: true });
+    fs.writeFileSync(path.join(tempDir, "warehouse", "remote", "shared-source", "SKILL.md"), "# Shared", "utf-8");
+    fs.mkdirSync(path.join(tempDir, "warehouse", "adapted", "other-skill"), { recursive: true });
+    fs.writeFileSync(path.join(tempDir, "warehouse", "adapted", "other-skill", "SKILL.md"), "# Other", "utf-8");
+    fs.writeFileSync(path.join(tempDir, "manifests", "other-skill.yaml"), "name: other-skill\n", "utf-8");
+
+    saveSkillsRegistry(tempDir, {
+      "test-skill": {
+        manifest: "manifests/test-skill.yaml",
+        installed: true,
+        enabled_global: false,
+        enabled_projects: [],
+        updated_at: "2024-01-01T00:00:00Z",
+        source_id: "shared-source",
+      },
+      "other-skill": {
+        manifest: "manifests/other-skill.yaml",
+        installed: true,
+        enabled_global: false,
+        enabled_projects: [],
+        updated_at: "2024-01-01T00:00:00Z",
+        source_id: "shared-source",
+      },
+    });
+    saveSourcesRegistry(tempDir, {
+      "shared-source": {
+        type: "remote",
+        repo: "https://github.com/example/shared.git",
+        ref: "main",
+        local_path: path.join(tempDir, "warehouse", "remote", "shared-source"),
+      },
+    });
+
+    await remove(tempDir, "test-skill", { yes: true });
+
+    const skills = loadSkillsRegistry(tempDir);
+    expect(skills["test-skill"]).toBeUndefined();
+    expect(skills["other-skill"]).toBeDefined();
+
+    const sources = loadSourcesRegistry(tempDir);
+    expect(sources["shared-source"]).toBeDefined();
+
+    expect(fs.existsSync(path.join(tempDir, "warehouse", "remote", "shared-source"))).toBe(true);
+    expect(fs.existsSync(path.join(tempDir, "warehouse", "adapted", "test-skill"))).toBe(false);
+    expect(fs.existsSync(path.join(tempDir, "warehouse", "adapted", "other-skill"))).toBe(true);
+  });
+
+  it("deletes source entry and remote directory when removing the last skill referencing a source_id", async () => {
+    exitSpy.mockRestore();
+    fs.mkdirSync(path.join(tempDir, "warehouse", "remote", "test-source"), { recursive: true });
+    fs.writeFileSync(path.join(tempDir, "warehouse", "remote", "test-source", "SKILL.md"), "# Remote", "utf-8");
+
+    await remove(tempDir, "test-skill", { yes: true });
+
+    const skills = loadSkillsRegistry(tempDir);
+    expect(skills["test-skill"]).toBeUndefined();
+
+    const sources = loadSourcesRegistry(tempDir);
+    expect(sources["test-source"]).toBeUndefined();
+
+    expect(fs.existsSync(path.join(tempDir, "warehouse", "remote", "test-source"))).toBe(false);
+    expect(fs.existsSync(path.join(tempDir, "warehouse", "adapted", "test-skill"))).toBe(false);
   });
 });

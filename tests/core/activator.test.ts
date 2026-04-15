@@ -16,6 +16,7 @@ function createSkillEntry(name: string): RegistryEntry {
     enabled_global: false,
     enabled_projects: [],
     updated_at: "2024-01-01T00:00:00Z",
+    source_id: `local-${name}`,
   };
 }
 
@@ -32,11 +33,11 @@ describe("activator", () => {
 
   beforeEach(() => {
     tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "hk-skills-activator-"));
-    fs.mkdirSync(path.join(tempDir, "warehouse", "local", "test-skill"), {
+    fs.mkdirSync(path.join(tempDir, "warehouse", "adapted", "test-skill"), {
       recursive: true,
     });
     fs.writeFileSync(
-      path.join(tempDir, "warehouse", "local", "test-skill", "SKILL.md"),
+      path.join(tempDir, "warehouse", "adapted", "test-skill", "SKILL.md"),
       "---\nname: test-skill\n---\n# Test Skill",
       "utf-8"
     );
@@ -57,7 +58,7 @@ describe("activator", () => {
       expect(fs.existsSync(linkPath)).toBe(true);
       expect(fs.lstatSync(linkPath).isSymbolicLink()).toBe(true);
       expect(fs.readlinkSync(linkPath)).toBe(
-        path.join(tempDir, "warehouse", "local", "test-skill")
+        path.join(tempDir, "warehouse", "adapted", "test-skill")
       );
 
       const registry = loadSkillsRegistry(tempDir);
@@ -104,7 +105,7 @@ describe("activator", () => {
     });
 
     it("throws when skill source does not exist", () => {
-      fs.rmSync(path.join(tempDir, "warehouse", "local", "test-skill"), {
+      fs.rmSync(path.join(tempDir, "warehouse", "adapted", "test-skill"), {
         recursive: true,
         force: true,
       });
@@ -113,13 +114,34 @@ describe("activator", () => {
       );
     });
 
-    it("prefers adapted over local source", () => {
-      fs.mkdirSync(path.join(tempDir, "warehouse", "adapted", "test-skill"), {
+    it("falls back to local source when adapted is missing", () => {
+      fs.rmSync(path.join(tempDir, "warehouse", "adapted", "test-skill"), {
+        recursive: true,
+        force: true,
+      });
+      fs.mkdirSync(path.join(tempDir, "warehouse", "local", "test-skill"), {
         recursive: true,
       });
       fs.writeFileSync(
-        path.join(tempDir, "warehouse", "adapted", "test-skill", "SKILL.md"),
-        "---\nname: test-skill\n---\n# Adapted Test Skill",
+        path.join(tempDir, "warehouse", "local", "test-skill", "SKILL.md"),
+        "---\nname: test-skill\n---\n# Local Test Skill",
+        "utf-8"
+      );
+
+      enableSkill(tempDir, "test-skill", "global");
+      const linkPath = path.join(tempDir, "runtime", "global", "test-skill");
+      expect(fs.readlinkSync(linkPath)).toBe(
+        path.join(tempDir, "warehouse", "local", "test-skill")
+      );
+    });
+
+    it("prefers adapted over local source", () => {
+      fs.mkdirSync(path.join(tempDir, "warehouse", "local", "test-skill"), {
+        recursive: true,
+      });
+      fs.writeFileSync(
+        path.join(tempDir, "warehouse", "local", "test-skill", "SKILL.md"),
+        "---\nname: test-skill\n---\n# Local Test Skill",
         "utf-8"
       );
 

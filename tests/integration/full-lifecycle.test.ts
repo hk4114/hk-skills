@@ -6,7 +6,7 @@ import { init } from "../../src/commands/init.js";
 import { list } from "../../src/commands/list.js";
 import { enableSkill, disableSkill } from "../../src/core/activator.js";
 import { install } from "../../src/commands/install.js";
-import { loadSkillsRegistry } from "../../src/services/registry.js";
+import { loadSkillsRegistry, loadSourcesRegistry } from "../../src/services/registry.js";
 
 describe("full-lifecycle", () => {
   let tempDir: string;
@@ -59,6 +59,13 @@ describe("full-lifecycle", () => {
       const registry = loadSkillsRegistry(tempDir);
       expect(registry["local-test-skill"]).toBeDefined();
       expect(registry["local-test-skill"]!.installed).toBe(true);
+      expect(registry["local-test-skill"]!.source_id).toBeDefined();
+
+      const sources = loadSourcesRegistry(tempDir);
+      const sourceId = registry["local-test-skill"]!.source_id;
+      expect(sources[sourceId]).toBeDefined();
+      expect(sources[sourceId]!.type).toBe("local");
+      expect(sources[sourceId]!.local_path).toBeDefined();
     } finally {
       fs.rmSync(localSkillPath, { recursive: true, force: true });
     }

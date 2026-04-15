@@ -30,7 +30,8 @@ program
   .command("install <source>")
   .description("Install a skill from a remote URL or local path")
   .option("--local", "Treat source as a local path")
-  .action(async (source: string, options: { local?: boolean }) => {
+  .option("--subpath <path>", "Subpath within the repository")
+  .action(async (source: string, options: { local?: boolean; subpath?: string }) => {
     await install(getRootPath(), source, options);
   });
 

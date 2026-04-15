@@ -135,6 +135,7 @@ describe("init", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: expect.any(String),
+        source_id: `local-${name}`,
       });
     }
 
@@ -187,7 +188,13 @@ describe("init", () => {
     const sourcesPath = resolve(tempDir, "registry", "sources.json");
     expect(existsSync(sourcesPath)).toBe(true);
     const sourcesRegistry = JSON.parse(readFileSync(sourcesPath, "utf-8"));
-    expect(sourcesRegistry).toEqual({});
+
+    for (const name of expectedSkills) {
+      expect(sourcesRegistry[`local-${name}`]).toEqual({
+        type: "local",
+        local_path: `warehouse/local/${name}`,
+      });
+    }
   });
 
   it("is idempotent", () => {

@@ -1,11 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { stringify } from "yaml";
+import { generateSourceId } from "../core/fetcher.js";
 import { vet } from "../core/vetter.js";
 import { adapt } from "../core/adapter.js";
 import {
   loadSkillsRegistry,
   saveSkillsRegistry,
+  loadSourcesRegistry,
   saveSourcesRegistry,
 } from "../services/registry.js";
 import { info, warn, error, success } from "../utils/logger.js";
@@ -47,14 +49,13 @@ function parseMenuMd(content: string): SourcesRegistry {
     const [skill, repo, ref, upstreamPath] = cells;
     if (!skill || !repo || !ref) continue;
 
-    const entry: { repo: string; ref: string; path?: string } = { repo, ref };
-    if (upstreamPath) {
-      entry.path = upstreamPath;
-    }
-    if (!sources[skill]) {
-      sources[skill] = [];
-    }
-    sources[skill].push(entry);
+    const sourceId = generateSourceId(repo, ref);
+    sources[sourceId] = {
+      type: "remote",
+      repo,
+      ref,
+      local_path: upstreamPath || `warehouse/remote/${sourceId}`,
+    };
   }
 
   return sources;
@@ -70,6 +71,7 @@ export function init(root: string): void {
   }
 
   const skillsRegistry = loadSkillsRegistry(root);
+  const sourcesRegistry = loadSourcesRegistry(root);
 
   const customDir = path.join(root, "custom");
   if (fs.existsSync(customDir) && fs.statSync(customDir).isDirectory()) {
@@ -103,12 +105,18 @@ export function init(root: string): void {
         continue;
       }
 
+      const sourceId = `local-${name}`;
       skillsRegistry[name] = {
         manifest: `manifests/${name}.yaml`,
         installed: true,
         enabled_global: false,
         enabled_projects: [],
         updated_at: new Date().toISOString(),
+        source_id: sourceId,
+      };
+      sourcesRegistry[sourceId] = {
+        type: "local",
+        local_path: `warehouse/local/${name}`,
       };
       success(`Migrated custom skill: ${name}`);
     }
@@ -131,12 +139,18 @@ export function init(root: string): void {
       const destPath = path.join(root, "warehouse", "local", name);
       fs.cpSync(digitalMeDir, destPath, { recursive: true });
 
+      const sourceId = `local-${name}`;
       skillsRegistry[name] = {
         manifest: `manifests/${name}.yaml`,
         installed: true,
         enabled_global: false,
         enabled_projects: [],
         updated_at: new Date().toISOString(),
+        source_id: sourceId,
+      };
+      sourcesRegistry[sourceId] = {
+        type: "local",
+        local_path: `warehouse/local/${name}`,
       };
       success(`Migrated workspace: ${name}`);
     } else {
@@ -175,12 +189,18 @@ export function init(root: string): void {
         continue;
       }
 
+      const sourceId = `local-${name}`;
       skillsRegistry[name] = {
         manifest: `manifests/${name}.yaml`,
         installed: true,
         enabled_global: false,
         enabled_projects: [],
         updated_at: new Date().toISOString(),
+        source_id: sourceId,
+      };
+      sourcesRegistry[sourceId] = {
+        type: "local",
+        local_path: `warehouse/local/${name}`,
       };
       success(`Migrated skill: ${name}`);
     }
@@ -217,24 +237,32 @@ export function init(root: string): void {
         continue;
       }
 
+      const sourceId = `local-${name}`;
       skillsRegistry[name] = {
         manifest: `manifests/${name}.yaml`,
         installed: true,
         enabled_global: false,
         enabled_projects: [],
         updated_at: new Date().toISOString(),
+        source_id: sourceId,
+      };
+      sourcesRegistry[sourceId] = {
+        type: "local",
+        local_path: `warehouse/local/${name}`,
       };
       success(`Registered local skill: ${name}`);
     }
   }
 
   saveSkillsRegistry(root, skillsRegistry);
+  saveSourcesRegistry(root, sourcesRegistry);
 
   const menuPath = path.join(root, "remote", "menu.md");
   if (fs.existsSync(menuPath)) {
     const content = fs.readFileSync(menuPath, "utf-8");
     const sources = parseMenuMd(content);
-    saveSourcesRegistry(root, sources);
+    const mergedSources = { ...sourcesRegistry, ...sources };
+    saveSourcesRegistry(root, mergedSources);
     info(`Parsed remote/menu.md into registry/sources.json`);
   }
 

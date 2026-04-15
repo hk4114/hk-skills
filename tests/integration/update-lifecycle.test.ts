@@ -7,7 +7,7 @@ import { init } from "../../src/commands/init.js";
 import { install } from "../../src/commands/install.js";
 import { update } from "../../src/commands/update.js";
 import { enableSkill } from "../../src/core/activator.js";
-import { loadSkillsRegistry } from "../../src/services/registry.js";
+import { loadSkillsRegistry, loadSourcesRegistry } from "../../src/services/registry.js";
 import * as fetcher from "../../src/core/fetcher.js";
 
 describe("update-lifecycle", () => {
@@ -31,7 +31,8 @@ describe("update-lifecycle", () => {
     let commitCounter = 0;
     fetchRemoteSpy = spyOn(fetcher, "fetchRemote").mockImplementation(async (root, repoUrl) => {
       const name = "remote-skill";
-      const targetPath = path.join(root, "warehouse", "remote", name);
+      const source_id = "github.com_user_remote-skill@main";
+      const targetPath = path.join(root, "warehouse", "remote", source_id);
       fs.mkdirSync(targetPath, { recursive: true });
       const commit = commitCounter === 0 ? "abc123" : "def456";
       commitCounter++;
@@ -40,7 +41,7 @@ describe("update-lifecycle", () => {
         `---\nname: ${name}\n---\n\n# ${name} commit ${commit}\n`,
         "utf-8"
       );
-      return { name, repoUrl, ref: "main", commit };
+      return { source_id, name, repoUrl, ref: "main", commit };
     });
 
     await install(tempDir, "https://github.com/user/remote-skill");
@@ -48,6 +49,13 @@ describe("update-lifecycle", () => {
     const registryAfterInstall = loadSkillsRegistry(tempDir);
     expect(registryAfterInstall["remote-skill"]).toBeDefined();
     expect(registryAfterInstall["remote-skill"]!.installed).toBe(true);
+    expect(registryAfterInstall["remote-skill"]!.source_id).toBe("github.com_user_remote-skill@main");
+
+    const sourcesAfterInstall = loadSourcesRegistry(tempDir);
+    expect(sourcesAfterInstall["github.com_user_remote-skill@main"]).toBeDefined();
+    expect(sourcesAfterInstall["github.com_user_remote-skill@main"]!.type).toBe("remote");
+    expect(sourcesAfterInstall["github.com_user_remote-skill@main"]!.repo).toBe("https://github.com/user/remote-skill");
+    expect(sourcesAfterInstall["github.com_user_remote-skill@main"]!.ref).toBe("main");
 
     enableSkill(tempDir, "remote-skill", "global");
 
@@ -70,6 +78,10 @@ describe("update-lifecycle", () => {
       registryAfterInstall["remote-skill"]!.updated_at
     );
 
+    const sourcesAfterUpdate = loadSourcesRegistry(tempDir);
+    expect(sourcesAfterUpdate["github.com_user_remote-skill@main"]).toBeDefined();
+    expect(sourcesAfterUpdate["github.com_user_remote-skill@main"]!.type).toBe("remote");
+
     expect(fs.existsSync(linkPath)).toBe(true);
     expect(fs.lstatSync(linkPath).isSymbolicLink()).toBe(true);
   });
@@ -80,7 +92,8 @@ describe("update-lifecycle", () => {
     const commits = new Map<string, number>();
     fetchRemoteSpy = spyOn(fetcher, "fetchRemote").mockImplementation(async (root, repoUrl) => {
       const name = repoUrl.endsWith("skill-a") ? "skill-a" : "skill-b";
-      const targetPath = path.join(root, "warehouse", "remote", name);
+      const source_id = repoUrl.replace(/^https:\/\//, "").replace(/\//g, "_") + "@main";
+      const targetPath = path.join(root, "warehouse", "remote", source_id);
       fs.mkdirSync(targetPath, { recursive: true });
       const count = commits.get(name) ?? 0;
       const commit = count === 0 ? "abc123" : "def456";
@@ -90,7 +103,7 @@ describe("update-lifecycle", () => {
         `---\nname: ${name}\n---\n\n# ${name}\n`,
         "utf-8"
       );
-      return { name, repoUrl, ref: "main", commit };
+      return { source_id, name, repoUrl, ref: "main", commit };
     });
 
     await install(tempDir, "https://github.com/user/skill-a");
@@ -101,6 +114,8 @@ describe("update-lifecycle", () => {
 
     await update(tempDir, undefined, { all: true });
 
+    const sources = loadSourcesRegistry(tempDir);
+
     for (const name of ["skill-a", "skill-b"]) {
       const manifestPath = path.join(tempDir, "manifests", `${name}.yaml`);
       const manifest = parse(fs.readFileSync(manifestPath, "utf-8")) as Record<string, unknown>;
@@ -109,6 +124,11 @@ describe("update-lifecycle", () => {
       const linkPath = path.join(tempDir, "runtime", "global", name);
       expect(fs.existsSync(linkPath)).toBe(true);
       expect(fs.lstatSync(linkPath).isSymbolicLink()).toBe(true);
+
+      const registry = loadSkillsRegistry(tempDir);
+      const sourceId = registry[name]!.source_id;
+      expect(sources[sourceId]).toBeDefined();
+      expect(sources[sourceId]!.type).toBe("remote");
     }
   });
 });

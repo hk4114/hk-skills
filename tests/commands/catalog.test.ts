@@ -42,6 +42,7 @@ describe("catalog", () => {
         enabled_global: true,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id: "local-test-skill-local",
       },
       "test-skill-remote": {
         manifest: "manifests/test-skill-remote.yaml",
@@ -49,6 +50,7 @@ describe("catalog", () => {
         enabled_global: false,
         enabled_projects: ["proj-a"],
         updated_at: "2024-01-02T00:00:00Z",
+        source_id: "remote-test-skill-remote",
       },
       "test-skill-adapted": {
         manifest: "manifests/test-skill-adapted.yaml",
@@ -56,6 +58,7 @@ describe("catalog", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-03T00:00:00Z",
+        source_id: "adapted-test-skill-adapted",
       },
     });
 
@@ -133,6 +136,7 @@ describe("catalog", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id: "local-missing-skill",
       },
     });
 
@@ -155,6 +159,7 @@ describe("catalog", () => {
         enabled_global: true,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id: "local-test-skill-local",
       },
       "test-skill-remote": {
         manifest: "manifests/test-skill-remote.yaml",
@@ -162,6 +167,7 @@ describe("catalog", () => {
         enabled_global: false,
         enabled_projects: ["proj-a"],
         updated_at: "2024-01-02T00:00:00Z",
+        source_id: "remote-test-skill-remote",
       },
       "test-skill-adapted": {
         manifest: "manifests/test-skill-adapted.yaml",
@@ -169,6 +175,7 @@ describe("catalog", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-03T00:00:00Z",
+        source_id: "adapted-test-skill-adapted",
       },
     });
 

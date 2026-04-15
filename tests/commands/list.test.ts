@@ -24,6 +24,7 @@ describe("list", () => {
         enabled_global: true,
         enabled_projects: ["proj-a"],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id: "remote-test-skill",
       },
       "another-skill": {
         manifest: "manifests/another-skill.yaml",
@@ -31,6 +32,7 @@ describe("list", () => {
         enabled_global: false,
         enabled_projects: ["proj-b", "proj-c"],
         updated_at: "2024-01-02T00:00:00Z",
+        source_id: "local-another-skill",
       },
       "disabled-skill": {
         manifest: "manifests/disabled-skill.yaml",
@@ -38,6 +40,7 @@ describe("list", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-03T00:00:00Z",
+        source_id: "adapted-disabled-skill",
       },
     });
 

@@ -31,6 +31,24 @@ describe("registry service", () => {
           enabled_global: false,
           enabled_projects: ["proj-a"],
           updated_at: "2024-01-01T00:00:00Z",
+          source_id: "test-source",
+        },
+      };
+      saveSkillsRegistry(tempDir, data);
+      const loaded = loadSkillsRegistry(tempDir);
+      expect(loaded).toEqual(data);
+    });
+
+    it("should roundtrip with source_id and subpath", () => {
+      const data = {
+        "test-skill": {
+          manifest: "test-manifest.json",
+          installed: true,
+          enabled_global: false,
+          enabled_projects: ["proj-a"],
+          updated_at: "2024-01-01T00:00:00Z",
+          source_id: "test-source",
+          subpath: "skills/test-skill",
         },
       };
       saveSkillsRegistry(tempDir, data);
@@ -45,11 +63,27 @@ describe("registry service", () => {
   });
 
   describe("sources registry", () => {
-    it("should roundtrip save and load", () => {
+    it("should roundtrip save and load with SourceRegistryEntry objects keyed by source_id", () => {
       const data = {
-        "test-source": [
-          { repo: "https://github.com/test/repo", ref: "main", path: "skills" },
-        ],
+        "test-source": {
+          type: "remote" as const,
+          repo: "https://github.com/test/repo",
+          ref: "main",
+          commit: "abc123",
+          local_path: "warehouse/remote/test-source",
+        },
+      };
+      saveSourcesRegistry(tempDir, data);
+      const loaded = loadSourcesRegistry(tempDir);
+      expect(loaded).toEqual(data);
+    });
+
+    it("should roundtrip local source entries", () => {
+      const data = {
+        "local-source": {
+          type: "local" as const,
+          local_path: "/home/user/skills",
+        },
       };
       saveSourcesRegistry(tempDir, data);
       const loaded = loadSourcesRegistry(tempDir);
@@ -83,7 +117,7 @@ describe("registry service", () => {
 
   describe("atomic write", () => {
     it("should leave original file untouched if write fails", () => {
-      const initialData = { "skill-a": { manifest: "a.json", installed: true, enabled_global: true, enabled_projects: [], updated_at: "2024-01-01T00:00:00Z" } };
+      const initialData = { "skill-a": { manifest: "a.json", installed: true, enabled_global: true, enabled_projects: [], updated_at: "2024-01-01T00:00:00Z", source_id: "source-a" } };
       saveSkillsRegistry(tempDir, initialData);
 
       const originalWriteFileSync = fs.writeFileSync;
@@ -92,7 +126,7 @@ describe("registry service", () => {
       };
 
       try {
-        expect(() => saveSkillsRegistry(tempDir, { "skill-b": { manifest: "b.json", installed: false, enabled_global: false, enabled_projects: [], updated_at: "2024-02-01T00:00:00Z" } })).toThrow();
+        expect(() => saveSkillsRegistry(tempDir, { "skill-b": { manifest: "b.json", installed: false, enabled_global: false, enabled_projects: [], updated_at: "2024-02-01T00:00:00Z", source_id: "source-b" } })).toThrow();
         const loaded = loadSkillsRegistry(tempDir);
         expect(loaded).toEqual(initialData);
       } finally {

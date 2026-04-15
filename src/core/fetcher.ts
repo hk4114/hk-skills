@@ -11,15 +11,26 @@ function ensureDir(dir: string): void {
 }
 
 export interface FetchRemoteResult {
+  source_id: string;
   name: string;
   repoUrl: string;
   ref: string;
   commit: string;
 }
 
+export function generateSourceId(repoUrl: string, ref: string): string {
+  let clean = repoUrl.trim();
+  clean = clean.replace(/^\w+:\/\//, "");
+  clean = clean.replace(/\.git$/, "");
+  clean = `${clean}@${ref}`;
+  clean = clean.replace(/\//g, "_");
+  return clean;
+}
+
 export async function fetchRemote(
   root: string,
-  repoUrl: string
+  repoUrl: string,
+  ref: string = "main"
 ): Promise<FetchRemoteResult> {
   const url = new URL(repoUrl);
   const name = basename(url.pathname);
@@ -27,34 +38,35 @@ export async function fetchRemote(
     throw new Error("Could not derive skill name from repo URL");
   }
 
+  const source_id = generateSourceId(repoUrl, ref);
   const warehouseDir = getWarehousePath(root, "remote");
   ensureDir(warehouseDir);
 
-  const targetPath = resolve(warehouseDir, name);
+  const targetPath = resolve(warehouseDir, source_id);
 
   if (existsSync(targetPath)) {
-    execSync(`git -C "${targetPath}" pull`, { stdio: "ignore" });
+    execSync(`git -C "${targetPath}" pull origin "${ref}"`, { stdio: "ignore" });
   } else {
-    execSync(`git clone "${repoUrl}" "${targetPath}"`, { stdio: "ignore" });
+    execSync(`git clone --branch "${ref}" "${repoUrl}" "${targetPath}"`, { stdio: "ignore" });
   }
 
   const commit = execSync(`git -C "${targetPath}" rev-parse HEAD`, {
     encoding: "utf-8",
   }).trim();
 
-  let ref = "main";
+  let detectedRef = ref;
   try {
     const branch = execSync(`git -C "${targetPath}" rev-parse --abbrev-ref HEAD`, {
       encoding: "utf-8",
     }).trim();
     if (branch && branch !== "HEAD") {
-      ref = branch;
+      detectedRef = branch;
     }
   } catch (err) {
     warn(`Failed to determine branch for ${targetPath}: ${err instanceof Error ? err.message : String(err)}`);
   }
 
-  return { name, repoUrl, ref, commit };
+  return { source_id, name, repoUrl, ref: detectedRef, commit };
 }
 
 export async function fetchLocal(

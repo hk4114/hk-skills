@@ -15,6 +15,7 @@ import * as vetter from "../../src/core/vetter.js";
 import * as adapter from "../../src/core/adapter.js";
 import * as activator from "../../src/core/activator.js";
 import { getWarehousePath } from "../../src/utils/paths.js";
+import { generateSourceId } from "../../src/core/fetcher.js";
 
 function createTempRoot(): string {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "hk-skills-update-test-"));
@@ -53,14 +54,17 @@ function createAdaptedSkill(root: string, name: string): void {
   fs.writeFileSync(path.join(adaptedPath, "SKILL.md"), `# ${name}\n`, "utf-8");
 }
 
-function createRemoteSkill(root: string, name: string): void {
-  const remotePath = path.join(getWarehousePath(root, "remote"), name);
+function createRemoteSkill(root: string, source_id: string, name?: string, subpath?: string): string {
+  const remoteBase = path.join(getWarehousePath(root, "remote"), source_id);
+  const remotePath = subpath ? path.join(remoteBase, subpath) : remoteBase;
   fs.mkdirSync(remotePath, { recursive: true });
+  const skillName = name ?? "skill";
   fs.writeFileSync(
     path.join(remotePath, "SKILL.md"),
-    `---\nname: ${name}\n---\n\n# ${name}\n`,
+    `---\nname: ${skillName}\n---\n\n# ${skillName}\n`,
     "utf-8"
   );
+  return remotePath;
 }
 
 describe("update", () => {
@@ -73,14 +77,23 @@ describe("update", () => {
 
   beforeEach(() => {
     tempDir = createTempRoot();
-    fetchRemoteSpy = spyOn(fetcher, "fetchRemote").mockImplementation(async (_root, repoUrl) => {
+    fetchRemoteSpy = spyOn(fetcher, "fetchRemote").mockImplementation(async (_root, repoUrl, ref = "main") => {
       const match = repoUrl.match(/\/([^/]+)$/);
       const name = match?.[1] ?? "skill";
-      return { name, repoUrl, ref: "main", commit: "def456" };
+      const source_id = generateSourceId(repoUrl, ref);
+      return { source_id, name, repoUrl, ref, commit: "def456" };
     });
     vetSpy = spyOn(vetter, "vet").mockReturnValue({ passed: true, warnings: [], errors: [] });
     adaptSpy = spyOn(adapter, "adapt").mockImplementation((inputPath, root, sourceType, repo, ref, commit) => {
-      const name = path.basename(inputPath);
+      let name = path.basename(inputPath);
+      const skillMdPath = path.join(inputPath, "SKILL.md");
+      if (fs.existsSync(skillMdPath)) {
+        const content = fs.readFileSync(skillMdPath, "utf-8");
+        const match = content.match(/^---\nname:\s*(.+)\n---/m);
+        if (match) {
+          name = match[1]?.trim() ?? name;
+        }
+      }
       const adaptedPath = path.join(getWarehousePath(root, "adapted"), name);
       fs.mkdirSync(adaptedPath, { recursive: true });
       fs.writeFileSync(path.join(adaptedPath, "SKILL.md"), `# ${name}\n`, "utf-8");
@@ -113,9 +126,13 @@ describe("update", () => {
 
   it("updates a remote skill when commit changes", async () => {
     const name = "remote-skill";
-    createRemoteSkill(tempDir, name);
+    const source_id = generateSourceId(`https://github.com/user/${name}`, "main");
+    createRemoteSkill(tempDir, source_id, name);
     createAdaptedSkill(tempDir, name);
     createSkillManifest(tempDir, name, "remote");
+    saveSourcesRegistry(tempDir, {
+      [source_id]: { type: "remote", repo: `https://github.com/user/${name}`, ref: "main", local_path: `warehouse/remote/${source_id}` },
+    });
     saveSkillsRegistry(tempDir, {
       [name]: {
         manifest: `manifests/${name}.yaml`,
@@ -123,6 +140,7 @@ describe("update", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id,
       },
     });
 
@@ -141,9 +159,13 @@ describe("update", () => {
 
   it("skips update when commit is unchanged", async () => {
     const name = "remote-skill";
-    createRemoteSkill(tempDir, name);
+    const source_id = generateSourceId(`https://github.com/user/${name}`, "main");
+    createRemoteSkill(tempDir, source_id, name);
     createAdaptedSkill(tempDir, name);
     createSkillManifest(tempDir, name, "remote", { commit: "def456" });
+    saveSourcesRegistry(tempDir, {
+      [source_id]: { type: "remote", repo: `https://github.com/user/${name}`, ref: "main", local_path: `warehouse/remote/${source_id}` },
+    });
     saveSkillsRegistry(tempDir, {
       [name]: {
         manifest: `manifests/${name}.yaml`,
@@ -151,11 +173,11 @@ describe("update", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id,
       },
     });
 
     exitSpy.mockRestore();
-    const adaptRestore = adaptSpy.mockRestore ? adaptSpy.mockRestore : () => {};
     adaptSpy.mockRestore();
     adaptSpy = spyOn(adapter, "adapt").mockImplementation(() => {
       throw new Error("adapt should not be called");
@@ -187,8 +209,12 @@ describe("update", () => {
 
   it("errors when updating a local skill", async () => {
     const name = "local-skill";
+    const source_id = `local-${name}`;
     createAdaptedSkill(tempDir, name);
     createSkillManifest(tempDir, name, "local");
+    saveSourcesRegistry(tempDir, {
+      [source_id]: { type: "local", local_path: `warehouse/local/${name}` },
+    });
     saveSkillsRegistry(tempDir, {
       [name]: {
         manifest: `manifests/${name}.yaml`,
@@ -196,6 +222,7 @@ describe("update", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id,
       },
     });
 
@@ -204,9 +231,13 @@ describe("update", () => {
 
   it("rolls back on vet failure", async () => {
     const name = "remote-skill";
-    createRemoteSkill(tempDir, name);
+    const source_id = generateSourceId(`https://github.com/user/${name}`, "main");
+    createRemoteSkill(tempDir, source_id, name);
     createAdaptedSkill(tempDir, name);
     createSkillManifest(tempDir, name, "remote", { commit: "abc123" });
+    saveSourcesRegistry(tempDir, {
+      [source_id]: { type: "remote", repo: `https://github.com/user/${name}`, ref: "main", local_path: `warehouse/remote/${source_id}` },
+    });
     saveSkillsRegistry(tempDir, {
       [name]: {
         manifest: `manifests/${name}.yaml`,
@@ -214,6 +245,7 @@ describe("update", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id,
       },
     });
 
@@ -236,13 +268,19 @@ describe("update", () => {
   it("updates --all iterating only remote skills", async () => {
     const remoteName = "remote-skill";
     const localName = "local-skill";
+    const remoteSourceId = generateSourceId(`https://github.com/user/${remoteName}`, "main");
 
-    createRemoteSkill(tempDir, remoteName);
+    createRemoteSkill(tempDir, remoteSourceId, remoteName);
     createAdaptedSkill(tempDir, remoteName);
     createSkillManifest(tempDir, remoteName, "remote");
 
     createAdaptedSkill(tempDir, localName);
     createSkillManifest(tempDir, localName, "local");
+
+    saveSourcesRegistry(tempDir, {
+      [remoteSourceId]: { type: "remote", repo: `https://github.com/user/${remoteName}`, ref: "main", local_path: `warehouse/remote/${remoteSourceId}` },
+      [`local-${localName}`]: { type: "local", local_path: `warehouse/local/${localName}` },
+    });
 
     saveSkillsRegistry(tempDir, {
       [remoteName]: {
@@ -251,6 +289,7 @@ describe("update", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id: remoteSourceId,
       },
       [localName]: {
         manifest: `manifests/${localName}.yaml`,
@@ -258,6 +297,7 @@ describe("update", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id: `local-${localName}`,
       },
     });
 
@@ -265,8 +305,8 @@ describe("update", () => {
 
     await update(tempDir, undefined, { all: true });
 
-    expect(fetchRemoteSpy).toHaveBeenCalledWith(tempDir, `https://github.com/user/${remoteName}`);
-    expect(fetchRemoteSpy).not.toHaveBeenCalledWith(tempDir, expect.stringContaining(localName));
+    expect(fetchRemoteSpy).toHaveBeenCalledWith(tempDir, `https://github.com/user/${remoteName}`, "main");
+    expect(fetchRemoteSpy).not.toHaveBeenCalledWith(tempDir, expect.stringContaining(localName), expect.anything());
 
     const remoteManifestPath = path.join(tempDir, "manifests", `${remoteName}.yaml`);
     const remoteManifest = parse(fs.readFileSync(remoteManifestPath, "utf-8")) as Record<string, unknown>;
@@ -275,9 +315,13 @@ describe("update", () => {
 
   it("refreshes symlinks when skill is enabled globally and in projects", async () => {
     const name = "remote-skill";
-    createRemoteSkill(tempDir, name);
+    const source_id = generateSourceId(`https://github.com/user/${name}`, "main");
+    createRemoteSkill(tempDir, source_id, name);
     createAdaptedSkill(tempDir, name);
     createSkillManifest(tempDir, name, "remote");
+    saveSourcesRegistry(tempDir, {
+      [source_id]: { type: "remote", repo: `https://github.com/user/${name}`, ref: "main", local_path: `warehouse/remote/${source_id}` },
+    });
     saveSkillsRegistry(tempDir, {
       [name]: {
         manifest: `manifests/${name}.yaml`,
@@ -285,6 +329,7 @@ describe("update", () => {
         enabled_global: true,
         enabled_projects: ["my-app"],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id,
       },
     });
 
@@ -298,10 +343,13 @@ describe("update", () => {
 
   it("falls back to git remote when manifest and sources.json repo are missing", async () => {
     const name = "remote-skill";
-    createRemoteSkill(tempDir, name);
+    const source_id = generateSourceId(`https://github.com/user/${name}`, "main");
+    createRemoteSkill(tempDir, source_id, name);
     createAdaptedSkill(tempDir, name);
     createSkillManifest(tempDir, name, "remote", { repo: undefined });
-    saveSourcesRegistry(tempDir, {});
+    saveSourcesRegistry(tempDir, {
+      [source_id]: { type: "remote", ref: "main", local_path: `warehouse/remote/${source_id}` },
+    });
     saveSkillsRegistry(tempDir, {
       [name]: {
         manifest: `manifests/${name}.yaml`,
@@ -309,10 +357,11 @@ describe("update", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id,
       },
     });
 
-    const remotePath = path.join(tempDir, "warehouse", "remote", name);
+    const remotePath = path.join(tempDir, "warehouse", "remote", source_id);
     const { execSync } = await import("node:child_process");
     execSync(`git init "${remotePath}"`, { stdio: "ignore" });
     execSync(`git -C "${remotePath}" remote add origin https://github.com/user/${name}`, { stdio: "ignore" });
@@ -321,14 +370,18 @@ describe("update", () => {
 
     await update(tempDir, name, {});
 
-    expect(fetchRemoteSpy).toHaveBeenCalledWith(tempDir, `https://github.com/user/${name}`);
+    expect(fetchRemoteSpy).toHaveBeenCalledWith(tempDir, `https://github.com/user/${name}`, "main");
   });
 
   it("rolls back when adapt returns a different skill name", async () => {
     const name = "remote-skill";
-    createRemoteSkill(tempDir, name);
+    const source_id = generateSourceId(`https://github.com/user/${name}`, "main");
+    createRemoteSkill(tempDir, source_id, name);
     createAdaptedSkill(tempDir, name);
     createSkillManifest(tempDir, name, "remote");
+    saveSourcesRegistry(tempDir, {
+      [source_id]: { type: "remote", repo: `https://github.com/user/${name}`, ref: "main", local_path: `warehouse/remote/${source_id}` },
+    });
     saveSkillsRegistry(tempDir, {
       [name]: {
         manifest: `manifests/${name}.yaml`,
@@ -336,6 +389,7 @@ describe("update", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id,
       },
     });
 
@@ -356,14 +410,21 @@ describe("update", () => {
   it("--all continues on failure and reports summary", async () => {
     const goodSkill = "good-skill";
     const badSkill = "bad-skill";
+    const goodSourceId = generateSourceId(`https://github.com/user/${goodSkill}`, "main");
+    const badSourceId = generateSourceId(`https://github.com/user/${badSkill}`, "main");
 
-    createRemoteSkill(tempDir, goodSkill);
+    createRemoteSkill(tempDir, goodSourceId, goodSkill);
     createAdaptedSkill(tempDir, goodSkill);
     createSkillManifest(tempDir, goodSkill, "remote");
 
-    createRemoteSkill(tempDir, badSkill);
+    createRemoteSkill(tempDir, badSourceId, badSkill);
     createAdaptedSkill(tempDir, badSkill);
     createSkillManifest(tempDir, badSkill, "remote");
+
+    saveSourcesRegistry(tempDir, {
+      [goodSourceId]: { type: "remote", repo: `https://github.com/user/${goodSkill}`, ref: "main", local_path: `warehouse/remote/${goodSourceId}` },
+      [badSourceId]: { type: "remote", repo: `https://github.com/user/${badSkill}`, ref: "main", local_path: `warehouse/remote/${badSourceId}` },
+    });
 
     saveSkillsRegistry(tempDir, {
       [goodSkill]: {
@@ -372,6 +433,7 @@ describe("update", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id: goodSourceId,
       },
       [badSkill]: {
         manifest: `manifests/${badSkill}.yaml`,
@@ -379,6 +441,7 @@ describe("update", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id: badSourceId,
       },
     });
 
@@ -408,11 +471,12 @@ describe("update", () => {
 
   it("falls back to sources.json when manifest repo is missing", async () => {
     const name = "remote-skill";
-    createRemoteSkill(tempDir, name);
+    const source_id = generateSourceId(`https://github.com/user/${name}`, "main");
+    createRemoteSkill(tempDir, source_id, name);
     createAdaptedSkill(tempDir, name);
-    createSkillManifest(tempDir, name, "remote", { repo: undefined });
+    createSkillManifest(tempDir, name, "remote", { repo: undefined, ref: undefined });
     saveSourcesRegistry(tempDir, {
-      [name]: [{ repo: "https://github.com/fallback/repo", ref: "develop" }],
+      [source_id]: { type: "remote", repo: "https://github.com/fallback/repo", ref: "develop", local_path: `warehouse/remote/${source_id}` },
     });
     saveSkillsRegistry(tempDir, {
       [name]: {
@@ -421,6 +485,7 @@ describe("update", () => {
         enabled_global: false,
         enabled_projects: [],
         updated_at: "2024-01-01T00:00:00Z",
+        source_id,
       },
     });
 
@@ -428,6 +493,82 @@ describe("update", () => {
 
     await update(tempDir, name, {});
 
-    expect(fetchRemoteSpy).toHaveBeenCalledWith(tempDir, "https://github.com/fallback/repo");
+    expect(fetchRemoteSpy).toHaveBeenCalledWith(tempDir, "https://github.com/fallback/repo", "develop");
+  });
+
+  it("updates a skill with subpath by vetting and adapting the subpath directory", async () => {
+    const name = "sub-skill";
+    const source_id = "mono-source";
+    const subpath = "packages/sub-skill";
+    createRemoteSkill(tempDir, source_id, name, subpath);
+    createAdaptedSkill(tempDir, name);
+    createSkillManifest(tempDir, name, "remote", { repo: undefined });
+    saveSourcesRegistry(tempDir, {
+      [source_id]: { type: "remote", repo: "https://github.com/user/mono-repo", ref: "main", local_path: `warehouse/remote/${source_id}` },
+    });
+    saveSkillsRegistry(tempDir, {
+      [name]: {
+        manifest: `manifests/${name}.yaml`,
+        installed: true,
+        enabled_global: false,
+        enabled_projects: [],
+        updated_at: "2024-01-01T00:00:00Z",
+        source_id,
+        subpath,
+      },
+    });
+
+    exitSpy.mockRestore();
+
+    await update(tempDir, name, {});
+
+    const expectedPath = path.join(getWarehousePath(tempDir, "remote"), source_id, subpath);
+    expect(vetSpy).toHaveBeenCalledWith(expectedPath);
+    expect(adaptSpy).toHaveBeenCalledWith(expectedPath, tempDir, "remote", "https://github.com/user/mono-repo", "main", "def456");
+  });
+
+  it("fetches shared source only once during --all when two skills share a source", async () => {
+    const skillA = "skill-a";
+    const skillB = "skill-b";
+    const source_id = "shared-source";
+
+    createRemoteSkill(tempDir, source_id, skillA, "packages/skill-a");
+    createRemoteSkill(tempDir, source_id, skillB, "packages/skill-b");
+    createAdaptedSkill(tempDir, skillA);
+    createAdaptedSkill(tempDir, skillB);
+    createSkillManifest(tempDir, skillA, "remote", { repo: "https://github.com/user/shared-repo" });
+    createSkillManifest(tempDir, skillB, "remote", { repo: "https://github.com/user/shared-repo" });
+
+    saveSourcesRegistry(tempDir, {
+      [source_id]: { type: "remote", repo: "https://github.com/user/shared-repo", ref: "main", local_path: `warehouse/remote/${source_id}` },
+    });
+
+    saveSkillsRegistry(tempDir, {
+      [skillA]: {
+        manifest: `manifests/${skillA}.yaml`,
+        installed: true,
+        enabled_global: false,
+        enabled_projects: [],
+        updated_at: "2024-01-01T00:00:00Z",
+        source_id,
+        subpath: "packages/skill-a",
+      },
+      [skillB]: {
+        manifest: `manifests/${skillB}.yaml`,
+        installed: true,
+        enabled_global: false,
+        enabled_projects: [],
+        updated_at: "2024-01-01T00:00:00Z",
+        source_id,
+        subpath: "packages/skill-b",
+      },
+    });
+
+    exitSpy.mockRestore();
+
+    await update(tempDir, undefined, { all: true });
+
+    expect(fetchRemoteSpy).toHaveBeenCalledTimes(1);
+    expect(fetchRemoteSpy).toHaveBeenCalledWith(tempDir, "https://github.com/user/shared-repo", "main");
   });
 });

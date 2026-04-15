@@ -10,7 +10,7 @@ import {
   loadProjectsRegistry,
   saveProjectsRegistry,
 } from "../services/registry.js";
-import { getManifestPath } from "../utils/paths.js";
+import { getManifestPath, getWarehousePath } from "../utils/paths.js";
 import { info, warn, error, success } from "../utils/logger.js";
 
 export function safeDisableAll(root: string, name: string): void {
@@ -122,11 +122,22 @@ export async function removeSkill(
     fs.unlinkSync(manifestPath);
   }
 
+  const sourceId = entry.source_id;
+
   delete registry[name];
   saveSkillsRegistry(root, registry);
 
   const sources = loadSourcesRegistry(root);
-  delete sources[name];
+  const otherSkillUsesSource = Object.values(registry).some(
+    (skill) => skill.source_id === sourceId
+  );
+  if (!otherSkillUsesSource) {
+    delete sources[sourceId];
+    const remotePath = path.join(getWarehousePath(root, "remote"), sourceId);
+    if (fs.existsSync(remotePath)) {
+      fs.rmSync(remotePath, { recursive: true, force: true });
+    }
+  }
   saveSourcesRegistry(root, sources);
 
   const projects = loadProjectsRegistry(root);

@@ -12,7 +12,7 @@ import {
 import { getWarehousePath } from "../utils/paths.js";
 import { success, error, warn } from "../utils/logger.js";
 
-export async function install(root: string, source: string, options?: { local?: boolean }): Promise<void> {
+export async function install(root: string, source: string, options?: { local?: boolean; subpath?: string }): Promise<void> {
   const isRemote = !options?.local && /^https?:\/\//i.test(source);
 
   let name: string;
@@ -21,6 +21,7 @@ export async function install(root: string, source: string, options?: { local?: 
   let repoUrl: string | undefined;
   let ref: string | undefined;
   let commit: string | undefined;
+  let sourceId: string;
 
   try {
     if (isRemote) {
@@ -29,10 +30,12 @@ export async function install(root: string, source: string, options?: { local?: 
       repoUrl = fetchResult.repoUrl;
       ref = fetchResult.ref;
       commit = fetchResult.commit;
-      fetchedPath = path.join(getWarehousePath(root, "remote"), name);
+      sourceId = fetchResult.source_id;
+      fetchedPath = path.join(getWarehousePath(root, "remote"), fetchResult.source_id);
       sourceType = "remote";
     } else {
       name = await fetchLocal(root, source);
+      sourceId = `local-${name}`;
       fetchedPath = path.join(getWarehousePath(root, "local"), name);
       sourceType = "local";
     }
@@ -41,7 +44,9 @@ export async function install(root: string, source: string, options?: { local?: 
     process.exit(1);
   }
 
-  const vetResult = vet(fetchedPath);
+  const adaptPath = options?.subpath ? path.join(fetchedPath, options.subpath) : fetchedPath;
+
+  const vetResult = vet(adaptPath);
   if (!vetResult.passed) {
     error(`Vet failed for ${name}: ${vetResult.errors.join(", ")}`);
     try {
@@ -54,8 +59,8 @@ export async function install(root: string, source: string, options?: { local?: 
 
   const adaptResult =
     sourceType === "remote"
-      ? adapt(fetchedPath, root, sourceType, repoUrl, ref, commit)
-      : adapt(fetchedPath, root, sourceType);
+      ? adapt(adaptPath, root, sourceType, repoUrl, ref, commit)
+      : adapt(adaptPath, root, sourceType);
   if (!adaptResult.success) {
     error(`Adapt failed for ${name}: ${adaptResult.errors.join(", ")}`);
     try {
@@ -79,15 +84,28 @@ export async function install(root: string, source: string, options?: { local?: 
     enabled_global: false,
     enabled_projects: [],
     updated_at: new Date().toISOString(),
+    source_id: sourceId,
+    ...(options?.subpath !== undefined && { subpath: options.subpath }),
   };
 
   saveSkillsRegistry(root, registry);
 
+  const sources = loadSourcesRegistry(root);
   if (sourceType === "remote" && repoUrl && ref) {
-    const sources = loadSourcesRegistry(root);
-    sources[adaptResult.name] = [{ repo: repoUrl, ref }];
-    saveSourcesRegistry(root, sources);
+    sources[sourceId] = {
+      type: "remote",
+      repo: repoUrl,
+      ref,
+      commit,
+      local_path: path.relative(root, fetchedPath),
+    };
+  } else if (sourceType === "local") {
+    sources[sourceId] = {
+      type: "local",
+      local_path: path.relative(root, fetchedPath),
+    };
   }
+  saveSourcesRegistry(root, sources);
 
   success(`Installed skill: ${adaptResult.name}`);
 }

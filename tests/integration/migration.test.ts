@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
 import { init } from "../../src/commands/init.js";
-import { loadSkillsRegistry } from "../../src/services/registry.js";
+import { loadSkillsRegistry, loadSourcesRegistry } from "../../src/services/registry.js";
 
 describe("migration", () => {
   let tempDir: string;
@@ -59,6 +59,19 @@ describe("migration", () => {
     expect(registry["digital-me"]).toBeDefined();
     expect(registry["old-skill"]).toBeDefined();
 
+    for (const name of ["my-skill", "digital-me", "old-skill"]) {
+      expect(registry[name]!.source_id).toBeDefined();
+    }
+
+    const sources = loadSourcesRegistry(tempDir);
+    expect(Object.keys(sources).length).toBe(3);
+    for (const name of ["my-skill", "digital-me", "old-skill"]) {
+      const sourceId = registry[name]!.source_id;
+      expect(sources[sourceId]).toBeDefined();
+      expect(sources[sourceId]!.type).toBe("local");
+      expect(sources[sourceId]!.local_path).toBeDefined();
+    }
+
     const manifestFiles = fs.readdirSync(path.join(tempDir, "manifests"));
     expect(manifestFiles.length).toBe(3);
     expect(manifestFiles).toContain("my-skill.yaml");
@@ -82,5 +95,8 @@ describe("migration", () => {
     const uniqueKeys = [...new Set(allKeys)];
     expect(allKeys.length).toBe(uniqueKeys.length);
     expect(allKeys.length).toBe(3);
+
+    const sourcesAfterSecondInit = loadSourcesRegistry(tempDir);
+    expect(Object.keys(sourcesAfterSecondInit).length).toBe(3);
   });
 });

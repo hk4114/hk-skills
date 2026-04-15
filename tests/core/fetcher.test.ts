@@ -3,7 +3,30 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import * as childProcess from "node:child_process";
-import { fetchLocal, fetchRemote } from "../../src/core/fetcher";
+import { fetchLocal, fetchRemote, generateSourceId } from "../../src/core/fetcher";
+
+describe("generateSourceId", () => {
+  it("strips protocol, .git suffix, appends @ref, and replaces slashes", () => {
+    const result = generateSourceId("https://github.com/JimLiu/baoyu-skills.git", "main");
+    expect(result).toBe("github.com_JimLiu_baoyu-skills@main");
+  });
+
+  it("is deterministic for the same url and ref", () => {
+    const url = "https://github.com/user/skills/my-skill";
+    const ref = "main";
+    expect(generateSourceId(url, ref)).toBe(generateSourceId(url, ref));
+  });
+
+  it("produces different ids for different refs", () => {
+    const url = "https://github.com/user/skills/my-skill";
+    expect(generateSourceId(url, "main")).not.toBe(generateSourceId(url, "dev"));
+  });
+
+  it("handles urls without .git suffix", () => {
+    const result = generateSourceId("https://gitlab.com/org/project", "v1.0");
+    expect(result).toBe("gitlab.com_org_project@v1.0");
+  });
+});
 
 describe("fetchLocal", () => {
   function makeTempDir(): string {
@@ -58,7 +81,7 @@ describe("fetchRemote", () => {
     return fs.mkdtempSync(path.join(os.tmpdir(), "fetcher-remote-test-"));
   }
 
-  it("clones a remote repo into warehouse/remote and returns metadata", async () => {
+  it("clones a remote repo into warehouse/remote/<source_id> and returns metadata", async () => {
     const root = makeTempDir();
     const execSyncSpy = spyOn(childProcess, "execSync").mockImplementation((cmd: string) => {
       if (cmd.includes("rev-parse HEAD")) {
@@ -71,12 +94,13 @@ describe("fetchRemote", () => {
     });
 
     const repoUrl = "https://github.com/user/skills/my-skill";
+    const sourceId = generateSourceId(repoUrl, "main");
     const result = await fetchRemote(root, repoUrl);
-    expect(result).toEqual({ name: "my-skill", repoUrl, ref: "main", commit: "abc123" });
+    expect(result).toEqual({ source_id: sourceId, name: "my-skill", repoUrl, ref: "main", commit: "abc123" });
 
-    const targetPath = path.join(root, "warehouse", "remote", "my-skill");
+    const targetPath = path.join(root, "warehouse", "remote", sourceId);
     expect(execSyncSpy).toHaveBeenCalledWith(
-      `git clone "${repoUrl}" "${targetPath}"`,
+      `git clone --branch "main" "${repoUrl}" "${targetPath}"`,
       { stdio: "ignore" }
     );
     expect(execSyncSpy).toHaveBeenCalledWith(
@@ -88,9 +112,40 @@ describe("fetchRemote", () => {
     fs.rmSync(root, { recursive: true, force: true });
   });
 
-  it("pulls instead of cloning when the target already exists and returns metadata", async () => {
+  it("uses the provided ref and includes it in source_id", async () => {
     const root = makeTempDir();
-    const targetPath = path.join(root, "warehouse", "remote", "existing-skill");
+    const execSyncSpy = spyOn(childProcess, "execSync").mockImplementation((cmd: string) => {
+      if (cmd.includes("rev-parse HEAD")) {
+        return "def789" as never;
+      }
+      if (cmd.includes("rev-parse --abbrev-ref HEAD")) {
+        return "feature-x" as never;
+      }
+      return "" as never;
+    });
+
+    const repoUrl = "https://github.com/user/skills/my-skill";
+    const ref = "feature-x";
+    const sourceId = generateSourceId(repoUrl, ref);
+    const result = await fetchRemote(root, repoUrl, ref);
+    expect(result).toEqual({ source_id: sourceId, name: "my-skill", repoUrl, ref: "feature-x", commit: "def789" });
+
+    const targetPath = path.join(root, "warehouse", "remote", sourceId);
+    expect(execSyncSpy).toHaveBeenCalledWith(
+      `git clone --branch "${ref}" "${repoUrl}" "${targetPath}"`,
+      { stdio: "ignore" }
+    );
+
+    execSyncSpy.mockRestore();
+    fs.rmSync(root, { recursive: true, force: true });
+  });
+
+  it("pulls and checks out ref when the target already exists", async () => {
+    const root = makeTempDir();
+    const repoUrl = "https://github.com/user/skills/existing-skill";
+    const ref = "main";
+    const sourceId = generateSourceId(repoUrl, ref);
+    const targetPath = path.join(root, "warehouse", "remote", sourceId);
     fs.mkdirSync(targetPath, { recursive: true });
 
     const execSyncSpy = spyOn(childProcess, "execSync").mockImplementation((cmd: string) => {
@@ -103,12 +158,11 @@ describe("fetchRemote", () => {
       return "" as never;
     });
 
-    const repoUrl = "https://github.com/user/skills/existing-skill";
-    const result = await fetchRemote(root, repoUrl);
-    expect(result).toEqual({ name: "existing-skill", repoUrl, ref: "feature-branch", commit: "def456" });
+    const result = await fetchRemote(root, repoUrl, ref);
+    expect(result).toEqual({ source_id: sourceId, name: "existing-skill", repoUrl, ref: "feature-branch", commit: "def456" });
 
     expect(execSyncSpy).toHaveBeenCalledWith(
-      `git -C "${targetPath}" pull`,
+      `git -C "${targetPath}" pull origin "${ref}"`,
       { stdio: "ignore" }
     );
 

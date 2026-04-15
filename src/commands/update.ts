@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
 import { parse } from "yaml";
-import { fetchRemote } from "../core/fetcher.js";
+import { fetchRemote, type FetchRemoteResult } from "../core/fetcher.js";
 import { vet } from "../core/vetter.js";
 import { adapt } from "../core/adapter.js";
 import { enableSkill } from "../core/activator.js";
@@ -10,6 +10,7 @@ import {
   loadSkillsRegistry,
   saveSkillsRegistry,
   loadSourcesRegistry,
+  saveSourcesRegistry,
 } from "../services/registry.js";
 import { getManifestPath, getWarehousePath } from "../utils/paths.js";
 import { info, warn, error, success } from "../utils/logger.js";
@@ -31,7 +32,7 @@ function loadManifest(root: string, name: string): SkillManifest | null {
 
 function resolveRemoteUrl(
   root: string,
-  name: string,
+  source_id: string,
   manifest: SkillManifest
 ): string | null {
   if (typeof manifest.source?.repo === "string" && manifest.source.repo.length > 0) {
@@ -39,13 +40,12 @@ function resolveRemoteUrl(
   }
 
   const sources = loadSourcesRegistry(root);
-  const entries = sources[name];
-  const firstEntry = entries?.[0];
-  if (firstEntry && typeof firstEntry.repo === "string") {
-    return firstEntry.repo;
+  const entry = sources[source_id];
+  if (entry && typeof entry.repo === "string") {
+    return entry.repo;
   }
 
-  const remotePath = path.join(getWarehousePath(root, "remote"), name);
+  const remotePath = path.join(getWarehousePath(root, "remote"), source_id);
   if (fs.existsSync(remotePath)) {
     try {
       const output = execSync(`git -C "${remotePath}" remote get-url origin`, {
@@ -53,7 +53,7 @@ function resolveRemoteUrl(
       }).trim();
       if (output) return output;
     } catch (err) {
-      warn(`Failed to read git remote for "${name}": ${err instanceof Error ? err.message : String(err)}`);
+      warn(`Failed to read git remote for "${source_id}": ${err instanceof Error ? err.message : String(err)}`);
     }
   }
 
@@ -62,7 +62,7 @@ function resolveRemoteUrl(
 
 function resolveRef(
   root: string,
-  name: string,
+  source_id: string,
   manifest: SkillManifest
 ): string {
   if (typeof manifest.source?.ref === "string" && manifest.source.ref.length > 0) {
@@ -70,10 +70,9 @@ function resolveRef(
   }
 
   const sources = loadSourcesRegistry(root);
-  const entries = sources[name];
-  const firstEntry = entries?.[0];
-  if (firstEntry && typeof firstEntry.ref === "string") {
-    return firstEntry.ref;
+  const entry = sources[source_id];
+  if (entry && typeof entry.ref === "string") {
+    return entry.ref;
   }
 
   return "main";
@@ -128,12 +127,19 @@ function cleanupBackup(adaptedBackup: string, manifestBackup: string): void {
 
 export async function updateSkill(
   root: string,
-  name: string
+  name: string,
+  fetchCache?: Map<string, FetchRemoteResult>
 ): Promise<{ status: "updated" | "skipped" | "failed"; message?: string }> {
   const registry = loadSkillsRegistry(root);
   const entry = registry[name];
   if (!entry || !entry.installed) {
     error(`Skill "${name}" is not installed`);
+    process.exit(1);
+  }
+
+  const { source_id, subpath } = entry;
+  if (!source_id) {
+    error(`Skill "${name}" is missing source_id in registry`);
     process.exit(1);
   }
 
@@ -148,7 +154,7 @@ export async function updateSkill(
     process.exit(1);
   }
 
-  const repoUrl = resolveRemoteUrl(root, name, manifest);
+  const repoUrl = resolveRemoteUrl(root, source_id, manifest);
   if (!repoUrl) {
     error(
       `Cannot determine remote URL for skill "${name}". Please remove and reinstall it to enable updates.`
@@ -156,16 +162,21 @@ export async function updateSkill(
     process.exit(1);
   }
 
-  const ref = resolveRef(root, name, manifest);
+  const ref = resolveRef(root, source_id, manifest);
 
-  let fetchResult;
-  try {
-    fetchResult = await fetchRemote(root, repoUrl);
-  } catch (err) {
-    error(
-      `Fetch failed for "${name}": ${err instanceof Error ? err.message : String(err)}`
-    );
-    process.exit(1);
+  let fetchResult: FetchRemoteResult;
+  if (fetchCache?.has(source_id)) {
+    fetchResult = fetchCache.get(source_id)!;
+  } else {
+    try {
+      fetchResult = await fetchRemote(root, repoUrl, ref);
+    } catch (err) {
+      error(
+        `Fetch failed for "${name}": ${err instanceof Error ? err.message : String(err)}`
+      );
+      process.exit(1);
+    }
+    fetchCache?.set(source_id, fetchResult);
   }
 
   const currentCommit = manifest.source?.commit;
@@ -177,13 +188,16 @@ export async function updateSkill(
   const { adaptedBackup, manifestBackup } = backupSkill(root, name);
 
   try {
-    const vetResult = vet(path.join(getWarehousePath(root, "remote"), name));
+    const remoteBasePath = path.join(getWarehousePath(root, "remote"), source_id);
+    const vetPath = subpath ? path.join(remoteBasePath, subpath) : remoteBasePath;
+
+    const vetResult = vet(vetPath);
     if (!vetResult.passed) {
       throw new Error(vetResult.errors.join(", "));
     }
 
     const adaptResult = adapt(
-      path.join(getWarehousePath(root, "remote"), name),
+      vetPath,
       root,
       "remote",
       repoUrl,
@@ -202,6 +216,12 @@ export async function updateSkill(
 
     entry.updated_at = new Date().toISOString();
     saveSkillsRegistry(root, registry);
+
+    const sources = loadSourcesRegistry(root);
+    if (sources[source_id]) {
+      sources[source_id].commit = fetchResult.commit;
+      saveSourcesRegistry(root, sources);
+    }
 
     if (entry.enabled_global) {
       enableSkill(root, name, "global");
@@ -252,8 +272,10 @@ export async function update(
       failed: { name: string; message?: string }[];
     } = { updated: [], skipped: [], failed: [] };
 
+    const fetchCache = new Map<string, FetchRemoteResult>();
+
     for (const skillName of remoteSkills) {
-      const result = await updateSkill(root, skillName);
+      const result = await updateSkill(root, skillName, fetchCache);
       if (result.status === "updated") {
         results.updated.push(skillName);
       } else if (result.status === "skipped") {

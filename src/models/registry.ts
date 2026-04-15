@@ -6,6 +6,8 @@ export const RegistryEntrySchema = z.object({
   enabled_global: z.boolean(),
   enabled_projects: z.array(z.string()),
   updated_at: z.string(),
+  source_id: z.string(),
+  subpath: z.string().optional(),
 });
 
 export type RegistryEntry = z.infer<typeof RegistryEntrySchema>;
@@ -14,15 +16,17 @@ export const SkillsRegistrySchema = z.record(z.string(), RegistryEntrySchema);
 
 export type SkillsRegistry = z.infer<typeof SkillsRegistrySchema>;
 
-export const SourceEntrySchema = z.object({
-  repo: z.string(),
-  ref: z.string(),
-  path: z.string().optional(),
+export const SourceRegistryEntrySchema = z.object({
+  type: z.enum(["remote", "local"]),
+  repo: z.string().optional(),
+  ref: z.string().optional(),
+  commit: z.string().optional(),
+  local_path: z.string(),
 });
 
-export type SourceEntry = z.infer<typeof SourceEntrySchema>;
+export type SourceRegistryEntry = z.infer<typeof SourceRegistryEntrySchema>;
 
-export const SourcesRegistrySchema = z.record(z.string(), z.array(SourceEntrySchema));
+export const SourcesRegistrySchema = z.record(z.string(), SourceRegistryEntrySchema);
 
 export type SourcesRegistry = z.infer<typeof SourcesRegistrySchema>;
 
