@@ -44,3 +44,11 @@ export function getRuntimePath(
   }
   return resolve(root, "runtime", "projects", canonicalizeProjectId(scope.project));
 }
+
+export function getProjectAgentsPath(projectPath: string): string {
+  return resolve(projectPath, ".agents");
+}
+
+export function getProjectAgentsSkillsPath(projectPath: string): string {
+  return resolve(projectPath, ".agents", "skills");
+}

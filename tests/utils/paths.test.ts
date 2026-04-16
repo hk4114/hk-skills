@@ -4,6 +4,8 @@ import {
   getWarehousePath,
   getManifestPath,
   getRuntimePath,
+  getProjectAgentsPath,
+  getProjectAgentsSkillsPath,
 } from "../../src/utils/paths";
 
 describe("paths", () => {
@@ -59,5 +61,27 @@ describe("paths", () => {
     expect(a).not.toBe(b);
     expect(a.startsWith("/fake/root/runtime/projects/")).toBe(true);
     expect(b.startsWith("/fake/root/runtime/projects/")).toBe(true);
+  });
+
+  it("getProjectAgentsPath() returns absolute .agents for absolute input", () => {
+    const result = getProjectAgentsPath("/fake/project");
+    expect(result).toBe("/fake/project/.agents");
+  });
+
+  it("getProjectAgentsPath() resolves relative input to absolute .agents", () => {
+    const result = getProjectAgentsPath("./my-project");
+    expect(result).not.toContain("./");
+    expect(result).toEndWith("my-project/.agents");
+  });
+
+  it("getProjectAgentsSkillsPath() returns absolute .agents/skills for absolute input", () => {
+    const result = getProjectAgentsSkillsPath("/fake/project");
+    expect(result).toBe("/fake/project/.agents/skills");
+  });
+
+  it("getProjectAgentsSkillsPath() resolves relative input to absolute .agents/skills", () => {
+    const result = getProjectAgentsSkillsPath("./my-project");
+    expect(result).not.toContain("./");
+    expect(result).toEndWith("my-project/.agents/skills");
   });
 });
