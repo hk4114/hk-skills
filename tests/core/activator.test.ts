@@ -30,9 +30,11 @@ function getEntry(registry: SkillsRegistry, name: string): RegistryEntry {
 
 describe("activator", () => {
   let tempDir: string;
+  const originalCwd = process.cwd();
 
   beforeEach(() => {
     tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "hk-skills-activator-"));
+    process.chdir(tempDir);
     fs.mkdirSync(path.join(tempDir, "warehouse", "adapted", "test-skill"), {
       recursive: true,
     });
@@ -47,6 +49,7 @@ describe("activator", () => {
   });
 
   afterEach(() => {
+    process.chdir(originalCwd);
     fs.rmSync(tempDir, { recursive: true, force: true });
   });
 
@@ -78,6 +81,13 @@ describe("activator", () => {
       expect(fs.existsSync(linkPath)).toBe(true);
       expect(fs.lstatSync(linkPath).isSymbolicLink()).toBe(true);
 
+      const agentsLinkPath = path.join(tempDir, "my-app", ".agents", "skills", "test-skill");
+      expect(fs.existsSync(agentsLinkPath)).toBe(true);
+      expect(fs.lstatSync(agentsLinkPath).isSymbolicLink()).toBe(true);
+      expect(fs.readlinkSync(agentsLinkPath)).toBe(
+        path.join(tempDir, "warehouse", "adapted", "test-skill")
+      );
+
       const registry = loadSkillsRegistry(tempDir);
       expect(getEntry(registry, "test-skill").enabled_projects).toContain("my-app");
     });
@@ -95,6 +105,32 @@ describe("activator", () => {
       const registry = loadSkillsRegistry(tempDir);
       expect(getEntry(registry, "test-skill").enabled_global).toBe(true);
       expect(getEntry(registry, "test-skill").updated_at).toBe(firstUpdatedAt);
+    });
+
+    it("is idempotent for project scope when symlinks already exist", () => {
+      enableSkill(tempDir, "test-skill", { project: "my-app" });
+      const firstUpdatedAt = getEntry(loadSkillsRegistry(tempDir), "test-skill")
+        .updated_at;
+
+      const start = Date.now();
+      while (Date.now() - start < 10) {
+      }
+
+      enableSkill(tempDir, "test-skill", { project: "my-app" });
+      const registry = loadSkillsRegistry(tempDir);
+      expect(getEntry(registry, "test-skill").enabled_projects).toContain("my-app");
+      expect(getEntry(registry, "test-skill").updated_at).toBe(firstUpdatedAt);
+    });
+
+    it("throws when project agents symlink points to wrong target", () => {
+      fs.mkdirSync(path.join(tempDir, "my-app", ".agents", "skills"), { recursive: true });
+      fs.symlinkSync(
+        path.join(tempDir, "warehouse", "adapted", "other-skill"),
+        path.join(tempDir, "my-app", ".agents", "skills", "test-skill")
+      );
+      expect(() => enableSkill(tempDir, "test-skill", { project: "my-app" })).toThrow(
+        'already exists'
+      );
     });
 
     it("throws when skill is not installed", () => {
@@ -166,11 +202,17 @@ describe("activator", () => {
       const linkPath = path.join(projectsDir, entries[0]!, "test-skill");
       expect(fs.existsSync(linkPath)).toBe(true);
       expect(fs.lstatSync(linkPath).isSymbolicLink()).toBe(true);
+
+      const agentsLinkPath = path.join(tempDir, "my-app", ".agents", "skills", "test-skill");
+      expect(fs.existsSync(agentsLinkPath)).toBe(true);
+      expect(fs.lstatSync(agentsLinkPath).isSymbolicLink()).toBe(true);
     });
 
     it("creates distinct runtime directories for same basename in different parent paths", () => {
-      enableSkill(tempDir, "test-skill", { project: "/work/a/client" });
-      enableSkill(tempDir, "test-skill", { project: "/work/b/client" });
+      const projectA = path.join(tempDir, "work", "a", "client");
+      const projectB = path.join(tempDir, "work", "b", "client");
+      enableSkill(tempDir, "test-skill", { project: projectA });
+      enableSkill(tempDir, "test-skill", { project: projectB });
 
       const projectsDir = path.join(tempDir, "runtime", "projects");
       const entries = fs.readdirSync(projectsDir);
@@ -178,6 +220,13 @@ describe("activator", () => {
 
       const registry = loadSkillsRegistry(tempDir);
       expect(getEntry(registry, "test-skill").enabled_projects.length).toBe(2);
+
+      const agentsLinkA = path.join(projectA, ".agents", "skills", "test-skill");
+      const agentsLinkB = path.join(projectB, ".agents", "skills", "test-skill");
+      expect(fs.existsSync(agentsLinkA)).toBe(true);
+      expect(fs.lstatSync(agentsLinkA).isSymbolicLink()).toBe(true);
+      expect(fs.existsSync(agentsLinkB)).toBe(true);
+      expect(fs.lstatSync(agentsLinkB).isSymbolicLink()).toBe(true);
     });
   });
 
@@ -206,6 +255,9 @@ describe("activator", () => {
       );
       expect(fs.existsSync(linkPath)).toBe(false);
 
+      const agentsLinkPath = path.join(tempDir, "my-app", ".agents", "skills", "test-skill");
+      expect(fs.existsSync(agentsLinkPath)).toBe(false);
+
       const registry = loadSkillsRegistry(tempDir);
       expect(getEntry(registry, "test-skill").enabled_projects).not.toContain("my-app");
     });
@@ -213,6 +265,16 @@ describe("activator", () => {
     it("throws when skill is not enabled for the given scope", () => {
       expect(() => disableSkill(tempDir, "test-skill", "global")).toThrow(
         'Skill "test-skill" is not enabled for the given scope'
+      );
+    });
+
+    it("throws when project agents path exists but is not a symlink", () => {
+      enableSkill(tempDir, "test-skill", { project: "my-app" });
+      fs.unlinkSync(path.join(tempDir, "my-app", ".agents", "skills", "test-skill"));
+      fs.mkdirSync(path.join(tempDir, "my-app", ".agents", "skills", "test-skill"), { recursive: true });
+
+      expect(() => disableSkill(tempDir, "test-skill", { project: "my-app" })).toThrow(
+        'not a symbolic link'
       );
     });
   });

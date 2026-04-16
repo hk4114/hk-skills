@@ -7,9 +7,11 @@ import { loadSkillsRegistry, saveSkillsRegistry } from "../../src/services/regis
 
 describe("enable", () => {
   let tempDir: string;
+  const originalCwd = process.cwd();
 
   beforeEach(() => {
     tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "hk-skills-enable-test-"));
+    process.chdir(tempDir);
     fs.mkdirSync(path.join(tempDir, "warehouse", "adapted", "test-skill"), { recursive: true });
     fs.writeFileSync(
       path.join(tempDir, "warehouse", "adapted", "test-skill", "SKILL.md"),
@@ -30,6 +32,7 @@ describe("enable", () => {
   });
 
   afterEach(() => {
+    process.chdir(originalCwd);
     fs.rmSync(tempDir, { recursive: true, force: true });
   });
 
@@ -51,25 +54,34 @@ describe("enable", () => {
     expect(fs.existsSync(linkPath)).toBe(true);
     expect(fs.lstatSync(linkPath).isSymbolicLink()).toBe(true);
 
+    const agentsLinkPath = path.join(tempDir, "my-app", ".agents", "skills", "test-skill");
+    expect(fs.existsSync(agentsLinkPath)).toBe(true);
+    expect(fs.lstatSync(agentsLinkPath).isSymbolicLink()).toBe(true);
+
     const registry = loadSkillsRegistry(tempDir);
     expect(registry["test-skill"]!.enabled_projects).toContain("my-app");
   });
 
   it("forwards a canonical identifier for absolute project paths", () => {
-    enable(tempDir, "test-skill", { project: "/tmp/my-app" });
+    const projectPath = path.join(tempDir, "my-app");
+    enable(tempDir, "test-skill", { project: projectPath });
 
-    const rawPath = path.join(tempDir, "runtime", "projects", "/tmp/my-app", "test-skill");
+    const rawPath = path.join(tempDir, "runtime", "projects", projectPath, "test-skill");
     expect(fs.existsSync(rawPath)).toBe(false);
 
     const registry = loadSkillsRegistry(tempDir);
     const projects = registry["test-skill"]!.enabled_projects;
     expect(projects.length).toBe(1);
-    expect(projects[0]).not.toBe("/tmp/my-app");
+    expect(projects[0]).not.toBe(projectPath);
 
     const projectsDir = path.join(tempDir, "runtime", "projects");
     const entries = fs.readdirSync(projectsDir);
     expect(entries.length).toBe(1);
-    expect(entries[0]).not.toBe("/tmp/my-app");
+    expect(entries[0]).not.toBe(projectPath);
     expect(fs.existsSync(path.join(projectsDir, entries[0]!, "test-skill"))).toBe(true);
+
+    const agentsLinkPath = path.join(projectPath, ".agents", "skills", "test-skill");
+    expect(fs.existsSync(agentsLinkPath)).toBe(true);
+    expect(fs.lstatSync(agentsLinkPath).isSymbolicLink()).toBe(true);
   });
 });

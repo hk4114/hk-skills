@@ -4,7 +4,12 @@ import {
   loadSkillsRegistry,
   saveSkillsRegistry,
 } from "../services/registry.js";
-import { getWarehousePath, getRuntimePath, canonicalizeProjectId } from "../utils/paths.js";
+import {
+  getWarehousePath,
+  getRuntimePath,
+  canonicalizeProjectId,
+  getProjectAgentsSkillsPath,
+} from "../utils/paths.js";
 
 export function resolveSourcePath(root: string, name: string): string {
   const adaptedPath = path.join(getWarehousePath(root, "adapted"), name);
@@ -39,6 +44,41 @@ function isEnabled(
   return entry.enabled_projects.includes(canonicalizeProjectId(scope.project));
 }
 
+function ensureSymlink(sourcePath: string, linkPath: string): void {
+  let lstat: fs.Stats | undefined;
+  try {
+    lstat = fs.lstatSync(linkPath);
+  } catch {}
+
+  if (lstat) {
+    if (!lstat.isSymbolicLink()) {
+      throw new Error(`Path "${linkPath}" exists but is not a symbolic link`);
+    }
+    const existingTarget = fs.readlinkSync(linkPath);
+    if (existingTarget !== sourcePath) {
+      throw new Error(
+        `Symlink "${linkPath}" already exists and points to "${existingTarget}" instead of "${sourcePath}"`
+      );
+    }
+  } else {
+    fs.symlinkSync(sourcePath, linkPath);
+  }
+}
+
+function removeSymlink(linkPath: string): void {
+  let lstat: fs.Stats | undefined;
+  try {
+    lstat = fs.lstatSync(linkPath);
+  } catch {}
+
+  if (lstat) {
+    if (!lstat.isSymbolicLink()) {
+      throw new Error(`Path "${linkPath}" exists but is not a symbolic link`);
+    }
+    fs.unlinkSync(linkPath);
+  }
+}
+
 export function enableSkill(
   root: string,
   name: string,
@@ -60,7 +100,14 @@ export function enableSkill(
   ensureDir(runtimeDir);
 
   const linkPath = path.join(runtimeDir, name);
-  fs.symlinkSync(sourcePath, linkPath);
+  ensureSymlink(sourcePath, linkPath);
+
+  if (scope !== "global") {
+    const agentsSkillsDir = getProjectAgentsSkillsPath(scope.project);
+    ensureDir(agentsSkillsDir);
+    const agentsLinkPath = path.join(agentsSkillsDir, name);
+    ensureSymlink(sourcePath, agentsLinkPath);
+  }
 
   if (scope === "global") {
     entry.enabled_global = true;
@@ -89,16 +136,12 @@ export function disableSkill(
 
   const runtimeDir = getRuntimePath(root, scope);
   const linkPath = path.join(runtimeDir, name);
+  removeSymlink(linkPath);
 
-  if (fs.existsSync(linkPath)) {
-    const lstat = fs.lstatSync(linkPath);
-    if (lstat.isSymbolicLink()) {
-      fs.unlinkSync(linkPath);
-    } else {
-      throw new Error(
-        `Path "${linkPath}" exists but is not a symbolic link`
-      );
-    }
+  if (scope !== "global") {
+    const agentsSkillsDir = getProjectAgentsSkillsPath(scope.project);
+    const agentsLinkPath = path.join(agentsSkillsDir, name);
+    removeSymlink(agentsLinkPath);
   }
 
   if (scope === "global") {

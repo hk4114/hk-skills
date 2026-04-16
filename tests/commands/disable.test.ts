@@ -8,9 +8,11 @@ import { loadSkillsRegistry, saveSkillsRegistry } from "../../src/services/regis
 
 describe("disable", () => {
   let tempDir: string;
+  const originalCwd = process.cwd();
 
   beforeEach(() => {
     tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "hk-skills-disable-test-"));
+    process.chdir(tempDir);
     fs.mkdirSync(path.join(tempDir, "warehouse", "adapted", "test-skill"), { recursive: true });
     fs.writeFileSync(
       path.join(tempDir, "warehouse", "adapted", "test-skill", "SKILL.md"),
@@ -31,6 +33,7 @@ describe("disable", () => {
   });
 
   afterEach(() => {
+    process.chdir(originalCwd);
     fs.rmSync(tempDir, { recursive: true, force: true });
   });
 
@@ -54,6 +57,9 @@ describe("disable", () => {
     const linkPath = path.join(tempDir, "runtime", "projects", "my-app", "test-skill");
     expect(fs.existsSync(linkPath)).toBe(false);
 
+    const agentsLinkPath = path.join(tempDir, "my-app", ".agents", "skills", "test-skill");
+    expect(fs.existsSync(agentsLinkPath)).toBe(false);
+
     const registry = loadSkillsRegistry(tempDir);
     expect(registry["test-skill"]!.enabled_projects).not.toContain("my-app");
   });
@@ -65,5 +71,8 @@ describe("disable", () => {
 
     const registry = loadSkillsRegistry(tempDir);
     expect(registry["test-skill"]!.enabled_projects).toHaveLength(0);
+
+    const agentsLinkPath = path.join(tempDir, "my-app", ".agents", "skills", "test-skill");
+    expect(fs.existsSync(agentsLinkPath)).toBe(false);
   });
 });
