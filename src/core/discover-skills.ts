@@ -92,9 +92,22 @@ function walk(
   }
 
   for (const entry of entries) {
-    if (entry.isSymbolicLink()) continue;
+    let isManagedSkillLink = false;
+    if (
+      entry.isSymbolicLink() &&
+      path.basename(dir) === "skills" &&
+      path.basename(path.dirname(dir)) === ".agents"
+    ) {
+      try {
+        isManagedSkillLink = fs.statSync(path.join(dir, entry.name)).isDirectory();
+      } catch {
+        isManagedSkillLink = false;
+      }
+    }
 
-    if (entry.isDirectory()) {
+    if (entry.isSymbolicLink() && !isManagedSkillLink) continue;
+
+    if (entry.isDirectory() || isManagedSkillLink) {
       if (EXCLUDED_DIRS.has(entry.name)) continue;
       walk(path.join(dir, entry.name), repoPath, results, depth + 1);
     }

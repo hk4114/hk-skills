@@ -9,6 +9,7 @@ import { install } from "../../src/commands/install.js";
 import { reset } from "../../src/commands/reset.js";
 import { loadSkillsRegistry, loadSourcesRegistry, loadProjectsRegistry } from "../../src/services/registry.js";
 import { canonicalizeProjectId } from "../../src/utils/paths.js";
+import { discoverSkills } from "../../src/core/discover-skills.js";
 
 describe("full-lifecycle", () => {
   let tempDir: string;
@@ -73,7 +74,7 @@ describe("full-lifecycle", () => {
     }
   });
 
-  it("keeps project-scoped runtime links under encoded runtime directory for absolute paths", async () => {
+  it("keeps project-scoped runtime links under encoded runtime directory and discovers managed in-project symlinks", async () => {
     init(tempDir);
 
     const projectDir = path.join(os.tmpdir(), "hk-skills-project-" + Date.now());
@@ -85,11 +86,18 @@ describe("full-lifecycle", () => {
       const encodedId = canonicalizeProjectId(projectDir);
       const scopedRuntimeDir = path.join(tempDir, "runtime", "projects", encodedId);
       const linkPath = path.join(scopedRuntimeDir, "test-skill");
-      const badLinkPath = path.join(projectDir, "test-skill");
 
       expect(fs.existsSync(linkPath)).toBe(true);
       expect(fs.lstatSync(linkPath).isSymbolicLink()).toBe(true);
-      expect(fs.existsSync(badLinkPath)).toBe(false);
+
+      // Simulate managed in-project symlink that activator would create under .agents/skills/
+      const agentsSkillsDir = path.join(projectDir, ".agents", "skills");
+      fs.mkdirSync(agentsSkillsDir, { recursive: true });
+      const projectLinkPath = path.join(agentsSkillsDir, "test-skill");
+      fs.symlinkSync(path.join(tempDir, "custom", "test-skill"), projectLinkPath, "dir");
+
+      const discovered = discoverSkills(projectDir);
+      expect(discovered).toContainEqual({ subpath: ".agents/skills/test-skill", name: "test-skill" });
 
       const registry = loadSkillsRegistry(tempDir);
       expect(registry["test-skill"]).toBeDefined();
