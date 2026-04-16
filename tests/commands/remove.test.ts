@@ -12,6 +12,7 @@ import {
   loadProjectsRegistry,
   saveProjectsRegistry,
 } from "../../src/services/registry.js";
+import { canonicalizeProjectId } from "../../src/utils/paths.js";
 
 describe("remove", () => {
   let tempDir: string;
@@ -19,9 +20,12 @@ describe("remove", () => {
   let logs: string[];
   let originalWarn: typeof console.warn;
   let originalLog: typeof console.log;
+  let originalCwd: string;
 
   beforeEach(() => {
+    originalCwd = process.cwd();
     tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "hk-skills-remove-test-"));
+    process.chdir(tempDir);
     fs.mkdirSync(path.join(tempDir, "registry"), { recursive: true });
     fs.mkdirSync(path.join(tempDir, "manifests"), { recursive: true });
     fs.mkdirSync(path.join(tempDir, "warehouse", "adapted", "test-skill"), { recursive: true });
@@ -77,6 +81,7 @@ describe("remove", () => {
     console.warn = originalWarn;
     console.log = originalLog;
     if (exitSpy) exitSpy.mockRestore();
+    process.chdir(originalCwd);
     fs.rmSync(tempDir, { recursive: true, force: true });
   });
 
@@ -110,6 +115,7 @@ describe("remove", () => {
 
     expect(fs.existsSync(path.join(tempDir, "runtime", "global", "test-skill"))).toBe(false);
     expect(fs.existsSync(path.join(tempDir, "runtime", "projects", "my-app", "test-skill"))).toBe(false);
+    expect(fs.existsSync(path.join(tempDir, "my-app", ".agents", "skills", "test-skill"))).toBe(false);
 
     const skills = loadSkillsRegistry(tempDir);
     expect(skills["test-skill"]).toBeUndefined();
@@ -118,11 +124,15 @@ describe("remove", () => {
 
   it("cleans up encoded runtime directory for absolute project paths, not the raw path", async () => {
     exitSpy.mockRestore();
-    enableSkill(tempDir, "test-skill", { project: "/absolute/path/to/my-app" });
+    const projectPath = path.join(tempDir, "real-project");
+    fs.mkdirSync(projectPath, { recursive: true });
+    enableSkill(tempDir, "test-skill", { project: projectPath });
 
     await remove(tempDir, "test-skill", { yes: true });
 
-    expect(fs.existsSync(path.join(tempDir, "runtime", "projects", "/absolute/path/to/my-app", "test-skill"))).toBe(false);
+    const canonicalId = canonicalizeProjectId(projectPath);
+    expect(fs.existsSync(path.join(tempDir, "runtime", "projects", canonicalId, "test-skill"))).toBe(false);
+    expect(fs.existsSync(path.join(projectPath, ".agents", "skills", "test-skill"))).toBe(false);
 
     const skills = loadSkillsRegistry(tempDir);
     expect(skills["test-skill"]).toBeUndefined();

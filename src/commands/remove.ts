@@ -10,7 +10,7 @@ import {
   loadProjectsRegistry,
   saveProjectsRegistry,
 } from "../services/registry.js";
-import { getManifestPath, getWarehousePath, getRuntimePath } from "../utils/paths.js";
+import { getManifestPath, getWarehousePath, getRuntimePath, getProjectAgentsSkillsPath } from "../utils/paths.js";
 import { info, warn, error, success } from "../utils/logger.js";
 
 export function safeDisableAll(root: string, name: string): void {
@@ -45,6 +45,20 @@ export function safeDisableAll(root: string, name: string): void {
     } catch (e) {
       warn(
         `Warning: project symlink for ${name} in ${project} not found or broken: ${
+          e instanceof Error ? e.message : String(e)
+        }`
+      );
+    }
+
+    const agentsLinkPath = path.join(getProjectAgentsSkillsPath(project), name);
+    try {
+      const lstat = fs.lstatSync(agentsLinkPath);
+      if (lstat.isSymbolicLink()) {
+        fs.unlinkSync(agentsLinkPath);
+      }
+    } catch (e) {
+      warn(
+        `Warning: agents skills symlink for ${name} in ${project} not found or broken: ${
           e instanceof Error ? e.message : String(e)
         }`
       );

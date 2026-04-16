@@ -74,9 +74,12 @@ describe("update", () => {
   let adaptSpy: ReturnType<typeof spyOn>;
   let enableSkillSpy: ReturnType<typeof spyOn>;
   let exitSpy: ReturnType<typeof spyOn>;
+  let originalCwd: string;
 
   beforeEach(() => {
+    originalCwd = process.cwd();
     tempDir = createTempRoot();
+    process.chdir(tempDir);
     fetchRemoteSpy = spyOn(fetcher, "fetchRemote").mockImplementation(async (_root, repoUrl, ref = "main") => {
       const match = repoUrl.match(/\/([^/]+)$/);
       const name = match?.[1] ?? "skill";
@@ -121,6 +124,7 @@ describe("update", () => {
     adaptSpy.mockRestore();
     enableSkillSpy.mockRestore();
     if (exitSpy) exitSpy.mockRestore();
+    process.chdir(originalCwd);
     fs.rmSync(tempDir, { recursive: true, force: true });
   });
 
@@ -334,11 +338,23 @@ describe("update", () => {
     });
 
     exitSpy.mockRestore();
+    enableSkillSpy.mockRestore();
+
+    fs.mkdirSync(path.join(tempDir, "runtime", "global"), { recursive: true });
+    fs.symlinkSync(path.join(getWarehousePath(tempDir, "adapted"), name), path.join(tempDir, "runtime", "global", name));
+    fs.mkdirSync(path.join(tempDir, "runtime", "projects", "my-app"), { recursive: true });
+    fs.symlinkSync(path.join(getWarehousePath(tempDir, "adapted"), name), path.join(tempDir, "runtime", "projects", "my-app", name));
+    fs.mkdirSync(path.join(tempDir, "my-app", ".agents", "skills"), { recursive: true });
+    fs.symlinkSync(path.join(getWarehousePath(tempDir, "adapted"), name), path.join(tempDir, "my-app", ".agents", "skills", name));
 
     await update(tempDir, name, {});
 
-    expect(enableSkillSpy).toHaveBeenCalledWith(tempDir, name, "global");
-    expect(enableSkillSpy).toHaveBeenCalledWith(tempDir, name, { project: "my-app" });
+    expect(fs.existsSync(path.join(tempDir, "runtime", "global", name))).toBe(true);
+    expect(fs.lstatSync(path.join(tempDir, "runtime", "global", name)).isSymbolicLink()).toBe(true);
+    expect(fs.existsSync(path.join(tempDir, "runtime", "projects", "my-app", name))).toBe(true);
+    expect(fs.lstatSync(path.join(tempDir, "runtime", "projects", "my-app", name)).isSymbolicLink()).toBe(true);
+    expect(fs.existsSync(path.join(tempDir, "my-app", ".agents", "skills", name))).toBe(true);
+    expect(fs.lstatSync(path.join(tempDir, "my-app", ".agents", "skills", name)).isSymbolicLink()).toBe(true);
   });
 
   it("re-creates project-scoped symlinks in canonical runtime directory during update", async () => {
