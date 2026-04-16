@@ -14,7 +14,7 @@ import * as fetcher from "../../src/core/fetcher.js";
 import * as vetter from "../../src/core/vetter.js";
 import * as adapter from "../../src/core/adapter.js";
 import * as activator from "../../src/core/activator.js";
-import { getWarehousePath } from "../../src/utils/paths.js";
+import { getWarehousePath, canonicalizeProjectId } from "../../src/utils/paths.js";
 import { generateSourceId } from "../../src/core/fetcher.js";
 
 function createTempRoot(): string {
@@ -339,6 +339,75 @@ describe("update", () => {
 
     expect(enableSkillSpy).toHaveBeenCalledWith(tempDir, name, "global");
     expect(enableSkillSpy).toHaveBeenCalledWith(tempDir, name, { project: "my-app" });
+  });
+
+  it("re-creates project-scoped symlinks in canonical runtime directory during update", async () => {
+    const name = "remote-skill";
+    const source_id = generateSourceId(`https://github.com/user/${name}`, "main");
+    const projectPath = "/absolute/path/to/my-app";
+    const canonicalId = canonicalizeProjectId(projectPath);
+    createRemoteSkill(tempDir, source_id, name);
+    createAdaptedSkill(tempDir, name);
+    createSkillManifest(tempDir, name, "remote");
+    saveSourcesRegistry(tempDir, {
+      [source_id]: { type: "remote", repo: `https://github.com/user/${name}`, ref: "main", local_path: `warehouse/remote/${source_id}` },
+    });
+    saveSkillsRegistry(tempDir, {
+      [name]: {
+        manifest: `manifests/${name}.yaml`,
+        installed: true,
+        enabled_global: false,
+        enabled_projects: [canonicalId],
+        updated_at: "2024-01-01T00:00:00Z",
+        source_id,
+      },
+    });
+
+    exitSpy.mockRestore();
+    enableSkillSpy.mockRestore();
+
+    const canonicalRuntimeDir = path.join(tempDir, "runtime", "projects", canonicalId);
+    fs.mkdirSync(canonicalRuntimeDir, { recursive: true });
+    fs.symlinkSync(path.join(getWarehousePath(tempDir, "adapted"), name), path.join(canonicalRuntimeDir, name));
+
+    await update(tempDir, name, {});
+
+    expect(fs.existsSync(path.join(tempDir, "runtime", "projects", canonicalId, name))).toBe(true);
+    expect(fs.lstatSync(path.join(tempDir, "runtime", "projects", canonicalId, name)).isSymbolicLink()).toBe(true);
+  });
+
+  it("skips legacy raw project paths during update without migrating them", async () => {
+    const name = "remote-skill";
+    const source_id = generateSourceId(`https://github.com/user/${name}`, "main");
+    const projectPath = "/absolute/path/to/my-app";
+    createRemoteSkill(tempDir, source_id, name);
+    createAdaptedSkill(tempDir, name);
+    createSkillManifest(tempDir, name, "remote");
+    saveSourcesRegistry(tempDir, {
+      [source_id]: { type: "remote", repo: `https://github.com/user/${name}`, ref: "main", local_path: `warehouse/remote/${source_id}` },
+    });
+    saveSkillsRegistry(tempDir, {
+      [name]: {
+        manifest: `manifests/${name}.yaml`,
+        installed: true,
+        enabled_global: false,
+        enabled_projects: [projectPath],
+        updated_at: "2024-01-01T00:00:00Z",
+        source_id,
+      },
+    });
+
+    exitSpy.mockRestore();
+    enableSkillSpy.mockRestore();
+
+    await update(tempDir, name, {});
+
+    const canonicalId = canonicalizeProjectId(projectPath);
+    expect(fs.existsSync(path.join(tempDir, "runtime", "projects", projectPath, name))).toBe(false);
+    expect(fs.existsSync(path.join(tempDir, "runtime", "projects", canonicalId, name))).toBe(false);
+
+    const registry = loadSkillsRegistry(tempDir);
+    expect(registry[name]!.enabled_projects).toEqual([projectPath]);
   });
 
   it("falls back to git remote when manifest and sources.json repo are missing", async () => {

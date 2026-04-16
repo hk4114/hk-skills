@@ -116,6 +116,20 @@ describe("remove", () => {
     expect(fs.existsSync(path.join(tempDir, "warehouse", "adapted", "test-skill"))).toBe(false);
   });
 
+  it("cleans up encoded runtime directory for absolute project paths, not the raw path", async () => {
+    exitSpy.mockRestore();
+    enableSkill(tempDir, "test-skill", { project: "/absolute/path/to/my-app" });
+
+    await remove(tempDir, "test-skill", { yes: true });
+
+    expect(fs.existsSync(path.join(tempDir, "runtime", "projects", "/absolute/path/to/my-app", "test-skill"))).toBe(false);
+
+    const skills = loadSkillsRegistry(tempDir);
+    expect(skills["test-skill"]).toBeUndefined();
+    expect(fs.existsSync(path.join(tempDir, "warehouse", "adapted", "test-skill"))).toBe(false);
+    expect(fs.existsSync(path.join(tempDir, "manifests", "test-skill.yaml"))).toBe(false);
+  });
+
   it("exits with error when removing a non-existent skill", async () => {
     await expect(
       remove(tempDir, "non-existent", { promptConfirm: async () => true })

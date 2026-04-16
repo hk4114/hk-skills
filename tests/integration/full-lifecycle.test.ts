@@ -7,6 +7,7 @@ import { list } from "../../src/commands/list.js";
 import { enableSkill, disableSkill } from "../../src/core/activator.js";
 import { install } from "../../src/commands/install.js";
 import { loadSkillsRegistry, loadSourcesRegistry } from "../../src/services/registry.js";
+import { canonicalizeProjectId } from "../../src/utils/paths.js";
 
 describe("full-lifecycle", () => {
   let tempDir: string;
@@ -68,6 +69,35 @@ describe("full-lifecycle", () => {
       expect(sources[sourceId]!.local_path).toBeDefined();
     } finally {
       fs.rmSync(localSkillPath, { recursive: true, force: true });
+    }
+  });
+
+  it("keeps project-scoped runtime links under encoded runtime directory for absolute paths", async () => {
+    init(tempDir);
+
+    const projectDir = path.join(os.tmpdir(), "hk-skills-project-" + Date.now());
+    fs.mkdirSync(projectDir, { recursive: true });
+
+    try {
+      enableSkill(tempDir, "test-skill", { project: projectDir });
+
+      const encodedId = canonicalizeProjectId(projectDir);
+      const scopedRuntimeDir = path.join(tempDir, "runtime", "projects", encodedId);
+      const linkPath = path.join(scopedRuntimeDir, "test-skill");
+      const badLinkPath = path.join(projectDir, "test-skill");
+
+      expect(fs.existsSync(linkPath)).toBe(true);
+      expect(fs.lstatSync(linkPath).isSymbolicLink()).toBe(true);
+      expect(fs.existsSync(badLinkPath)).toBe(false);
+
+      const registry = loadSkillsRegistry(tempDir);
+      expect(registry["test-skill"]).toBeDefined();
+      expect(registry["test-skill"]!.enabled_projects).toContain(encodedId);
+
+      disableSkill(tempDir, "test-skill", { project: projectDir });
+      expect(fs.existsSync(linkPath)).toBe(false);
+    } finally {
+      fs.rmSync(projectDir, { recursive: true, force: true });
     }
   });
 });

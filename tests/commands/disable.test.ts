@@ -57,4 +57,13 @@ describe("disable", () => {
     const registry = loadSkillsRegistry(tempDir);
     expect(registry["test-skill"]!.enabled_projects).not.toContain("my-app");
   });
+
+  it("disables equivalent path forms via canonical identifier", () => {
+    enableSkill(tempDir, "test-skill", { project: "./my-app/" });
+
+    disable(tempDir, "test-skill", { project: "./my-app" });
+
+    const registry = loadSkillsRegistry(tempDir);
+    expect(registry["test-skill"]!.enabled_projects).toHaveLength(0);
+  });
 });

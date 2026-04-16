@@ -23,6 +23,18 @@ export function getManifestPath(root: string, name: string): string {
   return resolve(root, "manifests", `${name}.yaml`);
 }
 
+function isSimpleProjectId(raw: string): boolean {
+  return !raw.includes("/") && !raw.includes("\\") && !raw.startsWith(".");
+}
+
+export function canonicalizeProjectId(rawProjectPath: string): string {
+  if (isSimpleProjectId(rawProjectPath)) {
+    return rawProjectPath;
+  }
+  const absolute = resolve(rawProjectPath);
+  return Buffer.from(absolute, "utf-8").toString("base64url");
+}
+
 export function getRuntimePath(
   root: string,
   scope: "global" | { project: string }
@@ -30,5 +42,5 @@ export function getRuntimePath(
   if (scope === "global") {
     return resolve(root, "runtime", "global");
   }
-  return resolve(root, "runtime", "projects", scope.project);
+  return resolve(root, "runtime", "projects", canonicalizeProjectId(scope.project));
 }

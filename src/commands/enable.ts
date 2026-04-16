@@ -6,7 +6,7 @@ export function enable(root: string, name: string, options: { global?: boolean; 
 
   try {
     enableSkill(root, name, scope);
-    success(`Enabled skill: ${name} (${scope === "global" ? "global" : `project: ${scope.project}`})`);
+    success(`Enabled skill: ${name} (${scope === "global" ? "global" : `project: ${options.project}`})`);
   } catch (err) {
     error(`Enable failed: ${err instanceof Error ? err.message : String(err)}`);
     process.exit(1);

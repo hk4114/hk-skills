@@ -54,4 +54,22 @@ describe("enable", () => {
     const registry = loadSkillsRegistry(tempDir);
     expect(registry["test-skill"]!.enabled_projects).toContain("my-app");
   });
+
+  it("forwards a canonical identifier for absolute project paths", () => {
+    enable(tempDir, "test-skill", { project: "/tmp/my-app" });
+
+    const rawPath = path.join(tempDir, "runtime", "projects", "/tmp/my-app", "test-skill");
+    expect(fs.existsSync(rawPath)).toBe(false);
+
+    const registry = loadSkillsRegistry(tempDir);
+    const projects = registry["test-skill"]!.enabled_projects;
+    expect(projects.length).toBe(1);
+    expect(projects[0]).not.toBe("/tmp/my-app");
+
+    const projectsDir = path.join(tempDir, "runtime", "projects");
+    const entries = fs.readdirSync(projectsDir);
+    expect(entries.length).toBe(1);
+    expect(entries[0]).not.toBe("/tmp/my-app");
+    expect(fs.existsSync(path.join(projectsDir, entries[0]!, "test-skill"))).toBe(true);
+  });
 });

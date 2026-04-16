@@ -10,7 +10,7 @@ import {
   loadProjectsRegistry,
   saveProjectsRegistry,
 } from "../services/registry.js";
-import { getManifestPath, getWarehousePath } from "../utils/paths.js";
+import { getManifestPath, getWarehousePath, getRuntimePath } from "../utils/paths.js";
 import { info, warn, error, success } from "../utils/logger.js";
 
 export function safeDisableAll(root: string, name: string): void {
@@ -36,7 +36,7 @@ export function safeDisableAll(root: string, name: string): void {
   }
 
   for (const project of [...entry.enabled_projects]) {
-    const linkPath = path.join(root, "runtime", "projects", project, name);
+    const linkPath = path.join(getRuntimePath(root, { project }), name);
     try {
       const lstat = fs.lstatSync(linkPath);
       if (lstat.isSymbolicLink()) {

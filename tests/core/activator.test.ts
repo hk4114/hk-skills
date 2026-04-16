@@ -151,6 +151,34 @@ describe("activator", () => {
         path.join(tempDir, "warehouse", "adapted", "test-skill")
       );
     });
+
+    it("encodes project path with dot segments for runtime directory", () => {
+      enableSkill(tempDir, "test-skill", { project: "./my-app/" });
+
+      const badPath = path.join(tempDir, "runtime", "projects", "./my-app/", "test-skill");
+      expect(fs.existsSync(badPath)).toBe(false);
+
+      const projectsDir = path.join(tempDir, "runtime", "projects");
+      const entries = fs.readdirSync(projectsDir);
+      expect(entries.length).toBe(1);
+      expect(entries[0]).not.toBe("./my-app/");
+
+      const linkPath = path.join(projectsDir, entries[0]!, "test-skill");
+      expect(fs.existsSync(linkPath)).toBe(true);
+      expect(fs.lstatSync(linkPath).isSymbolicLink()).toBe(true);
+    });
+
+    it("creates distinct runtime directories for same basename in different parent paths", () => {
+      enableSkill(tempDir, "test-skill", { project: "/work/a/client" });
+      enableSkill(tempDir, "test-skill", { project: "/work/b/client" });
+
+      const projectsDir = path.join(tempDir, "runtime", "projects");
+      const entries = fs.readdirSync(projectsDir);
+      expect(entries.length).toBe(2);
+
+      const registry = loadSkillsRegistry(tempDir);
+      expect(getEntry(registry, "test-skill").enabled_projects.length).toBe(2);
+    });
   });
 
   describe("disableSkill", () => {

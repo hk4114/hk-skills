@@ -4,7 +4,7 @@ import {
   loadSkillsRegistry,
   saveSkillsRegistry,
 } from "../services/registry.js";
-import { getWarehousePath, getRuntimePath } from "../utils/paths.js";
+import { getWarehousePath, getRuntimePath, canonicalizeProjectId } from "../utils/paths.js";
 
 export function resolveSourcePath(root: string, name: string): string {
   const adaptedPath = path.join(getWarehousePath(root, "adapted"), name);
@@ -36,7 +36,7 @@ function isEnabled(
   if (scope === "global") {
     return entry.enabled_global;
   }
-  return entry.enabled_projects.includes(scope.project);
+  return entry.enabled_projects.includes(canonicalizeProjectId(scope.project));
 }
 
 export function enableSkill(
@@ -65,8 +65,9 @@ export function enableSkill(
   if (scope === "global") {
     entry.enabled_global = true;
   } else {
-    if (!entry.enabled_projects.includes(scope.project)) {
-      entry.enabled_projects.push(scope.project);
+    const canonicalProject = canonicalizeProjectId(scope.project);
+    if (!entry.enabled_projects.includes(canonicalProject)) {
+      entry.enabled_projects.push(canonicalProject);
     }
   }
   entry.updated_at = new Date().toISOString();
@@ -103,8 +104,9 @@ export function disableSkill(
   if (scope === "global") {
     entry.enabled_global = false;
   } else {
+    const canonicalProject = canonicalizeProjectId(scope.project);
     entry.enabled_projects = entry.enabled_projects.filter(
-      (p) => p !== scope.project
+      (p) => p !== canonicalProject
     );
   }
   entry.updated_at = new Date().toISOString();
