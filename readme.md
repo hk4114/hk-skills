@@ -97,7 +97,7 @@ some-skill        remote   adapted  no
 ./bin/hk-skill enable some-skill --project ./my-project
 ```
 
-链接会创建在 `runtime/projects/my-project/some-skill`。
+这会在项目本地创建一条可发现的技能链接：`./my-project/.agents/skills/some-skill/SKILL.md`（如果 `.agents/` 和 `.agents/skills/` 不存在会自动创建）。同时，系统会在内部 bookkeeping 路径 `runtime/projects/<canonical-id>/some-skill` 维护一条对应的软链接。
 
 ---
 
@@ -106,12 +106,15 @@ some-skill        remote   adapted  no
 让你的 Agent 读取运行时路径中的 `SKILL.md`：
 
 - 全局启用：`runtime/global/<skill-name>/SKILL.md`
-- 项目启用：`runtime/projects/<project-name>/<skill-name>/SKILL.md`
+- 项目启用：`<project>/.agents/skills/<skill-name>/SKILL.md`（用户可见的项目本地入口）
+
+系统内部同时会在 `runtime/projects/<canonical-id>/<skill-name>` 维护 bookkeeping 软链接，但这不是面向用户的直接引用路径。
 
 例如：
 
 ```
 /Users/kanehua/project/hk-skills/runtime/global/some-skill/SKILL.md
+/Users/me/my-app/.agents/skills/some-skill/SKILL.md
 ```
 
 ---
@@ -169,8 +172,8 @@ some-skill        remote   adapted  no
 ./bin/hk-skill enable repo-analyzer --project ./my-app
 ./bin/hk-skill enable frontend-skill --project ./my-app
 
-# 4. 在 Agent 配置中引用项目运行时路径
-# runtime/projects/my-app/repo-analyzer/SKILL.md
+# 4. 在 Agent 配置中引用项目本地路径
+# my-app/.agents/skills/repo-analyzer/SKILL.md
 ```
 
 ### 工作流 B：全局共享高频技能
@@ -231,7 +234,8 @@ warehouse/adapted/<skill>  ← 适配后的可用版本
     │
     ▼  symlink (enable)
 runtime/global/<skill>     ← 全局运行时入口
-runtime/projects/<project>/<skill>  ← 项目运行时入口
+<project>/.agents/skills/<skill>   ← 项目本地运行时入口（用户可见）
+runtime/projects/<canonical-id>/<skill>  ← 内部 bookkeeping（系统维护）
 ```
 
 **关键原则**：

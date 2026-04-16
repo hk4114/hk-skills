@@ -387,11 +387,19 @@ runtime/global/
 hk-skill enable repo-analyzer --project /path/to/app
 ```
 
-输出到：
+用户可见输出（Agent 可直接引用）：
 
 ```text
-runtime/projects/my-app/
+/path/to/app/.agents/skills/repo-analyzer/
 ```
+
+系统内部 bookkeeping：
+
+```text
+runtime/projects/<canonical-id>/repo-analyzer/
+```
+
+启用时会自动创建 `.agents/` 和 `.agents/skills/` 目录（如不存在）。内部 `runtime/projects/` 路径保留用于系统状态维护，但不应作为 Agent 配置的直接引用路径。
 
 ---
 
