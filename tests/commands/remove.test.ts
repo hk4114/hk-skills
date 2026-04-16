@@ -133,6 +133,8 @@ describe("remove", () => {
     const canonicalId = canonicalizeProjectId(projectPath);
     expect(fs.existsSync(path.join(tempDir, "runtime", "projects", canonicalId, "test-skill"))).toBe(false);
     expect(fs.existsSync(path.join(projectPath, ".agents", "skills", "test-skill"))).toBe(false);
+    expect(() => fs.lstatSync(path.join(projectPath, ".agents", "skills", "test-skill"))).toThrow();
+    expect(fs.existsSync(path.join(tempDir, "runtime", "projects", canonicalId, ".agents", "skills", "test-skill"))).toBe(false);
 
     const skills = loadSkillsRegistry(tempDir);
     expect(skills["test-skill"]).toBeUndefined();

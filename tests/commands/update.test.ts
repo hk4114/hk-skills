@@ -399,6 +399,7 @@ describe("update", () => {
     expect(fs.lstatSync(path.join(tempDir, "runtime", "projects", canonicalId, name)).isSymbolicLink()).toBe(true);
     expect(fs.existsSync(path.join(projectPath, ".agents", "skills", name))).toBe(true);
     expect(fs.lstatSync(path.join(projectPath, ".agents", "skills", name)).isSymbolicLink()).toBe(true);
+    expect(fs.existsSync(path.join(tempDir, "runtime", "projects", canonicalId, ".agents", "skills", name))).toBe(false);
 
     fs.rmSync(projectPath, { recursive: true, force: true });
   });
