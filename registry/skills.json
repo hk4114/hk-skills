@@ -210,8 +210,10 @@
     "manifest": "manifests/baoyu-youtube-transcript.yaml",
     "installed": true,
     "enabled_global": false,
-    "enabled_projects": [],
-    "updated_at": "2026-04-16T06:34:59.289Z",
+    "enabled_projects": [
+      "L1VzZXJzL2thbmVodWEvcHJvamVjdC9rYW5lX3ZhdWx0"
+    ],
+    "updated_at": "2026-04-20T13:50:28.030Z",
     "source_id": "github.com_JimLiu_baoyu-skills@main",
     "subpath": "skills/baoyu-youtube-transcript"
   },

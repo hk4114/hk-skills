@@ -49,4 +49,6 @@ SETUP_JAVASCRIPT_ONLY.md
 .tmp/
 # bun init 生成的根级产物
 # index.ts
-warehouse/*
+runtime/*
+warehouse/adapted/*
+warehouse/remote/*
