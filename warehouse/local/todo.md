@@ -95,6 +95,17 @@
 7. 直到抽到 SSR，就基于那个回答开始微调提示词，直到可以稳定的生成结果。
 8. 抽象成可扩展的提示模板，例如基础公式：角色 + 背景 + 任务 + 规则 + 要求 + 格式 + 范例 + 禁忌
 ----
-
+Anthropic 的哲学家 Amanda Askell 最近参加了一个访谈，在访谈中她分享了自己探索好奇领域的一个方法。
+提示词大概是：
+我希望你从「xx」领域里选一个大概研究生水平的概念。然后我希望你通过写一个寓言的方式，间接地把这个概念完整讲出来。最好一直到快结尾时，人才会慢慢意识到这个概念究竟是什么。然后在故事之后，再补一段解释，把你刚才真正要讲的概念说清楚。
+Prompt that generated this one:
+"Try to identify a somewhat niche principle or idea from the discipline ofeconomics. This should be a principle or idea that early undergraduates wouldn't have heard of but late graduate students would have. It should be a relatively obscure but interesting and useful to know aboutnonetheless. Once you have identified such a principle, think of a story that could be used to illustrate your chosen principle. This should be an illustrative 3paragraph story that would fully explain the principle or idea you've chosen but without naming the principle or idea itself. You can then name the principle or idea at the end of the story and explain it andhow it is illustrated by the story in a single paragraph."'生成此内容的提示:
+"尝试从经济学领域中识别一个相对小众的原则或思想。这个原则或思想应该是本科生早期未曾听闻，但高年级研究生会了解的。它应该相对晦涩，但仍然有趣且值得了解。一旦你确定了这样一个原则，构思一个故事来阐释你所选的原则。这应该是一个三段式的说明性故事，它能充分解释你所选的原则或思想，但无需直接点明该原则或思想的名称。然后，你可以在故事的结尾命名该原则或思想，并用一个段落解释它以及故事如何阐释了它。"
+Anthropic 的哲学家 Amanda Askell 最近参加了一个访谈，在访谈中她分享了自己探索好奇领域的一个方法。
+提示词大概是：
+我希望你从「xx」领域里选一个大概研究生水平的概念。然后我希望你通过写一个寓言的方式，间接地把这个概念完整讲出来。最好一直到快结尾时，人才会慢慢意识到这个概念究竟是什么。然后在故事之后，再补一段解释，把你刚才真正要讲的概念说清楚。
+调整为：
+我在学习：【Agent Harness】 这个概念。
+我希望你通过写一个寓言的方式，间接地把这个概念完整讲出来。最好一直到快结尾时，人才会慢慢意识到这个概念究竟是什么。然后在故事之后，再补一段解释，把你刚才真正要讲的概念说清楚。
 
 

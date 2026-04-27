@@ -324,5 +324,16 @@
     "updated_at": "2026-04-26T08:18:08.153Z",
     "source_id": "github.com_vercel-labs_agent-skills@main",
     "subpath": "skills/web-design-guidelines"
+  },
+  "web-design": {
+    "manifest": "manifests/web-design.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [
+      "L1VzZXJzL2thbmVodWEvcHJvamVjdC9rYW5lX2luYm94"
+    ],
+    "updated_at": "2026-04-27T07:38:16.430Z",
+    "source_id": "github.com_KAOPU-XiaoPu_web-design@main",
+    "subpath": ""
   }
 }

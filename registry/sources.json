@@ -26,5 +26,12 @@
     "ref": "main",
     "commit": "ce3e64e468f8fa09a2d075d102771838061fdac0",
     "local_path": "warehouse/remote/github.com_vercel-labs_agent-skills@main"
+  },
+  "github.com_KAOPU-XiaoPu_web-design@main": {
+    "type": "remote",
+    "repo": "https://github.com/KAOPU-XiaoPu/web-design",
+    "ref": "main",
+    "commit": "fa2291c4d41f985987ccb48da7924b288f268538",
+    "local_path": "warehouse/remote/github.com_KAOPU-XiaoPu_web-design@main"
   }
 }

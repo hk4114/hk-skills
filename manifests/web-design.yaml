@@ -1,0 +1,11 @@
+name: web-design
+display_name: web-design
+source:
+  type: remote
+  repo: https://github.com/KAOPU-XiaoPu/web-design
+  ref: main
+  commit: fa2291c4d41f985987ccb48da7924b288f268538
+status:
+  stage: adapted
+entry:
+  file: SKILL.md
