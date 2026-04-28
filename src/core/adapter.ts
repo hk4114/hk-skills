@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync, cpSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync, existsSync } from "node:fs";
 import { resolve, basename, dirname } from "node:path";
 import { fileURLToPath } from "url";
 import { createRequire } from "module";
@@ -134,10 +134,20 @@ export function adapt(
       writeFileSync(resolve(destPath, "SKILL.md"), rewrittenContent, "utf-8");
     }
   } catch (err) {
-    errors.push(
-      `Failed to copy skill directory: ${err instanceof Error ? err.message : String(err)}`
-    );
-    return { success: false, name, errors };
+    try {
+      if (existsSync(destPath)) {
+        rmSync(destPath, { recursive: true, force: true });
+      }
+      cpSync(inputPath, destPath, { recursive: true });
+      if (rewrittenContent !== undefined) {
+        writeFileSync(resolve(destPath, "SKILL.md"), rewrittenContent, "utf-8");
+      }
+    } catch (retryErr) {
+      errors.push(
+        `Failed to copy skill directory: ${retryErr instanceof Error ? retryErr.message : String(retryErr)}`
+      );
+      return { success: false, name, errors };
+    }
   }
 
   return { success: true, name, errors };

@@ -249,7 +249,7 @@
     "enabled_projects": [
       "L1VzZXJzL2thbmVodWEvcHJvamVjdC9rYW5lX2luYm94"
     ],
-    "updated_at": "2026-04-26T07:57:25.653Z",
+    "updated_at": "2026-04-28T14:01:28.006Z",
     "source_id": "github.com_op7418_guizang-ppt-skill@main",
     "subpath": ""
   },
@@ -258,7 +258,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-26T08:13:32.494Z",
+    "updated_at": "2026-04-28T13:54:10.407Z",
     "source_id": "github.com_lijigang_ljg-skills@main",
     "subpath": "skills/ljg-read"
   },
@@ -350,7 +350,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:24.730Z",
+    "updated_at": "2026-04-28T13:57:35.093Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/deprecated/design-an-interface"
   },
@@ -359,7 +359,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:26.806Z",
+    "updated_at": "2026-04-28T13:57:35.097Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/deprecated/triage-issue"
   },
@@ -368,7 +368,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:26.828Z",
+    "updated_at": "2026-04-28T13:57:35.100Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/deprecated/qa"
   },
@@ -377,7 +377,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:27.142Z",
+    "updated_at": "2026-04-28T13:57:35.104Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/deprecated/ubiquitous-language"
   },
@@ -386,7 +386,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:28.401Z",
+    "updated_at": "2026-04-28T13:57:35.106Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/engineering/diagnose"
   },
@@ -395,7 +395,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:29.755Z",
+    "updated_at": "2026-04-28T13:57:35.109Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/engineering/github-triage"
   },
@@ -404,7 +404,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:30.405Z",
+    "updated_at": "2026-04-28T13:57:35.112Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/engineering/grill-with-docs"
   },
@@ -413,7 +413,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:30.725Z",
+    "updated_at": "2026-04-28T13:57:35.116Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/engineering/improve-codebase-architecture"
   },
@@ -422,7 +422,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:31.576Z",
+    "updated_at": "2026-04-28T13:57:35.119Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/engineering/tdd"
   },
@@ -431,7 +431,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:34.380Z",
+    "updated_at": "2026-04-28T13:57:35.121Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/engineering/to-issues"
   },
@@ -440,7 +440,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:34.430Z",
+    "updated_at": "2026-04-28T13:57:35.123Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/engineering/to-prd"
   },
@@ -449,7 +449,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:34.934Z",
+    "updated_at": "2026-04-28T13:57:35.126Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/engineering/zoom-out"
   },
@@ -458,7 +458,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:35.628Z",
+    "updated_at": "2026-04-28T13:57:35.128Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/misc/git-guardrails-claude-code"
   },
@@ -467,7 +467,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:37.313Z",
+    "updated_at": "2026-04-28T13:57:35.130Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/misc/migrate-to-shoehorn"
   },
@@ -476,7 +476,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:37.989Z",
+    "updated_at": "2026-04-28T13:57:35.132Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/misc/scaffold-exercises"
   },
@@ -485,7 +485,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:38.563Z",
+    "updated_at": "2026-04-28T13:57:35.135Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/misc/setup-pre-commit"
   },
@@ -494,7 +494,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:39.781Z",
+    "updated_at": "2026-04-28T13:57:35.137Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/personal/edit-article"
   },
@@ -503,7 +503,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:41.456Z",
+    "updated_at": "2026-04-28T13:57:35.140Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/personal/obsidian-vault"
   },
@@ -512,7 +512,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:41.882Z",
+    "updated_at": "2026-04-28T13:57:35.146Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/productivity/caveman"
   },
@@ -521,7 +521,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:42.332Z",
+    "updated_at": "2026-04-28T13:57:35.148Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/productivity/grill-me"
   },
@@ -530,7 +530,7 @@
     "installed": true,
     "enabled_global": false,
     "enabled_projects": [],
-    "updated_at": "2026-04-28T10:55:42.901Z",
+    "updated_at": "2026-04-28T13:57:35.150Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/productivity/write-a-skill"
   }

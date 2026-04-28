@@ -10,14 +10,14 @@
     "type": "remote",
     "repo": "https://github.com/op7418/guizang-ppt-skill",
     "ref": "main",
-    "commit": "e09f931308c0ba3839793eb03971878494baeea4",
+    "commit": "72837a8513d1145d800095fc3909d6d3057994b8",
     "local_path": "warehouse/remote/github.com_op7418_guizang-ppt-skill@main"
   },
   "github.com_lijigang_ljg-skills@main": {
     "type": "remote",
     "repo": "https://github.com/lijigang/ljg-skills",
     "ref": "master",
-    "commit": "ec9aafe8b3361da05ba717452538c0faa063fde4",
+    "commit": "628a41e20da52adb5582c3951b99e4bfefde7597",
     "local_path": "warehouse/remote/github.com_lijigang_ljg-skills@main"
   },
   "github.com_vercel-labs_agent-skills@main": {
@@ -45,7 +45,7 @@
     "type": "remote",
     "repo": "https://github.com/mattpocock/skills",
     "ref": "main",
-    "commit": "ecdadb4076fa0b88c5e14de2abf2a85775c32e57",
+    "commit": "49cec7be019bc408e87b77670f3d442f536da254",
     "local_path": "warehouse/remote/github.com_mattpocock_skills@main"
   }
 }
