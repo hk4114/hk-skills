@@ -1,0 +1,11 @@
+name: ian-handdrawn-ppt
+display_name: ian-handdrawn-ppt
+source:
+  type: remote
+  repo: https://github.com/helloianneo/ian-handdrawn-ppt
+  ref: main
+  commit: b2cc5f303337e5470fd6ac2870d261a43b218439
+status:
+  stage: adapted
+entry:
+  file: SKILL.md

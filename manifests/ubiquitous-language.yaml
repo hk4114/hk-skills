@@ -1,0 +1,11 @@
+name: ubiquitous-language
+display_name: ubiquitous-language
+source:
+  type: remote
+  repo: https://github.com/mattpocock/skills
+  ref: main
+  commit: ecdadb4076fa0b88c5e14de2abf2a85775c32e57
+status:
+  stage: adapted
+entry:
+  file: SKILL.md

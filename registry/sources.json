@@ -33,5 +33,19 @@
     "ref": "main",
     "commit": "fa2291c4d41f985987ccb48da7924b288f268538",
     "local_path": "warehouse/remote/github.com_KAOPU-XiaoPu_web-design@main"
+  },
+  "github.com_helloianneo_ian-handdrawn-ppt@main": {
+    "type": "remote",
+    "repo": "https://github.com/helloianneo/ian-handdrawn-ppt",
+    "ref": "main",
+    "commit": "b2cc5f303337e5470fd6ac2870d261a43b218439",
+    "local_path": "warehouse/remote/github.com_helloianneo_ian-handdrawn-ppt@main"
+  },
+  "github.com_mattpocock_skills@main": {
+    "type": "remote",
+    "repo": "https://github.com/mattpocock/skills",
+    "ref": "main",
+    "commit": "ecdadb4076fa0b88c5e14de2abf2a85775c32e57",
+    "local_path": "warehouse/remote/github.com_mattpocock_skills@main"
   }
 }

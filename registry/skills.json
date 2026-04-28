@@ -335,5 +335,203 @@
     "updated_at": "2026-04-27T07:38:16.430Z",
     "source_id": "github.com_KAOPU-XiaoPu_web-design@main",
     "subpath": ""
+  },
+  "ian-handdrawn-ppt": {
+    "manifest": "manifests/ian-handdrawn-ppt.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:36:33.093Z",
+    "source_id": "github.com_helloianneo_ian-handdrawn-ppt@main",
+    "subpath": "ian-handdrawn-ppt"
+  },
+  "design-an-interface": {
+    "manifest": "manifests/design-an-interface.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:24.730Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/deprecated/design-an-interface"
+  },
+  "triage-issue": {
+    "manifest": "manifests/triage-issue.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:26.806Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/deprecated/triage-issue"
+  },
+  "qa": {
+    "manifest": "manifests/qa.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:26.828Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/deprecated/qa"
+  },
+  "ubiquitous-language": {
+    "manifest": "manifests/ubiquitous-language.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:27.142Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/deprecated/ubiquitous-language"
+  },
+  "diagnose": {
+    "manifest": "manifests/diagnose.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:28.401Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/engineering/diagnose"
+  },
+  "github-triage": {
+    "manifest": "manifests/github-triage.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:29.755Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/engineering/github-triage"
+  },
+  "grill-with-docs": {
+    "manifest": "manifests/grill-with-docs.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:30.405Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/engineering/grill-with-docs"
+  },
+  "improve-codebase-architecture": {
+    "manifest": "manifests/improve-codebase-architecture.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:30.725Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/engineering/improve-codebase-architecture"
+  },
+  "tdd": {
+    "manifest": "manifests/tdd.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:31.576Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/engineering/tdd"
+  },
+  "to-issues": {
+    "manifest": "manifests/to-issues.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:34.380Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/engineering/to-issues"
+  },
+  "to-prd": {
+    "manifest": "manifests/to-prd.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:34.430Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/engineering/to-prd"
+  },
+  "zoom-out": {
+    "manifest": "manifests/zoom-out.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:34.934Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/engineering/zoom-out"
+  },
+  "git-guardrails-claude-code": {
+    "manifest": "manifests/git-guardrails-claude-code.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:35.628Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/misc/git-guardrails-claude-code"
+  },
+  "migrate-to-shoehorn": {
+    "manifest": "manifests/migrate-to-shoehorn.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:37.313Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/misc/migrate-to-shoehorn"
+  },
+  "scaffold-exercises": {
+    "manifest": "manifests/scaffold-exercises.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:37.989Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/misc/scaffold-exercises"
+  },
+  "setup-pre-commit": {
+    "manifest": "manifests/setup-pre-commit.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:38.563Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/misc/setup-pre-commit"
+  },
+  "edit-article": {
+    "manifest": "manifests/edit-article.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:39.781Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/personal/edit-article"
+  },
+  "obsidian-vault": {
+    "manifest": "manifests/obsidian-vault.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:41.456Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/personal/obsidian-vault"
+  },
+  "caveman": {
+    "manifest": "manifests/caveman.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:41.882Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/productivity/caveman"
+  },
+  "grill-me": {
+    "manifest": "manifests/grill-me.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:42.332Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/productivity/grill-me"
+  },
+  "write-a-skill": {
+    "manifest": "manifests/write-a-skill.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-28T10:55:42.901Z",
+    "source_id": "github.com_mattpocock_skills@main",
+    "subpath": "skills/productivity/write-a-skill"
   }
 }
