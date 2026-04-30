@@ -47,5 +47,12 @@
     "ref": "main",
     "commit": "49cec7be019bc408e87b77670f3d442f536da254",
     "local_path": "warehouse/remote/github.com_mattpocock_skills@main"
+  },
+  "github.com_ConardLi_garden-skills@main": {
+    "type": "remote",
+    "repo": "https://github.com/ConardLi/garden-skills.git",
+    "ref": "main",
+    "commit": "bc01fe78bc3cede57fc434ad88cbcd48a277f4bb",
+    "local_path": "warehouse/remote/github.com_ConardLi_garden-skills@main"
   }
 }

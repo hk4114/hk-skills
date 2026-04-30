@@ -533,5 +533,32 @@
     "updated_at": "2026-04-28T13:57:35.150Z",
     "source_id": "github.com_mattpocock_skills@main",
     "subpath": "skills/productivity/write-a-skill"
+  },
+  "gpt-image-2": {
+    "manifest": "manifests/gpt-image-2.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-30T08:48:40.446Z",
+    "source_id": "github.com_ConardLi_garden-skills@main",
+    "subpath": "skills/gpt-image-2"
+  },
+  "web-design-engineer": {
+    "manifest": "manifests/web-design-engineer.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-30T08:48:44.849Z",
+    "source_id": "github.com_ConardLi_garden-skills@main",
+    "subpath": "skills/web-design-engineer"
+  },
+  "kb-retriever": {
+    "manifest": "manifests/kb-retriever.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-04-30T08:48:46.164Z",
+    "source_id": "github.com_ConardLi_garden-skills@main",
+    "subpath": "skills/rag-skill"
   }
 }

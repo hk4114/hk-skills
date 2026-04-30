@@ -1,0 +1,11 @@
+name: gpt-image-2
+display_name: gpt-image-2
+source:
+  type: remote
+  repo: https://github.com/ConardLi/garden-skills.git
+  ref: main
+  commit: bc01fe78bc3cede57fc434ad88cbcd48a277f4bb
+status:
+  stage: adapted
+entry:
+  file: SKILL.md
