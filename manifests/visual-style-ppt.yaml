@@ -1,0 +1,11 @@
+name: visual-style-ppt
+display_name: visual-style-ppt
+source:
+  type: remote
+  repo: https://github.com/irenerachel/visual-style-ppt-skill
+  ref: main
+  commit: a1cca7d97c7a8992593fdf617a8a53e7348b0b3d
+status:
+  stage: adapted
+entry:
+  file: SKILL.md

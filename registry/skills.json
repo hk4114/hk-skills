@@ -560,5 +560,14 @@
     "updated_at": "2026-04-30T08:48:46.164Z",
     "source_id": "github.com_ConardLi_garden-skills@main",
     "subpath": "skills/rag-skill"
+  },
+  "visual-style-ppt": {
+    "manifest": "manifests/visual-style-ppt.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-03T07:52:44.799Z",
+    "source_id": "github.com_irenerachel_visual-style-ppt-skill@main",
+    "subpath": ""
   }
 }

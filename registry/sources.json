@@ -54,5 +54,12 @@
     "ref": "main",
     "commit": "bc01fe78bc3cede57fc434ad88cbcd48a277f4bb",
     "local_path": "warehouse/remote/github.com_ConardLi_garden-skills@main"
+  },
+  "github.com_irenerachel_visual-style-ppt-skill@main": {
+    "type": "remote",
+    "repo": "https://github.com/irenerachel/visual-style-ppt-skill",
+    "ref": "main",
+    "commit": "a1cca7d97c7a8992593fdf617a8a53e7348b0b3d",
+    "local_path": "warehouse/remote/github.com_irenerachel_visual-style-ppt-skill@main"
   }
 }

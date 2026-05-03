@@ -27,6 +27,21 @@ Rules:
 
 Interpret these Chinese shortcuts as first-class commands:
 
+### `生成目录` / `更新目录`
+
+Generate and translate the skill catalog:
+
+1. Run `./bin/hk-skill catalog` to generate raw data.
+2. Read `docs/catalog.md`.
+3. Translate and rewrite it into a **Chinese, user-facing catalog** with the following standards:
+   - **Bilingual triggers**: Keep English trigger keywords (agents match on these), but add Chinese translations/explanations.
+   - **Categorize by scenario**: Group skills into sections like 内容创作, 社交媒体, 图像处理, 网页设计, 开发辅助, 代码质量, 文档沟通, 知识管理 — NOT by source (remote/local).
+   - **One sentence per skill**: Each skill gets a concise one-line description in Chinese.
+   - **Mark deprecated skills**: Use ⛔ for deprecated skills (e.g., baoyu-image-gen, baoyu-xhs-images).
+   - **Separate enabled/disabled**: Clearly distinguish enabled skills from disabled ones.
+   - **Keep technical terms**: Keep skill names, CLI commands, and file paths in English.
+4. Write the translated catalog back to `docs/catalog.md`.
+
 ### `安装 {source}`
 
 Install `{source}` into this HK-Skills project:
