@@ -569,5 +569,194 @@
     "updated_at": "2026-05-03T07:52:44.799Z",
     "source_id": "github.com_irenerachel_visual-style-ppt-skill@main",
     "subpath": ""
+  },
+  "api-and-interface-design": {
+    "manifest": "manifests/api-and-interface-design.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:22.919Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/api-and-interface-design"
+  },
+  "browser-testing-with-devtools": {
+    "manifest": "manifests/browser-testing-with-devtools.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:23.913Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/browser-testing-with-devtools"
+  },
+  "ci-cd-and-automation": {
+    "manifest": "manifests/ci-cd-and-automation.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:25.732Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/ci-cd-and-automation"
+  },
+  "code-review-and-quality": {
+    "manifest": "manifests/code-review-and-quality.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:27.439Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/code-review-and-quality"
+  },
+  "code-simplification": {
+    "manifest": "manifests/code-simplification.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:28.677Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/code-simplification"
+  },
+  "context-engineering": {
+    "manifest": "manifests/context-engineering.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:30.569Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/context-engineering"
+  },
+  "debugging-and-error-recovery": {
+    "manifest": "manifests/debugging-and-error-recovery.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:31.878Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/debugging-and-error-recovery"
+  },
+  "deprecation-and-migration": {
+    "manifest": "manifests/deprecation-and-migration.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:33.598Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/deprecation-and-migration"
+  },
+  "documentation-and-adrs": {
+    "manifest": "manifests/documentation-and-adrs.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:35.222Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/documentation-and-adrs"
+  },
+  "frontend-ui-engineering": {
+    "manifest": "manifests/frontend-ui-engineering.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:36.860Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/frontend-ui-engineering"
+  },
+  "git-workflow-and-versioning": {
+    "manifest": "manifests/git-workflow-and-versioning.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:38.501Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/git-workflow-and-versioning"
+  },
+  "idea-refine": {
+    "manifest": "manifests/idea-refine.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:40.242Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/idea-refine"
+  },
+  "incremental-implementation": {
+    "manifest": "manifests/incremental-implementation.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:41.460Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/incremental-implementation"
+  },
+  "performance-optimization": {
+    "manifest": "manifests/performance-optimization.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:43.267Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/performance-optimization"
+  },
+  "planning-and-task-breakdown": {
+    "manifest": "manifests/planning-and-task-breakdown.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:44.758Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/planning-and-task-breakdown"
+  },
+  "security-and-hardening": {
+    "manifest": "manifests/security-and-hardening.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:46.359Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/security-and-hardening"
+  },
+  "shipping-and-launch": {
+    "manifest": "manifests/shipping-and-launch.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:47.979Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/shipping-and-launch"
+  },
+  "source-driven-development": {
+    "manifest": "manifests/source-driven-development.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:49.578Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/source-driven-development"
+  },
+  "spec-driven-development": {
+    "manifest": "manifests/spec-driven-development.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:51.167Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/spec-driven-development"
+  },
+  "test-driven-development": {
+    "manifest": "manifests/test-driven-development.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:52.640Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/test-driven-development"
+  },
+  "using-agent-skills": {
+    "manifest": "manifests/using-agent-skills.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_projects": [],
+    "updated_at": "2026-05-06T02:14:53.964Z",
+    "source_id": "github.com_addyosmani_agent-skills@main",
+    "subpath": "skills/using-agent-skills"
   }
 }

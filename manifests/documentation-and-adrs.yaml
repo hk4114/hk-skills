@@ -1,0 +1,11 @@
+name: documentation-and-adrs
+display_name: documentation-and-adrs
+source:
+  type: remote
+  repo: https://github.com/addyosmani/agent-skills
+  ref: main
+  commit: f504276d8e074912f4763e6163b436a4ffc74d0d
+status:
+  stage: adapted
+entry:
+  file: SKILL.md

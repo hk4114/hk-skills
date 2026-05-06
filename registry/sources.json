@@ -61,5 +61,12 @@
     "ref": "main",
     "commit": "a1cca7d97c7a8992593fdf617a8a53e7348b0b3d",
     "local_path": "warehouse/remote/github.com_irenerachel_visual-style-ppt-skill@main"
+  },
+  "github.com_addyosmani_agent-skills@main": {
+    "type": "remote",
+    "repo": "https://github.com/addyosmani/agent-skills",
+    "ref": "main",
+    "commit": "f504276d8e074912f4763e6163b436a4ffc74d0d",
+    "local_path": "warehouse/remote/github.com_addyosmani_agent-skills@main"
   }
 }
