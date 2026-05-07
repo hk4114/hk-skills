@@ -109,17 +109,6 @@
     "source_id": "github.com_JimLiu_baoyu-skills@main",
     "subpath": "skills/baoyu-image-cards"
   },
-  "baoyu-image-gen": {
-    "manifest": "manifests/baoyu-image-gen.yaml",
-    "installed": true,
-    "enabled_global": false,
-    "enabled_projects": [
-      "L1VzZXJzL2thbmVodWEvcHJvamVjdC9rYW5lX2luYm94"
-    ],
-    "updated_at": "2026-05-07T03:27:50.142Z",
-    "source_id": "github.com_JimLiu_baoyu-skills@main",
-    "subpath": "skills/baoyu-image-gen"
-  },
   "baoyu-imagine": {
     "manifest": "manifests/baoyu-imagine.yaml",
     "installed": true,
@@ -218,17 +207,6 @@
     "updated_at": "2026-05-07T03:27:50.486Z",
     "source_id": "github.com_JimLiu_baoyu-skills@main",
     "subpath": "skills/baoyu-url-to-markdown"
-  },
-  "baoyu-xhs-images": {
-    "manifest": "manifests/baoyu-xhs-images.yaml",
-    "installed": true,
-    "enabled_global": false,
-    "enabled_projects": [
-      "L1VzZXJzL2thbmVodWEvcHJvamVjdC9rYW5lX2luYm94"
-    ],
-    "updated_at": "2026-05-07T03:27:50.783Z",
-    "source_id": "github.com_JimLiu_baoyu-skills@main",
-    "subpath": "skills/baoyu-xhs-images"
   },
   "baoyu-youtube-transcript": {
     "manifest": "manifests/baoyu-youtube-transcript.yaml",
@@ -735,9 +713,9 @@
   "HeavySkill": {
     "manifest": "manifests/HeavySkill.yaml",
     "installed": true,
-    "enabled_global": false,
+    "enabled_global": true,
     "enabled_projects": [],
-    "updated_at": "2026-05-07T03:26:06.700Z",
+    "updated_at": "2026-05-07T10:43:02.297Z",
     "source_id": "local-heavyskill-adapted"
   }
 }
