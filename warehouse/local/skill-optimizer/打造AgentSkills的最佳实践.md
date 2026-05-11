@@ -1,10 +1,3 @@
----
-title: 打造AgentSkills的最佳实践
-date: 2024-01-01
-tags: [Agent, Skills, AI架构]
-keywords: [Agent Skills, AI Agent, LLM, Claude, frontmatter, 渐进式披露, 验证指南, SKILL.md]
----
-
 # 打造AgentSkills的最佳实践
 
 > 交互式页面：[飞行手册](https://ihpbgfzzwunny.ok.kimi.link/) ｜ [check list](https://wuqfrtom354fo.ok.kimi.link)

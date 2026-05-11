@@ -1,9 +1,3 @@
----
-title: AgentSkill学习笔记
-date: 2024-01-01
-tags: [Agent, Skills, AI架构, 学习笔记]
----
-
 # AgentSkill学习笔记
 
 ![Agent\_Skills\_Progressive\_Capability\_Encapsulation-图片-0.jpg](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/64133b5a33e94c4cbd00e99de984ec98~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgS2FuZUxvZ2dlcg==:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMzY1MDAzNDMzMzkxNzAzMSJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1773915158&x-orig-sign=MVQN%2BS3V5ndcOMrEMgy4LFv8Ahs%3D)
