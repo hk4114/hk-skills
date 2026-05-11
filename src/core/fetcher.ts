@@ -89,7 +89,8 @@ export async function fetchLocal(
   root: string,
   localPath: string
 ): Promise<string> {
-  const name = basename(localPath);
+  const resolvedPath = resolve(localPath);
+  const name = basename(resolvedPath);
   if (!name) {
     throw new Error("Could not derive skill name from local path");
   }
@@ -99,11 +100,16 @@ export async function fetchLocal(
 
   const targetPath = resolve(warehouseDir, name);
 
+  // If the source is already in warehouse/local, use it in place
+  if (resolvedPath === targetPath) {
+    return name;
+  }
+
   if (existsSync(targetPath)) {
     rmSync(targetPath, { recursive: true, force: true });
   }
 
-  cpSync(localPath, targetPath, { recursive: true });
+  cpSync(resolvedPath, targetPath, { recursive: true });
 
   return name;
 }

@@ -74,6 +74,22 @@ describe("fetchLocal", () => {
     fs.rmSync(root, { recursive: true, force: true });
     fs.rmSync(localSkillDir, { recursive: true, force: true });
   });
+
+  it("does not delete source when it is already inside warehouse/local", async () => {
+    const root = makeTempDir();
+    const skillName = "prompt-optimizer";
+    const targetDir = path.join(root, "warehouse", "local", skillName);
+    fs.mkdirSync(targetDir, { recursive: true });
+    fs.writeFileSync(path.join(targetDir, "SKILL.md"), "# Prompt Optimizer\n");
+
+    const result = await fetchLocal(root, targetDir);
+    expect(result).toBe(skillName);
+
+    expect(fs.existsSync(path.join(targetDir, "SKILL.md"))).toBe(true);
+    expect(fs.readFileSync(path.join(targetDir, "SKILL.md"), "utf-8")).toBe("# Prompt Optimizer\n");
+
+    fs.rmSync(root, { recursive: true, force: true });
+  });
 });
 
 describe("fetchRemote", () => {
