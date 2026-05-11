@@ -1,0 +1,29 @@
+# Complex Task Prompt Template
+
+Use this template for multi-step, multi-constraint tasks requiring examples.
+
+```xml
+<context>
+[Background and objectives]
+</context>
+
+<task>
+[Specific task description]
+</task>
+
+<constraints>
+[Hard constraints]
+</constraints>
+
+<examples>
+[Input/Output examples]
+</examples>
+
+<success_criteria>
+[What defines a good completion]
+</success_criteria>
+
+<output_format>
+[Format and structure requirements]
+</output_format>
+```
