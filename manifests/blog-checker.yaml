@@ -1,5 +1,5 @@
-name: merge-drafts
-display_name: merge-drafts
+name: blog-checker
+display_name: blog-checker
 source:
   type: local
 status:

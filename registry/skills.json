@@ -839,15 +839,6 @@
     "updated_at": "2026-05-12T08:12:26.641Z",
     "source_id": "local-subtext-article"
   },
-  "merge-drafts": {
-    "manifest": "manifests/merge-drafts.yaml",
-    "installed": true,
-    "enabled_global": false,
-    "enabled_global_ides": [],
-    "enabled_projects": [],
-    "updated_at": "2026-05-12T08:12:26.642Z",
-    "source_id": "local-merge-drafts"
-  },
   "skill-installer": {
     "manifest": "manifests/skill-installer.yaml",
     "installed": true,
@@ -869,5 +860,18 @@
     "enabled_projects": [],
     "updated_at": "2026-05-12T09:09:12.016Z",
     "source_id": "local-gotcha"
+  },
+  "blog-checker": {
+    "manifest": "manifests/blog-checker.yaml",
+    "installed": true,
+    "enabled_global": true,
+    "enabled_global_ides": [
+      "opencode",
+      "claude-code",
+      "universal"
+    ],
+    "enabled_projects": [],
+    "updated_at": "2026-05-12T10:26:26.630Z",
+    "source_id": "local-blog-checker"
   }
 }

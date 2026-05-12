@@ -92,10 +92,6 @@
     "type": "local",
     "local_path": "warehouse/local/subtext-article"
   },
-  "local-merge-drafts": {
-    "type": "local",
-    "local_path": "warehouse/local/merge-drafts"
-  },
   "local-skill-installer": {
     "type": "local",
     "local_path": "warehouse/local/skill-installer"
@@ -103,5 +99,9 @@
   "local-gotcha": {
     "type": "local",
     "local_path": "warehouse/local/gotcha"
+  },
+  "local-blog-checker": {
+    "type": "local",
+    "local_path": "warehouse/local/blog-checker"
   }
 }
