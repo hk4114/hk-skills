@@ -1,0 +1,5532 @@
+{
+  "font_size": 0.4,
+  "font_color": "#FFFFFF",
+  "background_alpha": 0.5,
+  "background_color": "#9C27B0",
+  "Stroke": "none",
+  "type": "AIsubtitle",
+  "lang": "zh",
+  "version": "v1.7.0.4",
+  "body": [
+    {
+      "from": 3.92,
+      "to": 4.72,
+      "sid": 1,
+      "location": 2,
+      "content": "答案很反直",
+      "music": 0.0
+    },
+    {
+      "from": 4.72,
+      "to": 4.92,
+      "sid": 2,
+      "location": 2,
+      "content": "觉",
+      "music": 0.0
+    },
+    {
+      "from": 4.92,
+      "to": 5.82,
+      "sid": 3,
+      "location": 2,
+      "content": "是现代社会",
+      "music": 0.0
+    },
+    {
+      "from": 10.7,
+      "to": 11.76,
+      "sid": 4,
+      "location": 2,
+      "content": "科技更发达",
+      "music": 0.0
+    },
+    {
+      "from": 11.76,
+      "to": 12.82,
+      "sid": 5,
+      "location": 2,
+      "content": "生活质量更好",
+      "music": 0.0
+    },
+    {
+      "from": 14.54,
+      "to": 15.98,
+      "sid": 6,
+      "location": 2,
+      "content": "特别是AI的出现",
+      "music": 0.0
+    },
+    {
+      "from": 15.98,
+      "to": 17.2,
+      "sid": 7,
+      "location": 2,
+      "content": "让趋势更加明显",
+      "music": 0.0
+    },
+    {
+      "from": 17.2,
+      "to": 18.1,
+      "sid": 8,
+      "location": 2,
+      "content": "提这个问题",
+      "music": 0.0
+    },
+    {
+      "from": 18.1,
+      "to": 19.96,
+      "sid": 9,
+      "location": 2,
+      "content": "不是在替封建制度辩护",
+      "music": 0.0
+    },
+    {
+      "from": 19.96,
+      "to": 21.54,
+      "sid": 10,
+      "location": 2,
+      "content": "也不是说科技是坏事",
+      "music": 0.0
+    },
+    {
+      "from": 21.54,
+      "to": 23.94,
+      "sid": 11,
+      "location": 2,
+      "content": "普通人的生活比100年前好太多",
+      "music": 0.0
+    },
+    {
+      "from": 23.94,
+      "to": 25.8,
+      "sid": 12,
+      "location": 2,
+      "content": "但问题是整体在变好",
+      "music": 0.0
+    },
+    {
+      "from": 25.8,
+      "to": 28.06,
+      "sid": 13,
+      "location": 2,
+      "content": "分配却越来越像顶端倾斜",
+      "music": 0.0
+    },
+    {
+      "from": 28.06,
+      "to": 29.62,
+      "sid": 14,
+      "location": 2,
+      "content": "这背后的机制是什么",
+      "music": 0.0
+    },
+    {
+      "from": 29.62,
+      "to": 30.56,
+      "sid": 15,
+      "location": 2,
+      "content": "是制度问题",
+      "music": 0.0
+    },
+    {
+      "from": 30.56,
+      "to": 31.58,
+      "sid": 16,
+      "location": 2,
+      "content": "社会形态问题",
+      "music": 0.0
+    },
+    {
+      "from": 31.58,
+      "to": 32.3,
+      "sid": 17,
+      "location": 2,
+      "content": "政策问题",
+      "music": 0.0
+    },
+    {
+      "from": 32.3,
+      "to": 34.34,
+      "sid": 18,
+      "location": 2,
+      "content": "亦或者是最简单的数学问题",
+      "music": 0.0
+    },
+    {
+      "from": 34.34,
+      "to": 36.58,
+      "sid": 19,
+      "location": 2,
+      "content": "从1980年到2030年",
+      "music": 0.0
+    },
+    {
+      "from": 36.58,
+      "to": 37.81,
+      "sid": 20,
+      "location": 2,
+      "content": "这43年间",
+      "music": 0.0
+    },
+    {
+      "from": 37.81,
+      "to": 40.09,
+      "sid": 21,
+      "location": 2,
+      "content": "全球最富的1%财富份额",
+      "music": 0.0
+    },
+    {
+      "from": 40.09,
+      "to": 42.33,
+      "sid": 22,
+      "location": 2,
+      "content": "从28%涨到了54%",
+      "music": 0.0
+    },
+    {
+      "from": 42.33,
+      "to": 44.16,
+      "sid": 23,
+      "location": 2,
+      "content": "同期最穷的50%",
+      "music": 0.0
+    },
+    {
+      "from": 44.16,
+      "to": 46.38,
+      "sid": 24,
+      "location": 2,
+      "content": "从9%跌到了不足1%",
+      "music": 0.0
+    },
+    {
+      "from": 46.38,
+      "to": 48.74,
+      "sid": 25,
+      "location": 2,
+      "content": "特别是1995年到2025年",
+      "music": 0.0
+    },
+    {
+      "from": 48.74,
+      "to": 49.46,
+      "sid": 26,
+      "location": 2,
+      "content": "这30年",
+      "music": 0.0
+    },
+    {
+      "from": 49.46,
+      "to": 51.3,
+      "sid": 27,
+      "location": 2,
+      "content": "全球总财富翻了三倍",
+      "music": 0.0
+    },
+    {
+      "from": 51.3,
+      "to": 54.26,
+      "sid": 28,
+      "location": 2,
+      "content": "其中顶层财富年均增速是8%",
+      "music": 0.0
+    },
+    {
+      "from": 54.26,
+      "to": 57.0,
+      "sid": 29,
+      "location": 2,
+      "content": "而后50%的普通人只有3.4%",
+      "music": 0.0
+    },
+    {
+      "from": 57.0,
+      "to": 57.54,
+      "sid": 30,
+      "location": 2,
+      "content": "都在涨",
+      "music": 0.0
+    },
+    {
+      "from": 57.54,
+      "to": 58.4,
+      "sid": 31,
+      "location": 2,
+      "content": "速度不一样",
+      "music": 0.0
+    },
+    {
+      "from": 58.4,
+      "to": 59.96,
+      "sid": 32,
+      "location": 2,
+      "content": "差距每一年都在拉大",
+      "music": 0.0
+    },
+    {
+      "from": 59.96,
+      "to": 61.38,
+      "sid": 33,
+      "location": 2,
+      "content": "这新增的全球财富里",
+      "music": 0.0
+    },
+    {
+      "from": 61.38,
+      "to": 63.36,
+      "sid": 34,
+      "location": 2,
+      "content": "少数富豪拿走了多数财富",
+      "music": 0.0
+    },
+    {
+      "from": 63.36,
+      "to": 64.88,
+      "sid": 35,
+      "location": 2,
+      "content": "短短不到两代人的时间",
+      "music": 0.0
+    },
+    {
+      "from": 64.88,
+      "to": 65.66,
+      "sid": 36,
+      "location": 2,
+      "content": "电脑普及",
+      "music": 0.0
+    },
+    {
+      "from": 65.66,
+      "to": 66.6,
+      "sid": 37,
+      "location": 2,
+      "content": "互联网诞生",
+      "music": 0.0
+    },
+    {
+      "from": 66.6,
+      "to": 67.78,
+      "sid": 38,
+      "location": 2,
+      "content": "移动互联网爆发",
+      "music": 0.0
+    },
+    {
+      "from": 67.78,
+      "to": 69.52,
+      "sid": 39,
+      "location": 2,
+      "content": "AI开始改变各行各业",
+      "music": 0.0
+    },
+    {
+      "from": 69.52,
+      "to": 71.36,
+      "sid": 40,
+      "location": 2,
+      "content": "科技发展最密集的40年",
+      "music": 0.0
+    },
+    {
+      "from": 71.36,
+      "to": 74.42,
+      "sid": 41,
+      "location": 2,
+      "content": "也是财富向顶层集中最明显的40年",
+      "music": 0.0
+    },
+    {
+      "from": 74.42,
+      "to": 75.12,
+      "sid": 42,
+      "location": 2,
+      "content": "另一方面",
+      "music": 0.0
+    },
+    {
+      "from": 75.12,
+      "to": 78.52,
+      "sid": 43,
+      "location": 2,
+      "content": "极端贫困人口从23亿降到8.31亿",
+      "music": 0.0
+    },
+    {
+      "from": 78.52,
+      "to": 80.64,
+      "sid": 44,
+      "location": 2,
+      "content": "人均预期寿命从66.8岁",
+      "music": 0.0
+    },
+    {
+      "from": 80.64,
+      "to": 82.08,
+      "sid": 45,
+      "location": 2,
+      "content": "涨到71.4岁",
+      "music": 0.0
+    },
+    {
+      "from": 82.08,
+      "to": 83.66,
+      "sid": 46,
+      "location": 2,
+      "content": "电力普及率92%",
+      "music": 0.0
+    },
+    {
+      "from": 83.66,
+      "to": 87.0,
+      "sid": 47,
+      "location": 2,
+      "content": "人均肉蛋奶摄入量比40年前增加了一半以上",
+      "music": 0.0
+    },
+    {
+      "from": 87.0,
+      "to": 88.44,
+      "sid": 48,
+      "location": 2,
+      "content": "把这两组数据并排",
+      "music": 0.0
+    },
+    {
+      "from": 88.44,
+      "to": 89.36,
+      "sid": 49,
+      "location": 2,
+      "content": "矛盾就出来了",
+      "music": 0.0
+    },
+    {
+      "from": 89.36,
+      "to": 91.0,
+      "sid": 50,
+      "location": 2,
+      "content": "科技进步让生活更好",
+      "music": 0.0
+    },
+    {
+      "from": 91.0,
+      "to": 91.58,
+      "sid": 51,
+      "location": 2,
+      "content": "这是真的",
+      "music": 0.0
+    },
+    {
+      "from": 91.58,
+      "to": 92.42,
+      "sid": 52,
+      "location": 2,
+      "content": "蛋糕做大",
+      "music": 0.0
+    },
+    {
+      "from": 92.42,
+      "to": 95.02,
+      "sid": 53,
+      "location": 2,
+      "content": "但分蛋糕的规则越来越向少数人倾斜",
+      "music": 0.0
+    },
+    {
+      "from": 95.02,
+      "to": 95.66,
+      "sid": 54,
+      "location": 2,
+      "content": "也是真的",
+      "music": 0.0
+    },
+    {
+      "from": 95.66,
+      "to": 98.36,
+      "sid": 55,
+      "location": 2,
+      "content": "这种结果到底是市场自然运转的产物",
+      "music": 0.0
+    },
+    {
+      "from": 98.36,
+      "to": 100.64,
+      "sid": 56,
+      "location": 2,
+      "content": "还是某种意义上被塑造出来的",
+      "music": 0.0
+    },
+    {
+      "from": 100.64,
+      "to": 102.24,
+      "sid": 57,
+      "location": 2,
+      "content": "对此多数中间派认为",
+      "music": 0.0
+    },
+    {
+      "from": 104.86,
+      "to": 107.58,
+      "sid": 58,
+      "location": 2,
+      "content": "财富集中是创造价值之后的市场回报",
+      "music": 0.0
+    },
+    {
+      "from": 107.58,
+      "to": 108.54,
+      "sid": 59,
+      "location": 2,
+      "content": "亚马逊苹果",
+      "music": 0.0
+    },
+    {
+      "from": 108.54,
+      "to": 111.26,
+      "sid": 60,
+      "location": 2,
+      "content": "谷歌让几10亿人用上了更便宜的商品",
+      "music": 0.0
+    },
+    {
+      "from": 111.26,
+      "to": 112.08,
+      "sid": 61,
+      "location": 2,
+      "content": "更好的手机",
+      "music": 0.0
+    },
+    {
+      "from": 112.08,
+      "to": 113.36,
+      "sid": 62,
+      "location": 2,
+      "content": "更快的信息检索",
+      "music": 0.0
+    },
+    {
+      "from": 113.36,
+      "to": 114.5,
+      "sid": 63,
+      "location": 2,
+      "content": "股东获得高回报",
+      "music": 0.0
+    },
+    {
+      "from": 114.5,
+      "to": 117.84,
+      "sid": 64,
+      "location": 2,
+      "content": "是市场在奖励他们承担的风险和完成的创新",
+      "music": 0.0
+    },
+    {
+      "from": 117.84,
+      "to": 120.54,
+      "sid": 65,
+      "location": 2,
+      "content": "这套逻辑在主流经济学里有大量支撑",
+      "music": 0.0
+    },
+    {
+      "from": 120.54,
+      "to": 122.08,
+      "sid": 66,
+      "location": 2,
+      "content": "也有它真实成立的部分",
+      "music": 0.0
+    },
+    {
+      "from": 122.08,
+      "to": 123.7,
+      "sid": 67,
+      "location": 2,
+      "content": "但也有人不认可这个观点",
+      "music": 0.0
+    },
+    {
+      "from": 123.7,
+      "to": 125.96,
+      "sid": 68,
+      "location": 2,
+      "content": "并提出了一个十分尖锐的问题",
+      "music": 0.0
+    },
+    {
+      "from": 125.96,
+      "to": 127.38,
+      "sid": 69,
+      "location": 2,
+      "content": "市场也是有规则的",
+      "music": 0.0
+    },
+    {
+      "from": 127.38,
+      "to": 128.74,
+      "sid": 70,
+      "location": 2,
+      "content": "能更好利用规则的人",
+      "music": 0.0
+    },
+    {
+      "from": 128.74,
+      "to": 130.16,
+      "sid": 71,
+      "location": 2,
+      "content": "自然能获得更多的财富",
+      "music": 0.0
+    },
+    {
+      "from": 130.16,
+      "to": 132.3,
+      "sid": 72,
+      "location": 2,
+      "content": "所以规则由谁来制定很重要",
+      "music": 0.0
+    },
+    {
+      "from": 132.3,
+      "to": 135.62,
+      "sid": 73,
+      "location": 2,
+      "content": "对此斯蒂格利茨皮凯蒂这些经济学家认为",
+      "music": 0.0
+    },
+    {
+      "from": 135.62,
+      "to": 137.02,
+      "sid": 74,
+      "location": 2,
+      "content": "规则本身不是中性的",
+      "music": 0.0
+    },
+    {
+      "from": 137.02,
+      "to": 139.84,
+      "sid": 75,
+      "location": 2,
+      "content": "而在系统性的向有利于以资本的方向倾斜",
+      "music": 0.0
+    },
+    {
+      "from": 139.84,
+      "to": 140.86,
+      "sid": 76,
+      "location": 2,
+      "content": "比如税率结构",
+      "music": 0.0
+    },
+    {
+      "from": 140.86,
+      "to": 141.56,
+      "sid": 77,
+      "location": 2,
+      "content": "在美国",
+      "music": 0.0
+    },
+    {
+      "from": 141.56,
+      "to": 144.58,
+      "sid": 78,
+      "location": 2,
+      "content": "工薪阶层的最高边际税率可以到37%",
+      "music": 0.0
+    },
+    {
+      "from": 144.58,
+      "to": 147.48,
+      "sid": 79,
+      "location": 2,
+      "content": "但持有股票等资产的长期资本利得",
+      "music": 0.0
+    },
+    {
+      "from": 147.48,
+      "to": 149.14,
+      "sid": 80,
+      "location": 2,
+      "content": "税率不超过20%",
+      "music": 0.0
+    },
+    {
+      "from": 149.14,
+      "to": 151.44,
+      "sid": 81,
+      "location": 2,
+      "content": "其次版权保护期的持续延长",
+      "music": 0.0
+    },
+    {
+      "from": 151.44,
+      "to": 153.42,
+      "sid": 82,
+      "location": 2,
+      "content": "1976年的美国版权法规定",
+      "music": 0.0
+    },
+    {
+      "from": 153.42,
+      "to": 154.7,
+      "sid": 83,
+      "location": 2,
+      "content": "保护期是56年",
+      "music": 0.0
+    },
+    {
+      "from": 154.7,
+      "to": 155.92,
+      "sid": 84,
+      "location": 2,
+      "content": "后来多次修改",
+      "music": 0.0
+    },
+    {
+      "from": 155.92,
+      "to": 158.14,
+      "sid": 85,
+      "location": 2,
+      "content": "现在延长到了95年乃至更长",
+      "music": 0.0
+    },
+    {
+      "from": 158.14,
+      "to": 161.6,
+      "sid": 86,
+      "location": 2,
+      "content": "批评者把其中一次延长法案叫米老鼠保护法",
+      "music": 0.0
+    },
+    {
+      "from": 161.6,
+      "to": 164.44,
+      "sid": 87,
+      "location": 2,
+      "content": "每当迪士尼旗下的重要版权快到期",
+      "music": 0.0
+    },
+    {
+      "from": 164.44,
+      "to": 166.14,
+      "sid": 88,
+      "location": 2,
+      "content": "新的延长立法就会出现",
+      "music": 0.0
+    },
+    {
+      "from": 166.14,
+      "to": 167.64,
+      "sid": 89,
+      "location": 2,
+      "content": "一直到实在拖不动了",
+      "music": 0.0
+    },
+    {
+      "from": 167.64,
+      "to": 169.6,
+      "sid": 90,
+      "location": 2,
+      "content": "接着是离岸避税的合法化",
+      "music": 0.0
+    },
+    {
+      "from": 169.6,
+      "to": 172.62,
+      "sid": 91,
+      "location": 2,
+      "content": "苹果谷歌等科技公司通过在爱尔兰",
+      "music": 0.0
+    },
+    {
+      "from": 172.62,
+      "to": 174.42,
+      "sid": 92,
+      "location": 2,
+      "content": "卢森堡设立子公司的结构",
+      "music": 0.0
+    },
+    {
+      "from": 174.42,
+      "to": 177.02,
+      "sid": 93,
+      "location": 2,
+      "content": "把大量利润合法地转移到低税区",
+      "music": 0.0
+    },
+    {
+      "from": 177.02,
+      "to": 179.1,
+      "sid": 94,
+      "location": 2,
+      "content": "这套安排完全合乎法律",
+      "music": 0.0
+    },
+    {
+      "from": 179.1,
+      "to": 180.92,
+      "sid": 95,
+      "location": 2,
+      "content": "但普通工薪组没有条件",
+      "music": 0.0
+    },
+    {
+      "from": 180.92,
+      "to": 182.3,
+      "sid": 96,
+      "location": 2,
+      "content": "也没有资源去搭建",
+      "music": 0.0
+    },
+    {
+      "from": 182.3,
+      "to": 183.9,
+      "sid": 97,
+      "location": 2,
+      "content": "面对同样的税收问题",
+      "music": 0.0
+    },
+    {
+      "from": 183.9,
+      "to": 186.0,
+      "sid": 98,
+      "location": 2,
+      "content": "两边适用的工具即完全不同",
+      "music": 0.0
+    },
+    {
+      "from": 186.0,
+      "to": 186.96,
+      "sid": 99,
+      "location": 2,
+      "content": "在这种情况下",
+      "music": 0.0
+    },
+    {
+      "from": 186.96,
+      "to": 189.48,
+      "sid": 100,
+      "location": 2,
+      "content": "资本与劳动的流动性就会出现不对等",
+      "music": 0.0
+    },
+    {
+      "from": 189.48,
+      "to": 190.66,
+      "sid": 101,
+      "location": 2,
+      "content": "金融规则的放宽",
+      "music": 0.0
+    },
+    {
+      "from": 190.66,
+      "to": 192.72,
+      "sid": 102,
+      "location": 2,
+      "content": "让资本可以在全球自由流动",
+      "music": 0.0
+    },
+    {
+      "from": 192.72,
+      "to": 195.34,
+      "sid": 103,
+      "location": 2,
+      "content": "但劳动力的跨国流动依然受签证制度",
+      "music": 0.0
+    },
+    {
+      "from": 195.34,
+      "to": 196.28,
+      "sid": 104,
+      "location": 2,
+      "content": "国籍限制",
+      "music": 0.0
+    },
+    {
+      "from": 196.28,
+      "to": 197.86,
+      "sid": 105,
+      "location": 2,
+      "content": "户籍管理的严格约束",
+      "music": 0.0
+    },
+    {
+      "from": 197.86,
+      "to": 199.52,
+      "sid": 106,
+      "location": 2,
+      "content": "这些规则方向是一致的",
+      "music": 0.0
+    },
+    {
+      "from": 199.52,
+      "to": 201.46,
+      "sid": 107,
+      "location": 2,
+      "content": "降低资本的摩擦和成本",
+      "music": 0.0
+    },
+    {
+      "from": 201.46,
+      "to": 204.28,
+      "sid": 108,
+      "location": 2,
+      "content": "同时维持甚至加重劳动所面对的壁垒",
+      "music": 0.0
+    },
+    {
+      "from": 204.28,
+      "to": 205.12,
+      "sid": 109,
+      "location": 2,
+      "content": "最有意思的是",
+      "music": 0.0
+    },
+    {
+      "from": 205.12,
+      "to": 206.32,
+      "sid": 110,
+      "location": 2,
+      "content": "这一系列的法律",
+      "music": 0.0
+    },
+    {
+      "from": 206.32,
+      "to": 209.24,
+      "sid": 111,
+      "location": 2,
+      "content": "不是在一开始就被提前设定好的",
+      "music": 0.0
+    },
+    {
+      "from": 209.24,
+      "to": 210.84,
+      "sid": 112,
+      "location": 2,
+      "content": "而是在发展的过程当中",
+      "music": 0.0
+    },
+    {
+      "from": 210.84,
+      "to": 212.78,
+      "sid": 113,
+      "location": 2,
+      "content": "不约而同地被人选择出来的",
+      "music": 0.0
+    },
+    {
+      "from": 212.78,
+      "to": 214.3,
+      "sid": 114,
+      "location": 2,
+      "content": "但当手里有资本的人",
+      "music": 0.0
+    },
+    {
+      "from": 214.3,
+      "to": 216.72,
+      "sid": 115,
+      "location": 2,
+      "content": "同时拥有更多政治资源和话语权",
+      "music": 0.0
+    },
+    {
+      "from": 216.72,
+      "to": 220.2,
+      "sid": 116,
+      "location": 2,
+      "content": "规则就会系统性向有利于资本的方向慢慢演化",
+      "music": 0.0
+    },
+    {
+      "from": 220.2,
+      "to": 221.34,
+      "sid": 117,
+      "location": 2,
+      "content": "这是结构性的结果",
+      "music": 0.0
+    },
+    {
+      "from": 221.34,
+      "to": 222.16,
+      "sid": 118,
+      "location": 2,
+      "content": "不需要阴谋",
+      "music": 0.0
+    },
+    {
+      "from": 222.16,
+      "to": 224.08,
+      "sid": 119,
+      "location": 2,
+      "content": "只需要利益驱动和时间",
+      "music": 0.0
+    },
+    {
+      "from": 224.08,
+      "to": 226.84,
+      "sid": 120,
+      "location": 2,
+      "content": "诺贝尔经济学奖得主乔治斯蒂格勒",
+      "music": 0.0
+    },
+    {
+      "from": 226.84,
+      "to": 228.52,
+      "sid": 121,
+      "location": 2,
+      "content": "有一个监管俘获理论",
+      "music": 0.0
+    },
+    {
+      "from": 228.52,
+      "to": 229.62,
+      "sid": 122,
+      "location": 2,
+      "content": "受监管的行业",
+      "music": 0.0
+    },
+    {
+      "from": 229.62,
+      "to": 232.12,
+      "sid": 123,
+      "location": 2,
+      "content": "最终会反过来影响监管规则的制定",
+      "music": 0.0
+    },
+    {
+      "from": 232.12,
+      "to": 235.14,
+      "sid": 124,
+      "location": 2,
+      "content": "本身规则会被那些最能从中受益的人",
+      "music": 0.0
+    },
+    {
+      "from": 235.14,
+      "to": 237.44,
+      "sid": 125,
+      "location": 2,
+      "content": "慢慢塑造成对自己有利的形状",
+      "music": 0.0
+    },
+    {
+      "from": 237.44,
+      "to": 238.84,
+      "sid": 126,
+      "location": 2,
+      "content": "这是有实证支撑的",
+      "music": 0.0
+    },
+    {
+      "from": 238.84,
+      "to": 240.86,
+      "sid": 127,
+      "location": 2,
+      "content": "经济学理论从这个角度开始入手",
+      "music": 0.0
+    },
+    {
+      "from": 240.86,
+      "to": 243.48,
+      "sid": 128,
+      "location": 2,
+      "content": "大家就会发现问题还不止于规则",
+      "music": 0.0
+    },
+    {
+      "from": 243.48,
+      "to": 245.06,
+      "sid": 129,
+      "location": 2,
+      "content": "财富的自我复制能力",
+      "music": 0.0
+    },
+    {
+      "from": 245.06,
+      "to": 246.96,
+      "sid": 130,
+      "location": 2,
+      "content": "从数学上就已经保证了",
+      "music": 0.0
+    },
+    {
+      "from": 246.96,
+      "to": 248.2,
+      "sid": 131,
+      "location": 2,
+      "content": "分化会持续扩大",
+      "music": 0.0
+    },
+    {
+      "from": 248.2,
+      "to": 249.42,
+      "sid": 132,
+      "location": 2,
+      "content": "更跟道德没有关系",
+      "music": 0.0
+    },
+    {
+      "from": 249.42,
+      "to": 250.62,
+      "sid": 133,
+      "location": 2,
+      "content": "而在这种规则之下",
+      "music": 0.0
+    },
+    {
+      "from": 250.62,
+      "to": 252.98,
+      "sid": 134,
+      "location": 2,
+      "content": "普通人交税的比例远高于富豪",
+      "music": 0.0
+    },
+    {
+      "from": 252.98,
+      "to": 254.12,
+      "sid": 135,
+      "location": 2,
+      "content": "别说你没交过税",
+      "music": 0.0
+    },
+    {
+      "from": 254.12,
+      "to": 255.38,
+      "sid": 136,
+      "location": 2,
+      "content": "增值税也是税",
+      "music": 0.0
+    },
+    {
+      "from": 255.38,
+      "to": 257.66,
+      "sid": 137,
+      "location": 2,
+      "content": "同时普通人投资总是慢人一步",
+      "music": 0.0
+    },
+    {
+      "from": 257.66,
+      "to": 259.86,
+      "sid": 138,
+      "location": 2,
+      "content": "等到肉被吃完了才能找机会喝汤",
+      "music": 0.0
+    },
+    {
+      "from": 259.86,
+      "to": 262.4,
+      "sid": 139,
+      "location": 2,
+      "content": "还得避免自己不会成为别人的口粮",
+      "music": 0.0
+    },
+    {
+      "from": 262.4,
+      "to": 264.42,
+      "sid": 140,
+      "location": 2,
+      "content": "同时拥有先发优势的阶层",
+      "music": 0.0
+    },
+    {
+      "from": 264.42,
+      "to": 265.48,
+      "sid": 141,
+      "location": 2,
+      "content": "能无限扩大",
+      "music": 0.0
+    },
+    {
+      "from": 265.48,
+      "to": 266.12,
+      "sid": 142,
+      "location": 2,
+      "content": "这些优势",
+      "music": 0.0
+    },
+    {
+      "from": 266.12,
+      "to": 266.86,
+      "sid": 143,
+      "location": 2,
+      "content": "从财富",
+      "music": 0.0
+    },
+    {
+      "from": 266.86,
+      "to": 267.38,
+      "sid": 144,
+      "location": 2,
+      "content": "产业",
+      "music": 0.0
+    },
+    {
+      "from": 267.38,
+      "to": 269.62,
+      "sid": 145,
+      "location": 2,
+      "content": "教育认知等方面全面领先",
+      "music": 0.0
+    },
+    {
+      "from": 269.62,
+      "to": 270.3,
+      "sid": 146,
+      "location": 2,
+      "content": "最绝的是",
+      "music": 0.0
+    },
+    {
+      "from": 270.3,
+      "to": 271.4,
+      "sid": 147,
+      "location": 2,
+      "content": "在经济下行时",
+      "music": 0.0
+    },
+    {
+      "from": 271.4,
+      "to": 274.42,
+      "sid": 148,
+      "location": 2,
+      "content": "普通家庭可能需要变卖资产维持生活",
+      "music": 0.0
+    },
+    {
+      "from": 274.42,
+      "to": 275.98,
+      "sid": 149,
+      "location": 2,
+      "content": "但有有足够资本的人",
+      "music": 0.0
+    },
+    {
+      "from": 275.98,
+      "to": 278.08,
+      "sid": 150,
+      "location": 2,
+      "content": "却可以低价购入优质资产",
+      "music": 0.0
+    },
+    {
+      "from": 278.08,
+      "to": 279.14,
+      "sid": 151,
+      "location": 2,
+      "content": "危机结束之后",
+      "music": 0.0
+    },
+    {
+      "from": 279.14,
+      "to": 279.98,
+      "sid": 152,
+      "location": 2,
+      "content": "资产回涨",
+      "music": 0.0
+    },
+    {
+      "from": 279.98,
+      "to": 281.66,
+      "sid": 153,
+      "location": 2,
+      "content": "差距比危机之前更大",
+      "music": 0.0
+    },
+    {
+      "from": 284.66,
+      "to": 286.22,
+      "sid": 154,
+      "location": 2,
+      "content": "所以财富不只是一堆钱",
+      "music": 0.0
+    },
+    {
+      "from": 286.22,
+      "to": 288.42,
+      "sid": 155,
+      "location": 2,
+      "content": "它是一套持续运转的复利系统",
+      "music": 0.0
+    },
+    {
+      "from": 288.42,
+      "to": 289.42,
+      "sid": 156,
+      "location": 2,
+      "content": "有这套系统的人",
+      "music": 0.0
+    },
+    {
+      "from": 289.42,
+      "to": 290.68,
+      "sid": 157,
+      "location": 2,
+      "content": "系统在替他工作",
+      "music": 0.0
+    },
+    {
+      "from": 290.68,
+      "to": 293.12,
+      "sid": 158,
+      "location": 2,
+      "content": "没有的人只有自己在工作时间越长",
+      "music": 0.0
+    },
+    {
+      "from": 293.12,
+      "to": 295.28,
+      "sid": 159,
+      "location": 2,
+      "content": "这个差距的数学逻辑越清晰",
+      "music": 0.0
+    },
+    {
+      "from": 295.28,
+      "to": 297.34,
+      "sid": 160,
+      "location": 2,
+      "content": "跟主观努力的关系反而越来越小",
+      "music": 0.0
+    },
+    {
+      "from": 297.34,
+      "to": 298.6,
+      "sid": 161,
+      "location": 2,
+      "content": "一开始努力有效",
+      "music": 0.0
+    },
+    {
+      "from": 298.6,
+      "to": 300.08,
+      "sid": 162,
+      "location": 2,
+      "content": "接下来选择大于努力",
+      "music": 0.0
+    },
+    {
+      "from": 300.08,
+      "to": 302.36,
+      "sid": 163,
+      "location": 2,
+      "content": "到最后连选择本本身都需要门槛",
+      "music": 0.0
+    },
+    {
+      "from": 303.76,
+      "to": 305.82,
+      "sid": 164,
+      "location": 2,
+      "content": "不是所谓的道德和人性问题",
+      "music": 0.0
+    },
+    {
+      "from": 305.82,
+      "to": 307.62,
+      "sid": 165,
+      "location": 2,
+      "content": "它是一个系统性的结构问题",
+      "music": 0.0
+    },
+    {
+      "from": 307.62,
+      "to": 309.78,
+      "sid": 166,
+      "location": 2,
+      "content": "当规则制定权和资产增值能力",
+      "music": 0.0
+    },
+    {
+      "from": 309.78,
+      "to": 311.08,
+      "sid": 167,
+      "location": 2,
+      "content": "集中在同一群人手里",
+      "music": 0.0
+    },
+    {
+      "from": 311.08,
+      "to": 312.42,
+      "sid": 168,
+      "location": 2,
+      "content": "财富向顶层积聚",
+      "music": 0.0
+    },
+    {
+      "from": 312.42,
+      "to": 314.08,
+      "sid": 169,
+      "location": 2,
+      "content": "就是这套系统的正常输出",
+      "music": 0.0
+    },
+    {
+      "from": 314.08,
+      "to": 315.4,
+      "sid": 170,
+      "location": 2,
+      "content": "当然到这里还有人会说",
+      "music": 0.0
+    },
+    {
+      "from": 315.4,
+      "to": 316.82,
+      "sid": 171,
+      "location": 2,
+      "content": "钱是为全服务的",
+      "music": 0.0
+    },
+    {
+      "from": 316.82,
+      "to": 318.48,
+      "sid": 172,
+      "location": 2,
+      "content": "所以权力等于财力",
+      "music": 0.0
+    },
+    {
+      "from": 318.48,
+      "to": 319.26,
+      "sid": 173,
+      "location": 2,
+      "content": "从古至今",
+      "music": 0.0
+    },
+    {
+      "from": 319.26,
+      "to": 320.5,
+      "sid": 174,
+      "location": 2,
+      "content": "权钱从不分家",
+      "music": 0.0
+    },
+    {
+      "from": 320.5,
+      "to": 323.3,
+      "sid": 175,
+      "location": 2,
+      "content": "可现代社会的权威远不如古代的皇权",
+      "music": 0.0
+    },
+    {
+      "from": 323.3,
+      "to": 324.4,
+      "sid": 176,
+      "location": 2,
+      "content": "那般不可侵犯",
+      "music": 0.0
+    },
+    {
+      "from": 324.4,
+      "to": 326.68,
+      "sid": 177,
+      "location": 2,
+      "content": "但为什么贫富差距却比古代更大",
+      "music": 0.0
+    },
+    {
+      "from": 326.68,
+      "to": 327.84,
+      "sid": 178,
+      "location": 2,
+      "content": "要解答这个问题",
+      "music": 0.0
+    },
+    {
+      "from": 327.84,
+      "to": 330.08,
+      "sid": 179,
+      "location": 2,
+      "content": "我们就得从古古代人的视角去看待",
+      "music": 0.0
+    },
+    {
+      "from": 330.08,
+      "to": 331.8,
+      "sid": 180,
+      "location": 2,
+      "content": "假设你是汉代的皇帝",
+      "music": 0.0
+    },
+    {
+      "from": 331.8,
+      "to": 335.02,
+      "sid": 181,
+      "location": 2,
+      "content": "决定对河南的农民征收五成的两税",
+      "music": 0.0
+    },
+    {
+      "from": 335.02,
+      "to": 336.56,
+      "sid": 182,
+      "location": 2,
+      "content": "这听起来是绝对的权利",
+      "music": 0.0
+    },
+    {
+      "from": 336.56,
+      "to": 337.86,
+      "sid": 183,
+      "location": 2,
+      "content": "但真正落地执行",
+      "music": 0.0
+    },
+    {
+      "from": 337.86,
+      "to": 340.98,
+      "sid": 184,
+      "location": 2,
+      "content": "你会马上遇到一连串绕不过去的现实问题",
+      "music": 0.0
+    },
+    {
+      "from": 340.98,
+      "to": 344.4,
+      "sid": 185,
+      "location": 2,
+      "content": "第一步要先下派官员去良田丈量土地",
+      "music": 0.0
+    },
+    {
+      "from": 344.4,
+      "to": 345.74,
+      "sid": 186,
+      "location": 2,
+      "content": "统计每户产量",
+      "music": 0.0
+    },
+    {
+      "from": 345.74,
+      "to": 346.6,
+      "sid": 187,
+      "location": 2,
+      "content": "建立台账",
+      "music": 0.0
+    },
+    {
+      "from": 346.6,
+      "to": 347.92,
+      "sid": 188,
+      "location": 2,
+      "content": "这批官员要发俸禄",
+      "music": 0.0
+    },
+    {
+      "from": 347.92,
+      "to": 350.68,
+      "sid": 189,
+      "location": 2,
+      "content": "配给粮草是一笔固定的行政成本",
+      "music": 0.0
+    },
+    {
+      "from": 350.68,
+      "to": 351.86,
+      "sid": 190,
+      "location": 2,
+      "content": "得先从财政里出",
+      "music": 0.0
+    },
+    {
+      "from": 351.86,
+      "to": 352.4,
+      "sid": 191,
+      "location": 2,
+      "content": "第二步",
+      "music": 0.0
+    },
+    {
+      "from": 352.4,
+      "to": 353.76,
+      "sid": 192,
+      "location": 2,
+      "content": "粮食收上来之后",
+      "music": 0.0
+    },
+    {
+      "from": 353.76,
+      "to": 355.26,
+      "sid": 193,
+      "location": 2,
+      "content": "要从河南运往长安",
+      "music": 0.0
+    },
+    {
+      "from": 355.26,
+      "to": 356.7,
+      "sid": 194,
+      "location": 2,
+      "content": "古代道路条件有限",
+      "music": 0.0
+    },
+    {
+      "from": 356.7,
+      "to": 360.48,
+      "sid": 195,
+      "location": 2,
+      "content": "运输靠车马和民夫途中的物理损耗是结构性",
+      "music": 0.0
+    },
+    {
+      "from": 360.48,
+      "to": 361.0,
+      "sid": 196,
+      "location": 2,
+      "content": "粮食",
+      "music": 0.0
+    },
+    {
+      "from": 361.0,
+      "to": 361.6,
+      "sid": 197,
+      "location": 2,
+      "content": "受潮发霉",
+      "music": 0.0
+    },
+    {
+      "from": 361.6,
+      "to": 362.36,
+      "sid": 198,
+      "location": 2,
+      "content": "车轴断裂",
+      "music": 0.0
+    },
+    {
+      "from": 362.36,
+      "to": 363.04,
+      "sid": 199,
+      "location": 2,
+      "content": "道路颠簸",
+      "music": 0.0
+    },
+    {
+      "from": 363.04,
+      "to": 365.96,
+      "sid": 200,
+      "location": 2,
+      "content": "通常估算在15%到40%之间",
+      "music": 0.0
+    },
+    {
+      "from": 365.96,
+      "to": 367.24,
+      "sid": 201,
+      "location": 2,
+      "content": "无论换谁来管",
+      "music": 0.0
+    },
+    {
+      "from": 367.24,
+      "to": 367.86,
+      "sid": 202,
+      "location": 2,
+      "content": "都避不开",
+      "music": 0.0
+    },
+    {
+      "from": 367.86,
+      "to": 368.42,
+      "sid": 203,
+      "location": 2,
+      "content": "第三步",
+      "music": 0.0
+    },
+    {
+      "from": 368.42,
+      "to": 370.22,
+      "sid": 204,
+      "location": 2,
+      "content": "这批粮食在底抵达之前",
+      "music": 0.0
+    },
+    {
+      "from": 370.22,
+      "to": 372.42,
+      "sid": 205,
+      "location": 2,
+      "content": "要经过好几层官员的守县令",
+      "music": 0.0
+    },
+    {
+      "from": 372.42,
+      "to": 373.48,
+      "sid": 206,
+      "location": 2,
+      "content": "郡守漕运关",
+      "music": 0.0
+    },
+    {
+      "from": 373.48,
+      "to": 375.6,
+      "sid": 207,
+      "location": 2,
+      "content": "每过一层都会有一部分被截留",
+      "music": 0.0
+    },
+    {
+      "from": 375.6,
+      "to": 377.12,
+      "sid": 208,
+      "location": 2,
+      "content": "这不完全是腐败",
+      "music": 0.0
+    },
+    {
+      "from": 377.12,
+      "to": 380.4,
+      "sid": 209,
+      "location": 2,
+      "content": "相当程度上这是当时制度默许的运行成本",
+      "music": 0.0
+    },
+    {
+      "from": 380.4,
+      "to": 382.82,
+      "sid": 210,
+      "location": 2,
+      "content": "地方官的部分实际收入就来自这里",
+      "music": 0.0
+    },
+    {
+      "from": 382.82,
+      "to": 383.84,
+      "sid": 211,
+      "location": 2,
+      "content": "中央心里清楚",
+      "music": 0.0
+    },
+    {
+      "from": 383.84,
+      "to": 384.4,
+      "sid": 212,
+      "location": 2,
+      "content": "不过分",
+      "music": 0.0
+    },
+    {
+      "from": 384.4,
+      "to": 385.7,
+      "sid": 213,
+      "location": 2,
+      "content": "就睁一只眼闭一只眼",
+      "music": 0.0
+    },
+    {
+      "from": 385.7,
+      "to": 386.28,
+      "sid": 214,
+      "location": 2,
+      "content": "第四步",
+      "music": 0.0
+    },
+    {
+      "from": 386.28,
+      "to": 387.24,
+      "sid": 215,
+      "location": 2,
+      "content": "粮食到了仓库",
+      "music": 0.0
+    },
+    {
+      "from": 387.24,
+      "to": 388.24,
+      "sid": 216,
+      "location": 2,
+      "content": "还有仓储损耗",
+      "music": 0.0
+    },
+    {
+      "from": 388.24,
+      "to": 388.98,
+      "sid": 217,
+      "location": 2,
+      "content": "生虫发霉",
+      "music": 0.0
+    },
+    {
+      "from": 388.98,
+      "to": 391.24,
+      "sid": 218,
+      "location": 2,
+      "content": "鼠患存放一年下来再消耗一节",
+      "music": 0.0
+    },
+    {
+      "from": 391.24,
+      "to": 393.1,
+      "sid": 219,
+      "location": 2,
+      "content": "还有最重要的第五个约束",
+      "music": 0.0
+    },
+    {
+      "from": 393.1,
+      "to": 394.62,
+      "sid": 220,
+      "location": 2,
+      "content": "不能无限制的多增",
+      "music": 0.0
+    },
+    {
+      "from": 394.62,
+      "to": 396.82,
+      "sid": 221,
+      "location": 2,
+      "content": "如果农民今年被炸的活不下去",
+      "music": 0.0
+    },
+    {
+      "from": 396.82,
+      "to": 397.82,
+      "sid": 222,
+      "location": 2,
+      "content": "明年没人种地",
+      "music": 0.0
+    },
+    {
+      "from": 397.82,
+      "to": 399.3,
+      "sid": 223,
+      "location": 2,
+      "content": "后年税收就断掉了",
+      "music": 0.0
+    },
+    {
+      "from": 399.3,
+      "to": 400.7,
+      "sid": 224,
+      "location": 2,
+      "content": "被提取者必须活着",
+      "music": 0.0
+    },
+    {
+      "from": 400.7,
+      "to": 401.74,
+      "sid": 225,
+      "location": 2,
+      "content": "还得有生产能力",
+      "music": 0.0
+    },
+    {
+      "from": 401.74,
+      "to": 404.22,
+      "sid": 226,
+      "location": 2,
+      "content": "否则提取本身就失去了对象",
+      "music": 0.0
+    },
+    {
+      "from": 404.22,
+      "to": 405.38,
+      "sid": 227,
+      "location": 2,
+      "content": "这是一道硬约束",
+      "music": 0.0
+    },
+    {
+      "from": 405.38,
+      "to": 406.18,
+      "sid": 228,
+      "location": 2,
+      "content": "不是仁慈",
+      "music": 0.0
+    },
+    {
+      "from": 406.18,
+      "to": 407.9,
+      "sid": 229,
+      "location": 2,
+      "content": "是系统自我维持的需要",
+      "music": 0.0
+    },
+    {
+      "from": 407.9,
+      "to": 409.42,
+      "sid": 230,
+      "location": 2,
+      "content": "所有摩擦叠加下来",
+      "music": 0.0
+    },
+    {
+      "from": 409.42,
+      "to": 410.94,
+      "sid": 231,
+      "location": 2,
+      "content": "皇帝真正能落袋的",
+      "music": 0.0
+    },
+    {
+      "from": 410.94,
+      "to": 413.24,
+      "sid": 232,
+      "location": 2,
+      "content": "大概只有民意征收量的3~5成",
+      "music": 0.0
+    },
+    {
+      "from": 413.24,
+      "to": 415.04,
+      "sid": 233,
+      "location": 2,
+      "content": "这还得是王朝十分兴盛",
+      "music": 0.0
+    },
+    {
+      "from": 415.04,
+      "to": 416.08,
+      "sid": 234,
+      "location": 2,
+      "content": "气候足够稳定",
+      "music": 0.0
+    },
+    {
+      "from": 416.08,
+      "to": 418.02,
+      "sid": 235,
+      "location": 2,
+      "content": "官员也算是守规矩的情况下",
+      "music": 0.0
+    },
+    {
+      "from": 418.02,
+      "to": 419.18,
+      "sid": 236,
+      "location": 2,
+      "content": "这种物理摩擦",
+      "music": 0.0
+    },
+    {
+      "from": 419.18,
+      "to": 422.2,
+      "sid": 237,
+      "location": 2,
+      "content": "客观上给了被提取阶层一层保护空间",
+      "music": 0.0
+    },
+    {
+      "from": 423.4,
+      "to": 425.34,
+      "sid": 238,
+      "location": 2,
+      "content": "而是提取本身有成本",
+      "music": 0.0
+    },
+    {
+      "from": 425.34,
+      "to": 426.7,
+      "sid": 239,
+      "location": 2,
+      "content": "一旦到了王朝末期",
+      "music": 0.0
+    },
+    {
+      "from": 426.7,
+      "to": 428.74,
+      "sid": 240,
+      "location": 2,
+      "content": "收税的成本甚至比税还要高",
+      "music": 0.0
+    },
+    {
+      "from": 428.74,
+      "to": 430.94,
+      "sid": 241,
+      "location": 2,
+      "content": "这种情况下崩塌也只是时间问题",
+      "music": 0.0
+    },
+    {
+      "from": 430.94,
+      "to": 432.98,
+      "sid": 242,
+      "location": 2,
+      "content": "而换到现代苹果的app store",
+      "music": 0.0
+    },
+    {
+      "from": 432.98,
+      "to": 435.72,
+      "sid": 243,
+      "location": 2,
+      "content": "向每一笔应用内购买收取三成的佣金",
+      "music": 0.0
+    },
+    {
+      "from": 435.72,
+      "to": 437.04,
+      "sid": 244,
+      "location": 2,
+      "content": "全球数10亿用户",
+      "music": 0.0
+    },
+    {
+      "from": 437.04,
+      "to": 438.4,
+      "sid": 245,
+      "location": 2,
+      "content": "每笔交易自动到账",
+      "music": 0.0
+    },
+    {
+      "from": 438.4,
+      "to": 440.54,
+      "sid": 246,
+      "location": 2,
+      "content": "整个过程不需要粮田运粮",
+      "music": 0.0
+    },
+    {
+      "from": 440.54,
+      "to": 441.66,
+      "sid": 247,
+      "location": 2,
+      "content": "没有路途损耗",
+      "music": 0.0
+    },
+    {
+      "from": 441.66,
+      "to": 442.44,
+      "sid": 248,
+      "location": 2,
+      "content": "仓储问题",
+      "music": 0.0
+    },
+    {
+      "from": 442.44,
+      "to": 444.6,
+      "sid": 249,
+      "location": 2,
+      "content": "不需要养一套收税的官僚队伍",
+      "music": 0.0
+    },
+    {
+      "from": 444.6,
+      "to": 446.92,
+      "sid": 250,
+      "location": 2,
+      "content": "中间也没有任何一层可以截流的环节",
+      "music": 0.0
+    },
+    {
+      "from": 446.92,
+      "to": 449.76,
+      "sid": 251,
+      "location": 2,
+      "content": "整个提取过程的边际运营成本趋近于零",
+      "music": 0.0
+    },
+    {
+      "from": 449.76,
+      "to": 450.92,
+      "sid": 252,
+      "location": 2,
+      "content": "到账是实时的",
+      "music": 0.0
+    },
+    {
+      "from": 450.92,
+      "to": 451.44,
+      "sid": 253,
+      "location": 2,
+      "content": "类似的",
+      "music": 0.0
+    },
+    {
+      "from": 451.44,
+      "to": 452.34,
+      "sid": 254,
+      "location": 2,
+      "content": "还有滴滴平台",
+      "music": 0.0
+    },
+    {
+      "from": 452.34,
+      "to": 453.12,
+      "sid": 255,
+      "location": 2,
+      "content": "外卖平台",
+      "music": 0.0
+    },
+    {
+      "from": 453.12,
+      "to": 453.98,
+      "sid": 256,
+      "location": 2,
+      "content": "流媒体平台",
+      "music": 0.0
+    },
+    {
+      "from": 453.98,
+      "to": 457.06,
+      "sid": 257,
+      "location": 2,
+      "content": "一旦某一个平台形成全球范围内的垄断",
+      "music": 0.0
+    },
+    {
+      "from": 457.06,
+      "to": 460.62,
+      "sid": 258,
+      "location": 2,
+      "content": "它对于财富的提取效率是远高于古代皇帝的",
+      "music": 0.0
+    },
+    {
+      "from": 460.62,
+      "to": 461.22,
+      "sid": 259,
+      "location": 2,
+      "content": "除了平台",
+      "music": 0.0
+    },
+    {
+      "from": 461.22,
+      "to": 463.22,
+      "sid": 260,
+      "location": 2,
+      "content": "金融工体系同样在消除摩擦",
+      "music": 0.0
+    },
+    {
+      "from": 463.22,
+      "to": 464.54,
+      "sid": 261,
+      "location": 2,
+      "content": "例如资产管理公司",
+      "music": 0.0
+    },
+    {
+      "from": 464.54,
+      "to": 466.56,
+      "sid": 262,
+      "location": 2,
+      "content": "每年向客户收取百分分之一",
+      "music": 0.0
+    },
+    {
+      "from": 466.56,
+      "to": 467.76,
+      "sid": 263,
+      "location": 2,
+      "content": "到2%的管理费",
+      "music": 0.0
+    },
+    {
+      "from": 467.76,
+      "to": 470.92,
+      "sid": 264,
+      "location": 2,
+      "content": "覆盖全球数以10万亿美元规模的资产池",
+      "music": 0.0
+    },
+    {
+      "from": 470.92,
+      "to": 473.84,
+      "sid": 265,
+      "location": 2,
+      "content": "这笔费用体现在账单里的时候是一个小百分比",
+      "music": 0.0
+    },
+    {
+      "from": 473.84,
+      "to": 474.52,
+      "sid": 266,
+      "location": 2,
+      "content": "感觉不到痛",
+      "music": 0.0
+    },
+    {
+      "from": 474.52,
+      "to": 476.64,
+      "sid": 267,
+      "location": 2,
+      "content": "但把时间轴拉到20年30年",
+      "music": 0.0
+    },
+    {
+      "from": 476.64,
+      "to": 477.92,
+      "sid": 268,
+      "location": 2,
+      "content": "这是一笔规模极大",
+      "music": 0.0
+    },
+    {
+      "from": 477.92,
+      "to": 479.38,
+      "sid": 269,
+      "location": 2,
+      "content": "持续不断的财富转移",
+      "music": 0.0
+    },
+    {
+      "from": 479.38,
+      "to": 481.72,
+      "sid": 270,
+      "location": 2,
+      "content": "最终沉淀在少数机构的股东手里",
+      "music": 0.0
+    },
+    {
+      "from": 481.72,
+      "to": 483.2,
+      "sid": 271,
+      "location": 2,
+      "content": "消费贷也是同样的逻辑",
+      "music": 0.0
+    },
+    {
+      "from": 483.2,
+      "to": 484.5,
+      "sid": 272,
+      "location": 2,
+      "content": "以前的九速式三规",
+      "music": 0.0
+    },
+    {
+      "from": 484.5,
+      "to": 486.5,
+      "sid": 273,
+      "location": 2,
+      "content": "是因为要不回来钱的可能性极大",
+      "music": 0.0
+    },
+    {
+      "from": 486.5,
+      "to": 487.76,
+      "sid": 274,
+      "location": 2,
+      "content": "只能往死里压榨",
+      "music": 0.0
+    },
+    {
+      "from": 487.76,
+      "to": 489.44,
+      "sid": 275,
+      "location": 2,
+      "content": "现在利息就算只有8%",
+      "music": 0.0
+    },
+    {
+      "from": 489.44,
+      "to": 491.2,
+      "sid": 276,
+      "location": 2,
+      "content": "也是堪比印钞机的生意",
+      "music": 0.0
+    },
+    {
+      "from": 491.2,
+      "to": 493.4,
+      "sid": 277,
+      "location": 2,
+      "content": "还有在市场当中的高频交易算法",
+      "music": 0.0
+    },
+    {
+      "from": 493.4,
+      "to": 496.34,
+      "sid": 278,
+      "location": 2,
+      "content": "在微秒级别的时间窗口里完成海量买卖操作",
+      "music": 0.0
+    },
+    {
+      "from": 496.34,
+      "to": 498.9,
+      "sid": 279,
+      "location": 2,
+      "content": "对市场流动性持续抽取极小",
+      "music": 0.0
+    },
+    {
+      "from": 498.9,
+      "to": 502.1,
+      "sid": 280,
+      "location": 2,
+      "content": "但高频的利差每笔单独看小到可以忽略",
+      "music": 0.0
+    },
+    {
+      "from": 502.1,
+      "to": 506.18,
+      "sid": 281,
+      "location": 2,
+      "content": "但频次和规模叠加下来是相当可观的数字",
+      "music": 0.0
+    },
+    {
+      "from": 506.18,
+      "to": 508.5,
+      "sid": 282,
+      "location": 2,
+      "content": "对普通投资者几乎完全不可见",
+      "music": 0.0
+    },
+    {
+      "from": 508.5,
+      "to": 509.9,
+      "sid": 283,
+      "location": 2,
+      "content": "现代资本的提取能力",
+      "music": 0.0
+    },
+    {
+      "from": 509.9,
+      "to": 511.38,
+      "sid": 284,
+      "location": 2,
+      "content": "在技术层面实现了",
+      "music": 0.0
+    },
+    {
+      "from": 511.38,
+      "to": 513.46,
+      "sid": 285,
+      "location": 2,
+      "content": "古代统治者几乎无法达到的效率",
+      "music": 0.0
+    },
+    {
+      "from": 513.46,
+      "to": 514.84,
+      "sid": 286,
+      "location": 2,
+      "content": "覆盖范围没有上限",
+      "music": 0.0
+    },
+    {
+      "from": 514.84,
+      "to": 516.259,
+      "sid": 287,
+      "location": 2,
+      "content": "提取成本趋近于零",
+      "music": 0.0
+    },
+    {
+      "from": 516.259,
+      "to": 518.379,
+      "sid": 288,
+      "location": 2,
+      "content": "被提取的人全程感觉不到痛苦",
+      "music": 0.0
+    },
+    {
+      "from": 518.379,
+      "to": 519.699,
+      "sid": 289,
+      "location": 2,
+      "content": "而到了数字经济时代",
+      "music": 0.0
+    },
+    {
+      "from": 519.699,
+      "to": 521.96,
+      "sid": 290,
+      "location": 2,
+      "content": "还出现了一种更更彻底的提取形式",
+      "music": 0.0
+    },
+    {
+      "from": 521.96,
+      "to": 524.46,
+      "sid": 291,
+      "location": 2,
+      "content": "用注意力和数据换取免费服务",
+      "music": 0.0
+    },
+    {
+      "from": 524.46,
+      "to": 526.9,
+      "sid": 292,
+      "location": 2,
+      "content": "你只要使用app就是在T平台工作",
+      "music": 0.0
+    },
+    {
+      "from": 526.9,
+      "to": 528.82,
+      "sid": 293,
+      "location": 2,
+      "content": "报酬是其他用户制作的产品",
+      "music": 0.0
+    },
+    {
+      "from": 528.82,
+      "to": 531.42,
+      "sid": 294,
+      "location": 2,
+      "content": "这就有点布鲁斯死循环的感觉在里面了",
+      "music": 0.0
+    },
+    {
+      "from": 531.42,
+      "to": 533.06,
+      "sid": 295,
+      "location": 2,
+      "content": "但大多数人并没有意识到",
+      "music": 0.0
+    },
+    {
+      "from": 533.06,
+      "to": 534.58,
+      "sid": 296,
+      "location": 2,
+      "content": "这个结构和封建帝租",
+      "music": 0.0
+    },
+    {
+      "from": 534.58,
+      "to": 537.24,
+      "sid": 297,
+      "location": 2,
+      "content": "在底层逻辑上有一个深度的相似性",
+      "music": 0.0
+    },
+    {
+      "from": 537.24,
+      "to": 539.46,
+      "sid": 298,
+      "location": 2,
+      "content": "封建农民在地主的土地上耕种",
+      "music": 0.0
+    },
+    {
+      "from": 539.46,
+      "to": 540.42,
+      "sid": 299,
+      "location": 2,
+      "content": "缴纳地租",
+      "music": 0.0
+    },
+    {
+      "from": 540.42,
+      "to": 542.38,
+      "sid": 300,
+      "location": 2,
+      "content": "换取居住和耕作的权利",
+      "music": 0.0
+    },
+    {
+      "from": 542.38,
+      "to": 545.84,
+      "sid": 301,
+      "location": 2,
+      "content": "你在平台的基础设施上贡献内容和行为数据",
+      "music": 0.0
+    },
+    {
+      "from": 545.84,
+      "to": 547.28,
+      "sid": 302,
+      "location": 2,
+      "content": "换取使用平台的权利",
+      "music": 0.0
+    },
+    {
+      "from": 547.28,
+      "to": 548.78,
+      "sid": 303,
+      "location": 2,
+      "content": "控制基础设施的人",
+      "music": 0.0
+    },
+    {
+      "from": 548.78,
+      "to": 551.7,
+      "sid": 304,
+      "location": 2,
+      "content": "向使用者持续收取某种形式的通行费",
+      "music": 0.0
+    },
+    {
+      "from": 551.7,
+      "to": 552.78,
+      "sid": 305,
+      "location": 2,
+      "content": "不同的地方在于",
+      "music": 0.0
+    },
+    {
+      "from": 552.78,
+      "to": 555.3,
+      "sid": 306,
+      "location": 2,
+      "content": "封建地租摆在明面上有明确的契约",
+      "music": 0.0
+    },
+    {
+      "from": 555.3,
+      "to": 557.58,
+      "sid": 307,
+      "location": 2,
+      "content": "有时候需要物理强制来执行",
+      "music": 0.0
+    },
+    {
+      "from": 557.58,
+      "to": 558.34,
+      "sid": 308,
+      "location": 2,
+      "content": "平台地租",
+      "music": 0.0
+    },
+    {
+      "from": 558.34,
+      "to": 560.92,
+      "sid": 309,
+      "location": 2,
+      "content": "常在一份本没有人认真读过的服务条款里",
+      "music": 0.0
+    },
+    {
+      "from": 560.92,
+      "to": 563.06,
+      "sid": 310,
+      "location": 2,
+      "content": "靠网络效应和路径依赖来维持",
+      "music": 0.0
+    },
+    {
+      "from": 563.06,
+      "to": 566.22,
+      "sid": 311,
+      "location": 2,
+      "content": "而被提取者的感知被稀释到接近于零",
+      "music": 0.0
+    },
+    {
+      "from": 566.22,
+      "to": 568.34,
+      "sid": 312,
+      "location": 2,
+      "content": "这也就带来两个很具体的结果",
+      "music": 0.0
+    },
+    {
+      "from": 568.34,
+      "to": 570.38,
+      "sid": 313,
+      "location": 2,
+      "content": "第一个提取的规模不设限",
+      "music": 0.0
+    },
+    {
+      "from": 570.38,
+      "to": 571.7,
+      "sid": 314,
+      "location": 2,
+      "content": "古代王朝的税收能力",
+      "music": 0.0
+    },
+    {
+      "from": 571.7,
+      "to": 574.32,
+      "sid": 315,
+      "location": 2,
+      "content": "受地理范围和实际管辖人口的硬约束",
+      "music": 0.0
+    },
+    {
+      "from": 574.32,
+      "to": 576.18,
+      "sid": 316,
+      "location": 2,
+      "content": "皇帝的触角到不了长城以外",
+      "music": 0.0
+    },
+    {
+      "from": 576.18,
+      "to": 576.88,
+      "sid": 317,
+      "location": 2,
+      "content": "现代平台",
+      "music": 0.0
+    },
+    {
+      "from": 576.88,
+      "to": 579.82,
+      "sid": 318,
+      "location": 2,
+      "content": "却可以同时覆盖100个国家的几10亿用户",
+      "music": 0.0
+    },
+    {
+      "from": 579.82,
+      "to": 583.02,
+      "sid": 319,
+      "location": 2,
+      "content": "而新增一个用户带来的额外运营成本接近于零",
+      "music": 0.0
+    },
+    {
+      "from": 583.02,
+      "to": 585.2,
+      "sid": 320,
+      "location": 2,
+      "content": "第二个被提取的人感觉不到",
+      "music": 0.0
+    },
+    {
+      "from": 585.2,
+      "to": 587.18,
+      "sid": 321,
+      "location": 2,
+      "content": "古代交粮税是有直接感受的",
+      "music": 0.0
+    },
+    {
+      "from": 587.18,
+      "to": 588.54,
+      "sid": 322,
+      "location": 2,
+      "content": "一代一代地交出去",
+      "music": 0.0
+    },
+    {
+      "from": 588.54,
+      "to": 589.42,
+      "sid": 323,
+      "location": 2,
+      "content": "损失看得见",
+      "music": 0.0
+    },
+    {
+      "from": 589.42,
+      "to": 590.7,
+      "sid": 324,
+      "location": 2,
+      "content": "痛感是真实的",
+      "music": 0.0
+    },
+    {
+      "from": 590.7,
+      "to": 593.24,
+      "sid": 325,
+      "location": 2,
+      "content": "今天使用各类平台不需要直接付款",
+      "music": 0.0
+    },
+    {
+      "from": 593.24,
+      "to": 594.42,
+      "sid": 326,
+      "location": 2,
+      "content": "没有明显的出账",
+      "music": 0.0
+    },
+    {
+      "from": 594.42,
+      "to": 595.78,
+      "sid": 327,
+      "location": 2,
+      "content": "没有被收税的感知",
+      "music": 0.0
+    },
+    {
+      "from": 595.78,
+      "to": 597.08,
+      "sid": 328,
+      "location": 2,
+      "content": "但注意力数据",
+      "music": 0.0
+    },
+    {
+      "from": 597.08,
+      "to": 598.6,
+      "sid": 329,
+      "location": 2,
+      "content": "消费行为产生的价值",
+      "music": 0.0
+    },
+    {
+      "from": 598.6,
+      "to": 600.2,
+      "sid": 330,
+      "location": 2,
+      "content": "每天都在持续往外流",
+      "music": 0.0
+    },
+    {
+      "from": 600.2,
+      "to": 601.0,
+      "sid": 331,
+      "location": 2,
+      "content": "无摩擦性",
+      "music": 0.0
+    },
+    {
+      "from": 601.0,
+      "to": 604.04,
+      "sid": 332,
+      "location": 2,
+      "content": "让财富集中的速度比历史上任何时期都快",
+      "music": 0.0
+    },
+    {
+      "from": 604.04,
+      "to": 606.58,
+      "sid": 333,
+      "location": 2,
+      "content": "同时也让大多数人很难清楚地意识到",
+      "music": 0.0
+    },
+    {
+      "from": 606.58,
+      "to": 609.36,
+      "sid": 334,
+      "location": 2,
+      "content": "自己究竟处在一个什么样的结构里面",
+      "music": 0.0
+    },
+    {
+      "from": 609.36,
+      "to": 611.6,
+      "sid": 335,
+      "location": 2,
+      "content": "现代社会剥离了封建皇权",
+      "music": 0.0
+    },
+    {
+      "from": 611.6,
+      "to": 612.8,
+      "sid": 336,
+      "location": 2,
+      "content": "但在剥离之后",
+      "music": 0.0
+    },
+    {
+      "from": 612.8,
+      "to": 615.88,
+      "sid": 337,
+      "location": 2,
+      "content": "权力依旧是以另外一种方式运行和集中",
+      "music": 0.0
+    },
+    {
+      "from": 615.88,
+      "to": 617.86,
+      "sid": 338,
+      "location": 2,
+      "content": "并且比古代更加高效",
+      "music": 0.0
+    },
+    {
+      "from": 617.86,
+      "to": 619.62,
+      "sid": 339,
+      "location": 2,
+      "content": "也更适合生产力的发展",
+      "music": 0.0
+    },
+    {
+      "from": 619.62,
+      "to": 620.22,
+      "sid": 340,
+      "location": 2,
+      "content": "也就是说",
+      "music": 0.0
+    },
+    {
+      "from": 620.22,
+      "to": 623.7,
+      "sid": 341,
+      "location": 2,
+      "content": "现代的分配制度的高明之处在于让你很难受",
+      "music": 0.0
+    },
+    {
+      "from": 623.7,
+      "to": 625.36,
+      "sid": 342,
+      "location": 2,
+      "content": "但又不知道难受在哪里",
+      "music": 0.0
+    },
+    {
+      "from": 625.36,
+      "to": 626.98,
+      "sid": 343,
+      "location": 2,
+      "content": "而要清楚数这个问题的核心",
+      "music": 0.0
+    },
+    {
+      "from": 626.98,
+      "to": 628.72,
+      "sid": 344,
+      "location": 2,
+      "content": "就必须要先了解一个概念",
+      "music": 0.0
+    },
+    {
+      "from": 628.72,
+      "to": 630.0,
+      "sid": 345,
+      "location": 2,
+      "content": "叫做血稠定律",
+      "music": 0.0
+    },
+    {
+      "from": 630.0,
+      "to": 633.2,
+      "sid": 346,
+      "location": 2,
+      "content": "这是历史学者无师在血稠定律里提出来的",
+      "music": 0.0
+    },
+    {
+      "from": 633.2,
+      "to": 634.16,
+      "sid": 347,
+      "location": 2,
+      "content": "在任何社会",
+      "music": 0.0
+    },
+    {
+      "from": 634.16,
+      "to": 636.38,
+      "sid": 348,
+      "location": 2,
+      "content": "最终决定谁能拿走多少东西的",
+      "music": 0.0
+    },
+    {
+      "from": 636.38,
+      "to": 638.7,
+      "sid": 349,
+      "location": 2,
+      "content": "是迫使他人让渡资源的能力",
+      "music": 0.0
+    },
+    {
+      "from": 638.7,
+      "to": 641.24,
+      "sid": 350,
+      "location": 2,
+      "content": "他把这个能力背后的代价叫做血仇",
+      "music": 0.0
+    },
+    {
+      "from": 641.24,
+      "to": 642.38,
+      "sid": 351,
+      "location": 2,
+      "content": "血换来的报酬",
+      "music": 0.0
+    },
+    {
+      "from": 642.38,
+      "to": 645.12,
+      "sid": 352,
+      "location": 2,
+      "content": "或者说用威胁流血来换取的好处",
+      "music": 0.0
+    },
+    {
+      "from": 645.12,
+      "to": 647.04,
+      "sid": 353,
+      "location": 2,
+      "content": "这里的暴力不只是拿刀的人",
+      "music": 0.0
+    },
+    {
+      "from": 647.04,
+      "to": 647.9,
+      "sid": 354,
+      "location": 2,
+      "content": "更广义地说",
+      "music": 0.0
+    },
+    {
+      "from": 647.9,
+      "to": 650.46,
+      "sid": 355,
+      "location": 2,
+      "content": "任何可以让你不得不交出资源的力量",
+      "music": 0.0
+    },
+    {
+      "from": 650.46,
+      "to": 651.94,
+      "sid": 356,
+      "location": 2,
+      "content": "都是广义的强制能力",
+      "music": 0.0
+    },
+    {
+      "from": 651.94,
+      "to": 653.12,
+      "sid": 357,
+      "location": 2,
+      "content": "用这个框架过一遍",
+      "music": 0.0
+    },
+    {
+      "from": 653.12,
+      "to": 655.78,
+      "sid": 358,
+      "location": 2,
+      "content": "历史会看到一条清晰的演化路径",
+      "music": 0.0
+    },
+    {
+      "from": 655.78,
+      "to": 656.62,
+      "sid": 359,
+      "location": 2,
+      "content": "奴隶制时代",
+      "music": 0.0
+    },
+    {
+      "from": 656.62,
+      "to": 658.62,
+      "sid": 360,
+      "location": 2,
+      "content": "这种能力是最赤裸的主人",
+      "music": 0.0
+    },
+    {
+      "from": 658.62,
+      "to": 660.54,
+      "sid": 361,
+      "location": 2,
+      "content": "在物理上拥有奴隶的身体",
+      "music": 0.0
+    },
+    {
+      "from": 660.54,
+      "to": 662.68,
+      "sid": 362,
+      "location": 2,
+      "content": "理论上提取上限是百分百",
+      "music": 0.0
+    },
+    {
+      "from": 662.68,
+      "to": 665.36,
+      "sid": 363,
+      "location": 2,
+      "content": "但实际上要留够奴隶的基本生存开支",
+      "music": 0.0
+    },
+    {
+      "from": 665.36,
+      "to": 667.12,
+      "sid": 364,
+      "location": 2,
+      "content": "否则明天就没有劳动力",
+      "music": 0.0
+    },
+    {
+      "from": 667.12,
+      "to": 669.42,
+      "sid": 365,
+      "location": 2,
+      "content": "封建时代暴力被部分制度化了",
+      "music": 0.0
+    },
+    {
+      "from": 669.42,
+      "to": 671.3,
+      "sid": 366,
+      "location": 2,
+      "content": "军事贵族用武力保护农民",
+      "music": 0.0
+    },
+    {
+      "from": 671.3,
+      "to": 673.32,
+      "sid": 367,
+      "location": 2,
+      "content": "农民用地租和劳役作为回报",
+      "music": 0.0
+    },
+    {
+      "from": 673.32,
+      "to": 674.48,
+      "sid": 368,
+      "location": 2,
+      "content": "农民有了人身自由",
+      "music": 0.0
+    },
+    {
+      "from": 674.48,
+      "to": 675.32,
+      "sid": 369,
+      "location": 2,
+      "content": "有自己的家",
+      "music": 0.0
+    },
+    {
+      "from": 675.32,
+      "to": 677.9,
+      "sid": 370,
+      "location": 2,
+      "content": "但生产剩余的大头归贵族强制",
+      "music": 0.0
+    },
+    {
+      "from": 677.9,
+      "to": 679.28,
+      "sid": 371,
+      "location": 2,
+      "content": "从直接的人身控制",
+      "music": 0.0
+    },
+    {
+      "from": 679.28,
+      "to": 682.1,
+      "sid": 372,
+      "location": 2,
+      "content": "变成了一种有民意合法性的交换关系",
+      "music": 0.0
+    },
+    {
+      "from": 682.1,
+      "to": 684.42,
+      "sid": 373,
+      "location": 2,
+      "content": "工业资本主义时代包装的更完整了",
+      "music": 0.0
+    },
+    {
+      "from": 684.42,
+      "to": 685.74,
+      "sid": 374,
+      "location": 2,
+      "content": "工人在法律上自由",
+      "music": 0.0
+    },
+    {
+      "from": 685.74,
+      "to": 686.9,
+      "sid": 375,
+      "location": 2,
+      "content": "但没有生产资料",
+      "music": 0.0
+    },
+    {
+      "from": 686.9,
+      "to": 688.54,
+      "sid": 376,
+      "location": 2,
+      "content": "不卖劳动就无法生存",
+      "music": 0.0
+    },
+    {
+      "from": 688.54,
+      "to": 691.1,
+      "sid": 377,
+      "location": 2,
+      "content": "维持这套秩序的是法律和产权制度",
+      "music": 0.0
+    },
+    {
+      "from": 691.1,
+      "to": 693.42,
+      "sid": 378,
+      "location": 2,
+      "content": "而法律是由有产阶级参与制定的",
+      "music": 0.0
+    },
+    {
+      "from": 693.42,
+      "to": 695.06,
+      "sid": 379,
+      "location": 2,
+      "content": "到了现代看似没人逼迫",
+      "music": 0.0
+    },
+    {
+      "from": 695.06,
+      "to": 696.86,
+      "sid": 380,
+      "location": 2,
+      "content": "但如果不接受平台的条款",
+      "music": 0.0
+    },
+    {
+      "from": 696.86,
+      "to": 698.1,
+      "sid": 381,
+      "location": 2,
+      "content": "就进不了那个市场",
+      "music": 0.0
+    },
+    {
+      "from": 698.1,
+      "to": 699.76,
+      "sid": 382,
+      "location": 2,
+      "content": "不服从劳动就失去收入",
+      "music": 0.0
+    },
+    {
+      "from": 699.76,
+      "to": 700.94,
+      "sid": 383,
+      "location": 2,
+      "content": "不用某个操作系统",
+      "music": 0.0
+    },
+    {
+      "from": 700.94,
+      "to": 702.5,
+      "sid": 384,
+      "location": 2,
+      "content": "很多工作就根本做不了",
+      "music": 0.0
+    },
+    {
+      "from": 702.5,
+      "to": 705.06,
+      "sid": 385,
+      "location": 2,
+      "content": "控制你生存所必需的基础设施的人",
+      "music": 0.0
+    },
+    {
+      "from": 705.06,
+      "to": 707.68,
+      "sid": 386,
+      "location": 2,
+      "content": "实际上就掌握了设定提取价格的权利",
+      "music": 0.0
+    },
+    {
+      "from": 707.68,
+      "to": 710.88,
+      "sid": 387,
+      "location": 2,
+      "content": "所以血稠定律并没有随着时代进步而消失",
+      "music": 0.0
+    },
+    {
+      "from": 710.88,
+      "to": 713.36,
+      "sid": 388,
+      "location": 2,
+      "content": "他只是把执行方式从物理强制",
+      "music": 0.0
+    },
+    {
+      "from": 713.36,
+      "to": 714.7,
+      "sid": 389,
+      "location": 2,
+      "content": "变成了系统性强制",
+      "music": 0.0
+    },
+    {
+      "from": 714.7,
+      "to": 717.82,
+      "sid": 390,
+      "location": 2,
+      "content": "这是理解财富分配问题最底层的框架",
+      "music": 0.0
+    },
+    {
+      "from": 717.82,
+      "to": 721.08,
+      "sid": 391,
+      "location": 2,
+      "content": "知道这一点再去看生产关系的变化会清楚很多",
+      "music": 0.0
+    },
+    {
+      "from": 721.08,
+      "to": 722.84,
+      "sid": 392,
+      "location": 2,
+      "content": "这里我们我们可以再换一个角度",
+      "music": 0.0
+    },
+    {
+      "from": 722.84,
+      "to": 724.12,
+      "sid": 393,
+      "location": 2,
+      "content": "来理解同一个问题",
+      "music": 0.0
+    },
+    {
+      "from": 724.12,
+      "to": 726.18,
+      "sid": 394,
+      "location": 2,
+      "content": "不同时代谁拥有生产资料",
+      "music": 0.0
+    },
+    {
+      "from": 726.18,
+      "to": 728.92,
+      "sid": 395,
+      "location": 2,
+      "content": "农业时代生产资料是土地和耕牛",
+      "music": 0.0
+    },
+    {
+      "from": 728.92,
+      "to": 730.88,
+      "sid": 396,
+      "location": 2,
+      "content": "土地可以被分封继承",
+      "music": 0.0
+    },
+    {
+      "from": 730.88,
+      "to": 732.44,
+      "sid": 397,
+      "location": 2,
+      "content": "抢夺贵族控制土地",
+      "music": 0.0
+    },
+    {
+      "from": 732.44,
+      "to": 733.76,
+      "sid": 398,
+      "location": 2,
+      "content": "农民为贵族耕种",
+      "music": 0.0
+    },
+    {
+      "from": 733.76,
+      "to": 734.92,
+      "sid": 399,
+      "location": 2,
+      "content": "剩余归贵族",
+      "music": 0.0
+    },
+    {
+      "from": 734.92,
+      "to": 736.28,
+      "sid": 400,
+      "location": 2,
+      "content": "就算生产力提高了",
+      "music": 0.0
+    },
+    {
+      "from": 736.28,
+      "to": 737.58,
+      "sid": 401,
+      "location": 2,
+      "content": "比如铁离普及之后",
+      "music": 0.0
+    },
+    {
+      "from": 737.58,
+      "to": 740.0,
+      "sid": 402,
+      "location": 2,
+      "content": "同样面积的土地能产出更多粮食",
+      "music": 0.0
+    },
+    {
+      "from": 740.0,
+      "to": 742.26,
+      "sid": 403,
+      "location": 2,
+      "content": "最终结果往往是地提高地租",
+      "music": 0.0
+    },
+    {
+      "from": 742.26,
+      "to": 744.08,
+      "sid": 404,
+      "location": 2,
+      "content": "把多出来的那部分捕获走",
+      "music": 0.0
+    },
+    {
+      "from": 744.08,
+      "to": 744.86,
+      "sid": 405,
+      "location": 2,
+      "content": "技术进步",
+      "music": 0.0
+    },
+    {
+      "from": 744.86,
+      "to": 746.74,
+      "sid": 406,
+      "location": 2,
+      "content": "没有自动带来农民的收益提升",
+      "music": 0.0
+    },
+    {
+      "from": 746.74,
+      "to": 749.5,
+      "sid": 407,
+      "location": 2,
+      "content": "工业时代生产资料变成了机器厂房",
+      "music": 0.0
+    },
+    {
+      "from": 749.5,
+      "to": 750.08,
+      "sid": 408,
+      "location": 2,
+      "content": "原材料",
+      "music": 0.0
+    },
+    {
+      "from": 750.08,
+      "to": 751.2,
+      "sid": 409,
+      "location": 2,
+      "content": "工厂主控制工厂",
+      "music": 0.0
+    },
+    {
+      "from": 751.2,
+      "to": 752.3,
+      "sid": 410,
+      "location": 2,
+      "content": "工人出卖劳动力",
+      "music": 0.0
+    },
+    {
+      "from": 752.3,
+      "to": 754.56,
+      "sid": 411,
+      "location": 2,
+      "content": "这里出现了一个历史上很关键的变化",
+      "music": 0.0
+    },
+    {
+      "from": 754.56,
+      "to": 756.28,
+      "sid": 412,
+      "location": 2,
+      "content": "工人有了集体组织的能力",
+      "music": 0.0
+    },
+    {
+      "from": 756.28,
+      "to": 759.28,
+      "sid": 413,
+      "location": 2,
+      "content": "工会是工业时代劳动者手里最有力的工具",
+      "music": 0.0
+    },
+    {
+      "from": 759.28,
+      "to": 761.32,
+      "sid": 414,
+      "location": 2,
+      "content": "历史上工资真正大幅上涨",
+      "music": 0.0
+    },
+    {
+      "from": 761.32,
+      "to": 763.02,
+      "sid": 415,
+      "location": 2,
+      "content": "不是资本家突然变得慷慨",
+      "music": 0.0
+    },
+    {
+      "from": 763.02,
+      "to": 765.4,
+      "sid": 416,
+      "location": 2,
+      "content": "而是工人通过罢工和集体谈判",
+      "music": 0.0
+    },
+    {
+      "from": 765.4,
+      "to": 768.38,
+      "sid": 417,
+      "location": 2,
+      "content": "让资本家认为让步的成本比对抗更低",
+      "music": 0.0
+    },
+    {
+      "from": 768.38,
+      "to": 769.66,
+      "sid": 418,
+      "location": 2,
+      "content": "20世纪中叶",
+      "music": 0.0
+    },
+    {
+      "from": 769.66,
+      "to": 771.3,
+      "sid": 419,
+      "location": 2,
+      "content": "欧美的中产阶级兴起",
+      "music": 0.0
+    },
+    {
+      "from": 771.3,
+      "to": 773.8,
+      "sid": 420,
+      "location": 2,
+      "content": "背后是几十年劳工运动的积累",
+      "music": 0.0
+    },
+    {
+      "from": 773.8,
+      "to": 774.54,
+      "sid": 421,
+      "location": 2,
+      "content": "信息时代",
+      "music": 0.0
+    },
+    {
+      "from": 774.54,
+      "to": 776.12,
+      "sid": 422,
+      "location": 2,
+      "content": "生产资料发生了质变",
+      "music": 0.0
+    },
+    {
+      "from": 776.12,
+      "to": 779.86,
+      "sid": 423,
+      "location": 2,
+      "content": "代码平台算法数据成了最核心的生产资料",
+      "music": 0.0
+    },
+    {
+      "from": 779.86,
+      "to": 782.86,
+      "sid": 424,
+      "location": 2,
+      "content": "而且所有权极度集中在少数公司手里",
+      "music": 0.0
+    },
+    {
+      "from": 782.86,
+      "to": 786.3,
+      "sid": 425,
+      "location": 2,
+      "content": "这类生产资料有一个农业和工业都没有的属性",
+      "music": 0.0
+    },
+    {
+      "from": 786.3,
+      "to": 789.14,
+      "sid": 426,
+      "location": 2,
+      "content": "也就是上面提到过的边际成本接近于零",
+      "music": 0.0
+    },
+    {
+      "from": 789.14,
+      "to": 790.66,
+      "sid": 427,
+      "location": 2,
+      "content": "规模可以无限复制",
+      "music": 0.0
+    },
+    {
+      "from": 790.66,
+      "to": 791.72,
+      "sid": 428,
+      "location": 2,
+      "content": "但在这个新时代",
+      "music": 0.0
+    },
+    {
+      "from": 791.72,
+      "to": 794.32,
+      "sid": 429,
+      "location": 2,
+      "content": "工人的集体议价能力被系统性的瓦解了",
+      "music": 0.0
+    },
+    {
+      "from": 794.32,
+      "to": 797.86,
+      "sid": 430,
+      "location": 2,
+      "content": "零工经济把大量全职雇员替换成独立承包商",
+      "music": 0.0
+    },
+    {
+      "from": 797.86,
+      "to": 799.88,
+      "sid": 431,
+      "location": 2,
+      "content": "绕开了劳动法对雇主的约束",
+      "music": 0.0
+    },
+    {
+      "from": 799.88,
+      "to": 800.64,
+      "sid": 432,
+      "location": 2,
+      "content": "没有社保",
+      "music": 0.0
+    },
+    {
+      "from": 800.64,
+      "to": 801.64,
+      "sid": 433,
+      "location": 2,
+      "content": "没有带薪假期",
+      "music": 0.0
+    },
+    {
+      "from": 801.64,
+      "to": 804.5,
+      "sid": 434,
+      "location": 2,
+      "content": "法律上的自由变成了保护的缺失平台",
+      "music": 0.0
+    },
+    {
+      "from": 804.5,
+      "to": 806.4,
+      "sid": 435,
+      "location": 2,
+      "content": "把供给方置于彼此竞争",
+      "music": 0.0
+    },
+    {
+      "from": 806.4,
+      "to": 807.84,
+      "sid": 436,
+      "location": 2,
+      "content": "而不是联合的关系里",
+      "music": 0.0
+    },
+    {
+      "from": 807.84,
+      "to": 810.28,
+      "sid": 437,
+      "location": 2,
+      "content": "工业时代的工人聚集在同一工厂",
+      "music": 0.0
+    },
+    {
+      "from": 810.28,
+      "to": 813.64,
+      "sid": 438,
+      "location": 2,
+      "content": "有共同体能能组织起来平台劳动者彼此分散",
+      "music": 0.0
+    },
+    {
+      "from": 813.64,
+      "to": 814.44,
+      "sid": 439,
+      "location": 2,
+      "content": "相互竞争",
+      "music": 0.0
+    },
+    {
+      "from": 814.44,
+      "to": 817.12,
+      "sid": 440,
+      "location": 2,
+      "content": "集体行动的基础被技术手段拆掉了",
+      "music": 0.0
+    },
+    {
+      "from": 817.12,
+      "to": 817.88,
+      "sid": 441,
+      "location": 2,
+      "content": "远程办公",
+      "music": 0.0
+    },
+    {
+      "from": 817.88,
+      "to": 819.72,
+      "sid": 442,
+      "location": 2,
+      "content": "让同一岗位可以全球竞争",
+      "music": 0.0
+    },
+    {
+      "from": 819.72,
+      "to": 821.74,
+      "sid": 443,
+      "location": 2,
+      "content": "招聘工人替代成本大幅降低",
+      "music": 0.0
+    },
+    {
+      "from": 821.74,
+      "to": 822.6,
+      "sid": 444,
+      "location": 2,
+      "content": "这里有人会问",
+      "music": 0.0
+    },
+    {
+      "from": 822.6,
+      "to": 823.52,
+      "sid": 445,
+      "location": 2,
+      "content": "那制度改革呢",
+      "music": 0.0
+    },
+    {
+      "from": 823.52,
+      "to": 825.24,
+      "sid": 446,
+      "location": 2,
+      "content": "立法税改社会保障",
+      "music": 0.0
+    },
+    {
+      "from": 825.24,
+      "to": 826.64,
+      "sid": 447,
+      "location": 2,
+      "content": "国家难道不能出手",
+      "music": 0.0
+    },
+    {
+      "from": 826.64,
+      "to": 827.58,
+      "sid": 448,
+      "location": 2,
+      "content": "理论上可以",
+      "music": 0.0
+    },
+    {
+      "from": 827.58,
+      "to": 829.16,
+      "sid": 449,
+      "location": 2,
+      "content": "历史上就真的出现过",
+      "music": 0.0
+    },
+    {
+      "from": 829.16,
+      "to": 829.84,
+      "sid": 450,
+      "location": 2,
+      "content": "罗斯福新政",
+      "music": 0.0
+    },
+    {
+      "from": 829.84,
+      "to": 832.54,
+      "sid": 451,
+      "location": 2,
+      "content": "在大萧条之后重设了金融监管框架",
+      "music": 0.0
+    },
+    {
+      "from": 832.54,
+      "to": 834.98,
+      "sid": 452,
+      "location": 2,
+      "content": "北欧国家在战后建立了高税收",
+      "music": 0.0
+    },
+    {
+      "from": 834.98,
+      "to": 836.48,
+      "sid": 453,
+      "location": 2,
+      "content": "高福利的分配体系",
+      "music": 0.0
+    },
+    {
+      "from": 836.48,
+      "to": 837.72,
+      "sid": 454,
+      "location": 2,
+      "content": "凯恩斯主义经济学",
+      "music": 0.0
+    },
+    {
+      "from": 837.72,
+      "to": 840.06,
+      "sid": 455,
+      "location": 2,
+      "content": "让国家介入经济调节变得常见",
+      "music": 0.0
+    },
+    {
+      "from": 840.06,
+      "to": 843.46,
+      "sid": 456,
+      "location": 2,
+      "content": "这些制度转变确实压缩了资本的提取空间",
+      "music": 0.0
+    },
+    {
+      "from": 843.46,
+      "to": 845.18,
+      "sid": 457,
+      "location": 2,
+      "content": "扩大了劳动的分配份额",
+      "music": 0.0
+    },
+    {
+      "from": 845.18,
+      "to": 849.13,
+      "sid": 458,
+      "location": 2,
+      "content": "但这些转变发生时几乎都伴随着两个条件之一",
+      "music": 0.0
+    },
+    {
+      "from": 849.13,
+      "to": 852.55,
+      "sid": 459,
+      "location": 2,
+      "content": "一是外部危机冲垮了原有分配格局的合法性",
+      "music": 0.0
+    },
+    {
+      "from": 852.55,
+      "to": 853.11,
+      "sid": 460,
+      "location": 2,
+      "content": "大萧条",
+      "music": 0.0
+    },
+    {
+      "from": 853.11,
+      "to": 855.06,
+      "sid": 461,
+      "location": 2,
+      "content": "让市场自我调节的神话破裂",
+      "music": 0.0
+    },
+    {
+      "from": 855.06,
+      "to": 857.82,
+      "sid": 462,
+      "location": 2,
+      "content": "两次世界大战让欧洲社会结构被打散",
+      "music": 0.0
+    },
+    {
+      "from": 857.82,
+      "to": 859.26,
+      "sid": 463,
+      "location": 2,
+      "content": "重组权贵阶层",
+      "music": 0.0
+    },
+    {
+      "from": 859.26,
+      "to": 862.08,
+      "sid": 464,
+      "location": 2,
+      "content": "再也没有足够的道德权威去阻止改革",
+      "music": 0.0
+    },
+    {
+      "from": 862.08,
+      "to": 865.2,
+      "sid": 465,
+      "location": 2,
+      "content": "二是劳动者有足够强大的组织能力来施压",
+      "music": 0.0
+    },
+    {
+      "from": 865.2,
+      "to": 868.34,
+      "sid": 466,
+      "location": 2,
+      "content": "让有产阶级认为改革比对抗成本更低",
+      "music": 0.0
+    },
+    {
+      "from": 868.34,
+      "to": 870.28,
+      "sid": 467,
+      "location": 2,
+      "content": "现在这两个条件都在弱化",
+      "music": 0.0
+    },
+    {
+      "from": 870.28,
+      "to": 873.22,
+      "sid": 468,
+      "location": 2,
+      "content": "现代金融危机可以通过货币政策来管理",
+      "music": 0.0
+    },
+    {
+      "from": 873.22,
+      "to": 874.04,
+      "sid": 469,
+      "location": 2,
+      "content": "量化宽松",
+      "music": 0.0
+    },
+    {
+      "from": 874.04,
+      "to": 874.58,
+      "sid": 470,
+      "location": 2,
+      "content": "低利率",
+      "music": 0.0
+    },
+    {
+      "from": 874.58,
+      "to": 876.58,
+      "sid": 471,
+      "location": 2,
+      "content": "把危机的成本分散在时间里",
+      "music": 0.0
+    },
+    {
+      "from": 876.58,
+      "to": 879.18,
+      "sid": 472,
+      "location": 2,
+      "content": "但量化宽松让资产价格上涨",
+      "music": 0.0
+    },
+    {
+      "from": 879.18,
+      "to": 880.56,
+      "sid": 473,
+      "location": 2,
+      "content": "有资产的人受益",
+      "music": 0.0
+    },
+    {
+      "from": 880.56,
+      "to": 882.04,
+      "sid": 474,
+      "location": 2,
+      "content": "没有资产的人不受益",
+      "music": 0.0
+    },
+    {
+      "from": 882.04,
+      "to": 883.62,
+      "sid": 475,
+      "location": 2,
+      "content": "2008年之后10年",
+      "music": 0.0
+    },
+    {
+      "from": 883.62,
+      "to": 885.48,
+      "sid": 476,
+      "location": 2,
+      "content": "全球股市持续上涨",
+      "music": 0.0
+    },
+    {
+      "from": 885.48,
+      "to": 887.44,
+      "sid": 477,
+      "location": 2,
+      "content": "资产持有者财富大幅增加",
+      "music": 0.0
+    },
+    {
+      "from": 887.44,
+      "to": 890.0,
+      "sid": 478,
+      "location": 2,
+      "content": "工薪阶层实际购买力基本原地踏步",
+      "music": 0.0
+    },
+    {
+      "from": 890.0,
+      "to": 892.32,
+      "sid": 479,
+      "location": 2,
+      "content": "危机没有真正逼出改革的窗口",
+      "music": 0.0
+    },
+    {
+      "from": 892.32,
+      "to": 894.48,
+      "sid": 480,
+      "location": 2,
+      "content": "劳动者的组织能力上面也说过了",
+      "music": 0.0
+    },
+    {
+      "from": 894.48,
+      "to": 896.92,
+      "sid": 481,
+      "location": 2,
+      "content": "在系统性的被技术手段瓦解",
+      "music": 0.0
+    },
+    {
+      "from": 896.92,
+      "to": 898.26,
+      "sid": 482,
+      "location": 2,
+      "content": "还有一个更深的问题",
+      "music": 0.0
+    },
+    {
+      "from": 900.8,
+      "to": 902.52,
+      "sid": 483,
+      "location": 2,
+      "content": "本身会出现功能变形",
+      "music": 0.0
+    },
+    {
+      "from": 902.52,
+      "to": 903.7,
+      "sid": 484,
+      "location": 2,
+      "content": "选举还在进行",
+      "music": 0.0
+    },
+    {
+      "from": 903.7,
+      "to": 905.82,
+      "sid": 485,
+      "location": 2,
+      "content": "但当媒体所有权竞选资金",
+      "music": 0.0
+    },
+    {
+      "from": 905.82,
+      "to": 908.54,
+      "sid": 486,
+      "location": 2,
+      "content": "游说资源都高度集中在少数人手里",
+      "music": 0.0
+    },
+    {
+      "from": 908.54,
+      "to": 910.2,
+      "sid": 487,
+      "location": 2,
+      "content": "选举结果很难真实反映",
+      "music": 0.0
+    },
+    {
+      "from": 910.2,
+      "to": 912.44,
+      "sid": 488,
+      "location": 2,
+      "content": "并底层一半人口的政策诉求",
+      "music": 0.0
+    },
+    {
+      "from": 912.44,
+      "to": 913.92,
+      "sid": 489,
+      "location": 2,
+      "content": "这不是说民主是骗局",
+      "music": 0.0
+    },
+    {
+      "from": 913.92,
+      "to": 915.7,
+      "sid": 490,
+      "location": 2,
+      "content": "而是说制度的运行效果",
+      "music": 0.0
+    },
+    {
+      "from": 915.7,
+      "to": 917.82,
+      "sid": 491,
+      "location": 2,
+      "content": "取决于权力是否足够分散",
+      "music": 0.0
+    },
+    {
+      "from": 917.82,
+      "to": 920.06,
+      "sid": 492,
+      "location": 2,
+      "content": "当财富集中超过某个临界点",
+      "music": 0.0
+    },
+    {
+      "from": 920.06,
+      "to": 921.66,
+      "sid": 493,
+      "location": 2,
+      "content": "他就开始自我固化",
+      "music": 0.0
+    },
+    {
+      "from": 921.66,
+      "to": 923.64,
+      "sid": 494,
+      "location": 2,
+      "content": "通过影响规则来保护自己",
+      "music": 0.0
+    },
+    {
+      "from": 923.64,
+      "to": 924.48,
+      "sid": 495,
+      "location": 2,
+      "content": "保护好自己",
+      "music": 0.0
+    },
+    {
+      "from": 924.48,
+      "to": 925.64,
+      "sid": 496,
+      "location": 2,
+      "content": "再进一步集中",
+      "music": 0.0
+    },
+    {
+      "from": 925.64,
+      "to": 928.2,
+      "sid": 497,
+      "location": 2,
+      "content": "形成一个很难从内部打破的循环",
+      "music": 0.0
+    },
+    {
+      "from": 928.2,
+      "to": 929.76,
+      "sid": 498,
+      "location": 2,
+      "content": "三个层次叠加在一起",
+      "music": 0.0
+    },
+    {
+      "from": 929.76,
+      "to": 932.14,
+      "sid": 499,
+      "location": 2,
+      "content": "雪球定律说明谁控制基础设施",
+      "music": 0.0
+    },
+    {
+      "from": 932.14,
+      "to": 934.0,
+      "sid": 500,
+      "location": 2,
+      "content": "谁就有权设定提取价格",
+      "music": 0.0
+    },
+    {
+      "from": 934.0,
+      "to": 935.16,
+      "sid": 501,
+      "location": 2,
+      "content": "生产关系的演变",
+      "music": 0.0
+    },
+    {
+      "from": 935.16,
+      "to": 937.42,
+      "sid": 502,
+      "location": 2,
+      "content": "让新型生产资料所有权极度集中",
+      "music": 0.0
+    },
+    {
+      "from": 937.42,
+      "to": 939.68,
+      "sid": 503,
+      "location": 2,
+      "content": "同时把劳动者最有效的反制工具",
+      "music": 0.0
+    },
+    {
+      "from": 939.68,
+      "to": 941.96,
+      "sid": 504,
+      "location": 2,
+      "content": "集体行动能力拆得7788",
+      "music": 0.0
+    },
+    {
+      "from": 941.96,
+      "to": 943.8,
+      "sid": 505,
+      "location": 2,
+      "content": "制度层面存在路径依赖",
+      "music": 0.0
+    },
+    {
+      "from": 943.8,
+      "to": 946.14,
+      "sid": 506,
+      "location": 2,
+      "content": "历史上推动改革所需的两个条件",
+      "music": 0.0
+    },
+    {
+      "from": 946.14,
+      "to": 947.8,
+      "sid": 507,
+      "location": 2,
+      "content": "目前都很难同时满足",
+      "music": 0.0
+    },
+    {
+      "from": 947.8,
+      "to": 948.32,
+      "sid": 508,
+      "location": 2,
+      "content": "实际上",
+      "music": 0.0
+    },
+    {
+      "from": 948.32,
+      "to": 951.78,
+      "sid": 509,
+      "location": 2,
+      "content": "如果只是10年前或者5年前的信息互联网时代",
+      "music": 0.0
+    },
+    {
+      "from": 951.78,
+      "to": 953.24,
+      "sid": 510,
+      "location": 2,
+      "content": "大家还有修复的能力",
+      "music": 0.0
+    },
+    {
+      "from": 953.24,
+      "to": 956.08,
+      "sid": 511,
+      "location": 2,
+      "content": "政府和企业也有意愿去平衡分配机制",
+      "music": 0.0
+    },
+    {
+      "from": 956.08,
+      "to": 957.0,
+      "sid": 512,
+      "location": 2,
+      "content": "可问题就在于",
+      "music": 0.0
+    },
+    {
+      "from": 957.0,
+      "to": 959.1,
+      "sid": 513,
+      "location": 2,
+      "content": "这个时代的技术进步太快了",
+      "music": 0.0
+    },
+    {
+      "from": 959.1,
+      "to": 961.86,
+      "sid": 514,
+      "location": 2,
+      "content": "这个快不是说基础研究高科技产品",
+      "music": 0.0
+    },
+    {
+      "from": 961.86,
+      "to": 963.88,
+      "sid": 515,
+      "location": 2,
+      "content": "而是技术进步本身的速度",
+      "music": 0.0
+    },
+    {
+      "from": 963.88,
+      "to": 965.76,
+      "sid": 516,
+      "location": 2,
+      "content": "远远大于制度进步的速度",
+      "music": 0.0
+    },
+    {
+      "from": 965.76,
+      "to": 967.68,
+      "sid": 517,
+      "location": 2,
+      "content": "这就会让法制跟不上时代",
+      "music": 0.0
+    },
+    {
+      "from": 967.68,
+      "to": 969.9,
+      "sid": 518,
+      "location": 2,
+      "content": "生产力提升大于生产关系的改良",
+      "music": 0.0
+    },
+    {
+      "from": 969.9,
+      "to": 971.44,
+      "sid": 519,
+      "location": 2,
+      "content": "特别是当下的AI浪潮",
+      "music": 0.0
+    },
+    {
+      "from": 971.44,
+      "to": 974.44,
+      "sid": 520,
+      "location": 2,
+      "content": "比曾经的三次技术革命更加离奇和迅速",
+      "music": 0.0
+    },
+    {
+      "from": 974.44,
+      "to": 976.22,
+      "sid": 521,
+      "location": 2,
+      "content": "前三次革命短期冲击",
+      "music": 0.0
+    },
+    {
+      "from": 976.22,
+      "to": 979.28,
+      "sid": 522,
+      "location": 2,
+      "content": "但有足够长期的时间让人类社会去适应",
+      "music": 0.0
+    },
+    {
+      "from": 979.28,
+      "to": 981.24,
+      "sid": 523,
+      "location": 2,
+      "content": "接着会出现新的职业类别",
+      "music": 0.0
+    },
+    {
+      "from": 981.24,
+      "to": 983.0,
+      "sid": 524,
+      "location": 2,
+      "content": "来吸收被替代的劳动力",
+      "music": 0.0
+    },
+    {
+      "from": 983.0,
+      "to": 985.0,
+      "sid": 525,
+      "location": 2,
+      "content": "信奉AI也会如此的人",
+      "music": 0.0
+    },
+    {
+      "from": 985.0,
+      "to": 986.58,
+      "sid": 526,
+      "location": 2,
+      "content": "主要依赖的就是这个规律",
+      "music": 0.0
+    },
+    {
+      "from": 986.58,
+      "to": 988.7,
+      "sid": 527,
+      "location": 2,
+      "content": "但这一次这个规律这次还适用吗",
+      "music": 0.0
+    },
+    {
+      "from": 988.7,
+      "to": 991.38,
+      "sid": 528,
+      "location": 2,
+      "content": "过去的机器替代的是特定领域的工作",
+      "music": 0.0
+    },
+    {
+      "from": 991.38,
+      "to": 992.6,
+      "sid": 529,
+      "location": 2,
+      "content": "纺织机替代职工",
+      "music": 0.0
+    },
+    {
+      "from": 992.6,
+      "to": 994.66,
+      "sid": 530,
+      "location": 2,
+      "content": "计算机替代会计的部分计算工作",
+      "music": 0.0
+    },
+    {
+      "from": 994.66,
+      "to": 996.58,
+      "sid": 531,
+      "location": 2,
+      "content": "工业机器人替代流水线工人",
+      "music": 0.0
+    },
+    {
+      "from": 996.58,
+      "to": 997.94,
+      "sid": 532,
+      "location": 2,
+      "content": "这些替代有边界",
+      "music": 0.0
+    },
+    {
+      "from": 997.94,
+      "to": 999.72,
+      "sid": 533,
+      "location": 2,
+      "content": "也会在别处创造性需求",
+      "music": 0.0
+    },
+    {
+      "from": 999.72,
+      "to": 1001.84,
+      "sid": 534,
+      "location": 2,
+      "content": "可AI替代的不是某一类工作",
+      "music": 0.0
+    },
+    {
+      "from": 1001.84,
+      "to": 1003.64,
+      "sid": 535,
+      "location": 2,
+      "content": "而是认知能力本身",
+      "music": 0.0
+    },
+    {
+      "from": 1003.64,
+      "to": 1006.24,
+      "sid": 536,
+      "location": 2,
+      "content": "判断创意分析沟通规划",
+      "music": 0.0
+    },
+    {
+      "from": 1006.24,
+      "to": 1009.76,
+      "sid": 537,
+      "location": 2,
+      "content": "这些能力是过去几乎所有脑力工作的共同底层",
+      "music": 0.0
+    },
+    {
+      "from": 1009.76,
+      "to": 1012.08,
+      "sid": 538,
+      "location": 2,
+      "content": "AI正在渗透进这些共同底层",
+      "music": 0.0
+    },
+    {
+      "from": 1012.08,
+      "to": 1015.24,
+      "sid": 539,
+      "location": 2,
+      "content": "理论上所有依赖脑力的工作都在替代范围内",
+      "music": 0.0
+    },
+    {
+      "from": 1015.24,
+      "to": 1016.84,
+      "sid": 540,
+      "location": 2,
+      "content": "而不是某一个垂直行业",
+      "music": 0.0
+    },
+    {
+      "from": 1016.84,
+      "to": 1019.26,
+      "sid": 541,
+      "location": 2,
+      "content": "历史上还没有出现过这种通用性的技术",
+      "music": 0.0
+    },
+    {
+      "from": 1019.26,
+      "to": 1020.36,
+      "sid": 542,
+      "location": 2,
+      "content": "这是质的差异",
+      "music": 0.0
+    },
+    {
+      "from": 1020.36,
+      "to": 1023.5,
+      "sid": 543,
+      "location": 2,
+      "content": "第二替代速度可能超过社会的适应速度",
+      "music": 0.0
+    },
+    {
+      "from": 1023.5,
+      "to": 1026.859,
+      "sid": 544,
+      "location": 2,
+      "content": "工业革命花了约80年完成主要的劳动力转移",
+      "music": 0.0
+    },
+    {
+      "from": 1026.859,
+      "to": 1029.999,
+      "sid": 545,
+      "location": 2,
+      "content": "这中间有两到三代人的时间可以逐步调整",
+      "music": 0.0
+    },
+    {
+      "from": 1029.999,
+      "to": 1032.799,
+      "sid": 546,
+      "location": 2,
+      "content": "AI从实验室突破到大规模商业应用",
+      "music": 0.0
+    },
+    {
+      "from": 1032.799,
+      "to": 1033.859,
+      "sid": 547,
+      "location": 2,
+      "content": "用了不到10年",
+      "music": 0.0
+    },
+    {
+      "from": 1033.859,
+      "to": 1034.539,
+      "sid": 548,
+      "location": 2,
+      "content": "2012年",
+      "music": 0.0
+    },
+    {
+      "from": 1034.539,
+      "to": 1036.16,
+      "sid": 549,
+      "location": 2,
+      "content": "深度学习出现关键突破",
+      "music": 0.0
+    },
+    {
+      "from": 1036.16,
+      "to": 1036.86,
+      "sid": 550,
+      "location": 2,
+      "content": "2022年",
+      "music": 0.0
+    },
+    {
+      "from": 1036.86,
+      "to": 1038.82,
+      "sid": 551,
+      "location": 2,
+      "content": "大语言模型开始大规模普及",
+      "music": 0.0
+    },
+    {
+      "from": 1038.82,
+      "to": 1040.04,
+      "sid": 552,
+      "location": 2,
+      "content": "接下来十到20年",
+      "music": 0.0
+    },
+    {
+      "from": 1040.04,
+      "to": 1040.86,
+      "sid": 553,
+      "location": 2,
+      "content": "初级程序员",
+      "music": 0.0
+    },
+    {
+      "from": 1040.86,
+      "to": 1041.619,
+      "sid": 554,
+      "location": 2,
+      "content": "律师助理",
+      "music": 0.0
+    },
+    {
+      "from": 1041.619,
+      "to": 1042.419,
+      "sid": 555,
+      "location": 2,
+      "content": "财务分析",
+      "music": 0.0
+    },
+    {
+      "from": 1042.419,
+      "to": 1045.379,
+      "sid": 556,
+      "location": 2,
+      "content": "内容创作等大量白领岗位都面临压缩",
+      "music": 0.0
+    },
+    {
+      "from": 1045.379,
+      "to": 1046.719,
+      "sid": 557,
+      "location": 2,
+      "content": "这些变化的时间跨度",
+      "music": 0.0
+    },
+    {
+      "from": 1046.719,
+      "to": 1048.739,
+      "sid": 558,
+      "location": 2,
+      "content": "可能在一个人的职业生涯内完成",
+      "music": 0.0
+    },
+    {
+      "from": 1048.739,
+      "to": 1050.64,
+      "sid": 559,
+      "location": 2,
+      "content": "而不是跨代际的缓慢过渡",
+      "music": 0.0
+    },
+    {
+      "from": 1050.64,
+      "to": 1054.0,
+      "sid": 560,
+      "location": 2,
+      "content": "第3AI的所有权格局从一开始就锁定了",
+      "music": 0.0
+    },
+    {
+      "from": 1054.0,
+      "to": 1054.84,
+      "sid": 561,
+      "location": 2,
+      "content": "工业革命初期",
+      "music": 0.0
+    },
+    {
+      "from": 1054.84,
+      "to": 1055.4,
+      "sid": 562,
+      "location": 2,
+      "content": "理论上",
+      "music": 0.0
+    },
+    {
+      "from": 1055.4,
+      "to": 1058.32,
+      "sid": 563,
+      "location": 2,
+      "content": "任何有足够资本的人都可以建厂参与竞争",
+      "music": 0.0
+    },
+    {
+      "from": 1058.32,
+      "to": 1060.7,
+      "sid": 564,
+      "location": 2,
+      "content": "新兴行业里有相当程度的分散竞争",
+      "music": 0.0
+    },
+    {
+      "from": 1060.7,
+      "to": 1062.92,
+      "sid": 565,
+      "location": 2,
+      "content": "但训练一个前沿AI大模型",
+      "music": 0.0
+    },
+    {
+      "from": 1062.92,
+      "to": 1065.62,
+      "sid": 566,
+      "location": 2,
+      "content": "需要的算力投入在数10亿美元量级",
+      "music": 0.0
+    },
+    {
+      "from": 1065.62,
+      "to": 1066.34,
+      "sid": 567,
+      "location": 2,
+      "content": "这个门槛",
+      "music": 0.0
+    },
+    {
+      "from": 1066.34,
+      "to": 1069.12,
+      "sid": 568,
+      "location": 2,
+      "content": "从起点就把99%的人排除在外",
+      "music": 0.0
+    },
+    {
+      "from": 1069.12,
+      "to": 1070.64,
+      "sid": 569,
+      "location": 2,
+      "content": "全球有能力独立训练",
+      "music": 0.0
+    },
+    {
+      "from": 1070.64,
+      "to": 1072.9,
+      "sid": 570,
+      "location": 2,
+      "content": "前沿AI的机构大概不超过十家",
+      "music": 0.0
+    },
+    {
+      "from": 1072.9,
+      "to": 1074.48,
+      "sid": 571,
+      "location": 2,
+      "content": "恰好都是现有科技巨头",
+      "music": 0.0
+    },
+    {
+      "from": 1074.48,
+      "to": 1076.56,
+      "sid": 572,
+      "location": 2,
+      "content": "或有深厚资本支持的新公司",
+      "music": 0.0
+    },
+    {
+      "from": 1076.56,
+      "to": 1078.14,
+      "sid": 573,
+      "location": 2,
+      "content": "AI带来的生产力红利",
+      "music": 0.0
+    },
+    {
+      "from": 1078.14,
+      "to": 1081.44,
+      "sid": 574,
+      "location": 2,
+      "content": "从起点就流向了一个已经确定的少数人名单",
+      "music": 0.0
+    },
+    {
+      "from": 1081.44,
+      "to": 1084.8,
+      "sid": 575,
+      "location": 2,
+      "content": "第4AI在侵蚀劳动者历史上最后的优势",
+      "music": 0.0
+    },
+    {
+      "from": 1084.8,
+      "to": 1087.26,
+      "sid": 576,
+      "location": 2,
+      "content": "工业时代工人还有一个保底机器",
+      "music": 0.0
+    },
+    {
+      "from": 1087.26,
+      "to": 1088.34,
+      "sid": 577,
+      "location": 2,
+      "content": "不会和老板谈判",
+      "music": 0.0
+    },
+    {
+      "from": 1088.34,
+      "to": 1089.78,
+      "sid": 578,
+      "location": 2,
+      "content": "工人会集体行动",
+      "music": 0.0
+    },
+    {
+      "from": 1089.78,
+      "to": 1090.38,
+      "sid": 579,
+      "location": 2,
+      "content": "组织动员",
+      "music": 0.0
+    },
+    {
+      "from": 1090.38,
+      "to": 1093.24,
+      "sid": 580,
+      "location": 2,
+      "content": "是劳动者历史上真正扳回局面的主要手段",
+      "music": 0.0
+    },
+    {
+      "from": 1093.24,
+      "to": 1096.22,
+      "sid": 581,
+      "location": 2,
+      "content": "如果AI能完成大量的组织协调分析决策",
+      "music": 0.0
+    },
+    {
+      "from": 1096.22,
+      "to": 1097.28,
+      "sid": 582,
+      "location": 2,
+      "content": "沟通谈判工作",
+      "music": 0.0
+    },
+    {
+      "from": 1097.28,
+      "to": 1100.08,
+      "sid": 583,
+      "location": 2,
+      "content": "劳动者这个最后的议价优势也会受到冲击",
+      "music": 0.0
+    },
+    {
+      "from": 1100.08,
+      "to": 1102.18,
+      "sid": 584,
+      "location": 2,
+      "content": "这个趋势短期内不一定明显",
+      "music": 0.0
+    },
+    {
+      "from": 1102.18,
+      "to": 1103.52,
+      "sid": 585,
+      "location": 2,
+      "content": "但方向是清楚的",
+      "music": 0.0
+    },
+    {
+      "from": 1103.52,
+      "to": 1104.74,
+      "sid": 586,
+      "location": 2,
+      "content": "当然说了这么多",
+      "music": 0.0
+    },
+    {
+      "from": 1104.74,
+      "to": 1106.34,
+      "sid": 587,
+      "location": 2,
+      "content": "不利的方向也得说清楚",
+      "music": 0.0
+    },
+    {
+      "from": 1106.34,
+      "to": 1106.82,
+      "sid": 588,
+      "location": 2,
+      "content": "另一面",
+      "music": 0.0
+    },
+    {
+      "from": 1106.82,
+      "to": 1110.02,
+      "sid": 589,
+      "location": 2,
+      "content": "毕竟单方向渲染恐慌会让视频失去可信度",
+      "music": 0.0
+    },
+    {
+      "from": 1110.02,
+      "to": 1110.76,
+      "sid": 590,
+      "location": 2,
+      "content": "也不客观",
+      "music": 0.0
+    },
+    {
+      "from": 1110.76,
+      "to": 1112.7,
+      "sid": 591,
+      "location": 2,
+      "content": "AI确实在降低某些门槛",
+      "music": 0.0
+    },
+    {
+      "from": 1112.7,
+      "to": 1116.82,
+      "sid": 592,
+      "location": 2,
+      "content": "过去创业往往需要一个团队设计开发运营文案",
+      "music": 0.0
+    },
+    {
+      "from": 1116.82,
+      "to": 1118.02,
+      "sid": 593,
+      "location": 2,
+      "content": "几个人分工合作",
+      "music": 0.0
+    },
+    {
+      "from": 1118.02,
+      "to": 1119.2,
+      "sid": 594,
+      "location": 2,
+      "content": "AI工具出现后",
+      "music": 0.0
+    },
+    {
+      "from": 1119.2,
+      "to": 1120.66,
+      "sid": 595,
+      "location": 2,
+      "content": "一个人可以独立完成",
+      "music": 0.0
+    },
+    {
+      "from": 1120.66,
+      "to": 1123.6,
+      "sid": 596,
+      "location": 2,
+      "content": "过去需要3~5个人才能做到的工作量",
+      "music": 0.0
+    },
+    {
+      "from": 1123.6,
+      "to": 1125.3,
+      "sid": 597,
+      "location": 2,
+      "content": "小型创业的门槛在下降",
+      "music": 0.0
+    },
+    {
+      "from": 1125.3,
+      "to": 1127.46,
+      "sid": 598,
+      "location": 2,
+      "content": "这对资金有限的人是真实的机会",
+      "music": 0.0
+    },
+    {
+      "from": 1127.46,
+      "to": 1130.18,
+      "sid": 599,
+      "location": 2,
+      "content": "曾经很多欠发达地区医生严重短缺",
+      "music": 0.0
+    },
+    {
+      "from": 1130.18,
+      "to": 1132.78,
+      "sid": 600,
+      "location": 2,
+      "content": "如果AI辅助诊断可以发挥真实的作用",
+      "music": 0.0
+    },
+    {
+      "from": 1132.78,
+      "to": 1134.14,
+      "sid": 601,
+      "location": 2,
+      "content": "帮助填补人力缺口",
+      "music": 0.0
+    },
+    {
+      "from": 1134.14,
+      "to": 1136.64,
+      "sid": 602,
+      "location": 2,
+      "content": "人均寿命可能会再次快速提高",
+      "music": 0.0
+    },
+    {
+      "from": 1136.64,
+      "to": 1139.72,
+      "sid": 603,
+      "location": 2,
+      "content": "过去只有富裕家庭才能负担的个性化辅导",
+      "music": 0.0
+    },
+    {
+      "from": 1139.72,
+      "to": 1140.78,
+      "sid": 604,
+      "location": 2,
+      "content": "而现在这个时代",
+      "music": 0.0
+    },
+    {
+      "from": 1140.78,
+      "to": 1144.08,
+      "sid": 605,
+      "location": 2,
+      "content": "几乎一切资料信息都可以用AI快速收集整理",
+      "music": 0.0
+    },
+    {
+      "from": 1144.08,
+      "to": 1146.7,
+      "sid": 606,
+      "location": 2,
+      "content": "个性化辅导的效果远好于大班教学",
+      "music": 0.0
+    },
+    {
+      "from": 1146.7,
+      "to": 1148.32,
+      "sid": 607,
+      "location": 2,
+      "content": "如果这个力能被释放",
+      "music": 0.0
+    },
+    {
+      "from": 1148.32,
+      "to": 1151.1,
+      "sid": 608,
+      "location": 2,
+      "content": "对教育资源不均的问题是有实质帮助",
+      "music": 0.0
+    },
+    {
+      "from": 1151.1,
+      "to": 1153.9,
+      "sid": 609,
+      "location": 2,
+      "content": "另外技术工具的民主化也一直在发生",
+      "music": 0.0
+    },
+    {
+      "from": 1153.9,
+      "to": 1156.08,
+      "sid": 610,
+      "location": 2,
+      "content": "比如deep sk的模型坚持开源",
+      "music": 0.0
+    },
+    {
+      "from": 1156.08,
+      "to": 1159.04,
+      "sid": 611,
+      "location": 2,
+      "content": "让中小开发者可以在其基础上构建应用",
+      "music": 0.0
+    },
+    {
+      "from": 1159.04,
+      "to": 1159.74,
+      "sid": 612,
+      "location": 2,
+      "content": "开源运动",
+      "music": 0.0
+    },
+    {
+      "from": 1159.74,
+      "to": 1162.5,
+      "sid": 613,
+      "location": 2,
+      "content": "是对少数大公司AI垄断的一种制衡",
+      "music": 0.0
+    },
+    {
+      "from": 1162.5,
+      "to": 1164.16,
+      "sid": 614,
+      "location": 2,
+      "content": "这场博弈还没有结束",
+      "music": 0.0
+    },
+    {
+      "from": 1164.16,
+      "to": 1166.4,
+      "sid": 615,
+      "location": 2,
+      "content": "所以这不是一个非黑即白的判断",
+      "music": 0.0
+    },
+    {
+      "from": 1166.4,
+      "to": 1168.76,
+      "sid": 616,
+      "location": 2,
+      "content": "AI带来的机会和风险同时存在",
+      "music": 0.0
+    },
+    {
+      "from": 1168.76,
+      "to": 1172.06,
+      "sid": 617,
+      "location": 2,
+      "content": "而且在不同人身上的分布差异是巨大的",
+      "music": 0.0
+    },
+    {
+      "from": 1172.06,
+      "to": 1173.22,
+      "sid": 618,
+      "location": 2,
+      "content": "所以综合来看",
+      "music": 0.0
+    },
+    {
+      "from": 1173.22,
+      "to": 1175.88,
+      "sid": 619,
+      "location": 2,
+      "content": "AI的特殊性在于通用性速度",
+      "music": 0.0
+    },
+    {
+      "from": 1175.88,
+      "to": 1177.14,
+      "sid": 620,
+      "location": 2,
+      "content": "所有权集中程度",
+      "music": 0.0
+    },
+    {
+      "from": 1177.14,
+      "to": 1178.94,
+      "sid": 621,
+      "location": 2,
+      "content": "这三个维度同时叠加在一起",
+      "music": 0.0
+    },
+    {
+      "from": 1178.94,
+      "to": 1182.08,
+      "sid": 622,
+      "location": 2,
+      "content": "历史上的技术革命大概都只在其中一个维度上",
+      "music": 0.0
+    },
+    {
+      "from": 1182.08,
+      "to": 1183.36,
+      "sid": 623,
+      "location": 2,
+      "content": "冲击过社会结构",
+      "music": 0.0
+    },
+    {
+      "from": 1183.36,
+      "to": 1184.94,
+      "sid": 624,
+      "location": 2,
+      "content": "三个维度同时发生",
+      "music": 0.0
+    },
+    {
+      "from": 1184.94,
+      "to": 1186.24,
+      "sid": 625,
+      "location": 2,
+      "content": "历史上找不到先例",
+      "music": 0.0
+    },
+    {
+      "from": 1186.24,
+      "to": 1189.34,
+      "sid": 626,
+      "location": 2,
+      "content": "这也就是为什么现在有很多人对的焦虑感极强",
+      "music": 0.0
+    },
+    {
+      "from": 1189.34,
+      "to": 1191.18,
+      "sid": 627,
+      "location": 2,
+      "content": "因为未来充满了不确定性",
+      "music": 0.0
+    },
+    {
+      "from": 1191.18,
+      "to": 1193.72,
+      "sid": 628,
+      "location": 2,
+      "content": "且比以往任何一次技术革命都要高",
+      "music": 0.0
+    },
+    {
+      "from": 1193.72,
+      "to": 1194.52,
+      "sid": 629,
+      "location": 2,
+      "content": "所以我认为",
+      "music": 0.0
+    },
+    {
+      "from": 1194.52,
+      "to": 1197.88,
+      "sid": 630,
+      "location": 2,
+      "content": "这一轮AI浪潮和历史上大多数技术革命之间",
+      "music": 0.0
+    },
+    {
+      "from": 1197.88,
+      "to": 1199.32,
+      "sid": 631,
+      "location": 2,
+      "content": "有一个非常有趣的区别",
+      "music": 0.0
+    },
+    {
+      "from": 1199.32,
+      "to": 1201.56,
+      "sid": 632,
+      "location": 2,
+      "content": "也就是这场变革的驱动顺序",
+      "music": 0.0
+    },
+    {
+      "from": 1201.56,
+      "to": 1203.96,
+      "sid": 633,
+      "location": 2,
+      "content": "过去几乎所有重大的技术革命",
+      "music": 0.0
+    },
+    {
+      "from": 1203.96,
+      "to": 1205.52,
+      "sid": 634,
+      "location": 2,
+      "content": "动力来源都是民间",
+      "music": 0.0
+    },
+    {
+      "from": 1205.52,
+      "to": 1205.98,
+      "sid": 635,
+      "location": 2,
+      "content": "在前",
+      "music": 0.0
+    },
+    {
+      "from": 1205.98,
+      "to": 1206.76,
+      "sid": 636,
+      "location": 2,
+      "content": "国家在后",
+      "music": 0.0
+    },
+    {
+      "from": 1206.76,
+      "to": 1210.24,
+      "sid": 637,
+      "location": 2,
+      "content": "蒸汽机是民间工匠和私人资本推动的国家",
+      "music": 0.0
+    },
+    {
+      "from": 1210.24,
+      "to": 1212.32,
+      "sid": 638,
+      "location": 2,
+      "content": "后来跟进立法和规范商业",
+      "music": 0.0
+    },
+    {
+      "from": 1212.32,
+      "to": 1214.72,
+      "sid": 639,
+      "location": 2,
+      "content": "互联网是硅谷的创业公司做大的政府",
+      "music": 0.0
+    },
+    {
+      "from": 1214.72,
+      "to": 1216.82,
+      "sid": 640,
+      "location": 2,
+      "content": "在这场变革里基本是旁观者",
+      "music": 0.0
+    },
+    {
+      "from": 1216.82,
+      "to": 1218.64,
+      "sid": 641,
+      "location": 2,
+      "content": "等市场格局基本定型了",
+      "music": 0.0
+    },
+    {
+      "from": 1218.64,
+      "to": 1219.52,
+      "sid": 642,
+      "location": 2,
+      "content": "才开始谈监管",
+      "music": 0.0
+    },
+    {
+      "from": 1219.52,
+      "to": 1222.6,
+      "sid": 643,
+      "location": 2,
+      "content": "智能手机是苹果和谷歌定义的的政治逻辑",
+      "music": 0.0
+    },
+    {
+      "from": 1222.6,
+      "to": 1223.54,
+      "sid": 644,
+      "location": 2,
+      "content": "几乎没有参与",
+      "music": 0.0
+    },
+    {
+      "from": 1223.54,
+      "to": 1224.44,
+      "sid": 645,
+      "location": 2,
+      "content": "市场是主角",
+      "music": 0.0
+    },
+    {
+      "from": 1224.44,
+      "to": 1225.36,
+      "sid": 646,
+      "location": 2,
+      "content": "国家是配角",
+      "music": 0.0
+    },
+    {
+      "from": 1225.36,
+      "to": 1226.82,
+      "sid": 647,
+      "location": 2,
+      "content": "商业逻辑驱动一切",
+      "music": 0.0
+    },
+    {
+      "from": 1226.82,
+      "to": 1229.02,
+      "sid": 648,
+      "location": 2,
+      "content": "这一轮AI浪潮顺序反过来了",
+      "music": 0.0
+    },
+    {
+      "from": 1229.02,
+      "to": 1230.02,
+      "sid": 649,
+      "location": 2,
+      "content": "国家战略在前",
+      "music": 0.0
+    },
+    {
+      "from": 1230.02,
+      "to": 1231.34,
+      "sid": 650,
+      "location": 2,
+      "content": "民间应用在后",
+      "music": 0.0
+    },
+    {
+      "from": 1231.34,
+      "to": 1232.44,
+      "sid": 651,
+      "location": 2,
+      "content": "美国的chips法案",
+      "music": 0.0
+    },
+    {
+      "from": 1232.44,
+      "to": 1234.62,
+      "sid": 652,
+      "location": 2,
+      "content": "对中国的AI芯片出口管制",
+      "music": 0.0
+    },
+    {
+      "from": 1234.62,
+      "to": 1236.22,
+      "sid": 653,
+      "location": 2,
+      "content": "白宫的AI行政令",
+      "music": 0.0
+    },
+    {
+      "from": 1236.22,
+      "to": 1238.74,
+      "sid": 654,
+      "location": 2,
+      "content": "这些都在大规模民用AI普及之前",
+      "music": 0.0
+    },
+    {
+      "from": 1238.74,
+      "to": 1241.36,
+      "sid": 655,
+      "location": 2,
+      "content": "就已经把AI定性成了国家安全议题",
+      "music": 0.0
+    },
+    {
+      "from": 1241.36,
+      "to": 1242.78,
+      "sid": 656,
+      "location": 2,
+      "content": "中国的逻辑更直接",
+      "music": 0.0
+    },
+    {
+      "from": 1242.78,
+      "to": 1244.52,
+      "sid": 657,
+      "location": 2,
+      "content": "举国体制下的资源调配",
+      "music": 0.0
+    },
+    {
+      "from": 1244.52,
+      "to": 1245.5,
+      "sid": 658,
+      "location": 2,
+      "content": "让政府意志",
+      "music": 0.0
+    },
+    {
+      "from": 1245.5,
+      "to": 1248.92,
+      "sid": 659,
+      "location": 2,
+      "content": "在很大程度上决定了哪些AI方向能获得支持",
+      "music": 0.0
+    },
+    {
+      "from": 1248.92,
+      "to": 1250.5,
+      "sid": 660,
+      "location": 2,
+      "content": "哪些领域能拿到算力",
+      "music": 0.0
+    },
+    {
+      "from": 1250.5,
+      "to": 1252.0,
+      "sid": 661,
+      "location": 2,
+      "content": "这个国家先行的逻辑",
+      "music": 0.0
+    },
+    {
+      "from": 1252.0,
+      "to": 1254.46,
+      "sid": 662,
+      "location": 2,
+      "content": "可以解释很多表面上说不通的现象",
+      "music": 0.0
+    },
+    {
+      "from": 1254.46,
+      "to": 1256.36,
+      "sid": 663,
+      "location": 2,
+      "content": "为什么AI使用如此廉价",
+      "music": 0.0
+    },
+    {
+      "from": 1256.36,
+      "to": 1259.46,
+      "sid": 664,
+      "location": 2,
+      "content": "为什么大型企业愿意持续烧钱补贴用户",
+      "music": 0.0
+    },
+    {
+      "from": 1259.46,
+      "to": 1261.32,
+      "sid": 665,
+      "location": 2,
+      "content": "为什么AI芯片的出口管制",
+      "music": 0.0
+    },
+    {
+      "from": 1261.32,
+      "to": 1264.06,
+      "sid": 666,
+      "location": 2,
+      "content": "比任何普通商品都反应更快更猛",
+      "music": 0.0
+    },
+    {
+      "from": 1264.06,
+      "to": 1265.16,
+      "sid": 667,
+      "location": 2,
+      "content": "这不是市场决策",
+      "music": 0.0
+    },
+    {
+      "from": 1266.2,
+      "to": 1268.32,
+      "sid": 668,
+      "location": 2,
+      "content": "那么历史上有没有类似的先例",
+      "music": 0.0
+    },
+    {
+      "from": 1268.32,
+      "to": 1269.6,
+      "sid": 669,
+      "location": 2,
+      "content": "有但只有一次",
+      "music": 0.0
+    },
+    {
+      "from": 1269.6,
+      "to": 1270.82,
+      "sid": 670,
+      "location": 2,
+      "content": "而且高度吻合",
+      "music": 0.0
+    },
+    {
+      "from": 1270.82,
+      "to": 1272.8,
+      "sid": 671,
+      "location": 2,
+      "content": "这个先例叫做美苏太空争霸",
+      "music": 0.0
+    },
+    {
+      "from": 1272.8,
+      "to": 1274.48,
+      "sid": 672,
+      "location": 2,
+      "content": "同样是国家战略驱动",
+      "music": 0.0
+    },
+    {
+      "from": 1274.48,
+      "to": 1275.62,
+      "sid": 673,
+      "location": 2,
+      "content": "同样不计商业成本",
+      "music": 0.0
+    },
+    {
+      "from": 1275.62,
+      "to": 1277.54,
+      "sid": 674,
+      "location": 2,
+      "content": "同样在市场逻辑之外运行",
+      "music": 0.0
+    },
+    {
+      "from": 1277.54,
+      "to": 1280.22,
+      "sid": 675,
+      "location": 2,
+      "content": "同样在全球留下了深远的技术遗产",
+      "music": 0.0
+    },
+    {
+      "from": 1280.22,
+      "to": 1281.84,
+      "sid": 676,
+      "location": 2,
+      "content": "所以面对这一次的革命",
+      "music": 0.0
+    },
+    {
+      "from": 1281.84,
+      "to": 1283.32,
+      "sid": 677,
+      "location": 2,
+      "content": "我们有哪一些解决办法",
+      "music": 0.0
+    },
+    {
+      "from": 1285.72,
+      "to": 1289.1,
+      "sid": 678,
+      "location": 2,
+      "content": "以及最重要的AI真的会代替我们所有人的就业",
+      "music": 0.0
+    },
+    {
+      "from": 1289.1,
+      "to": 1291.82,
+      "sid": 679,
+      "location": 2,
+      "content": "这些就留在下期视频再继续讨论了",
+      "music": 0.0
+    },
+    {
+      "from": 1291.82,
+      "to": 1292.66,
+      "sid": 680,
+      "location": 2,
+      "content": "这里是阿库",
+      "music": 0.0
+    },
+    {
+      "from": 1292.66,
+      "to": 1295.2,
+      "sid": 681,
+      "location": 2,
+      "content": "一个用一张图带你看懂财政知识的博主",
+      "music": 0.0
+    },
+    {
+      "from": 1295.2,
+      "to": 1297.82,
+      "sid": 682,
+      "location": 2,
+      "content": "如果你不满足与公开频道的表面信息",
+      "music": 0.0
+    },
+    {
+      "from": 1297.82,
+      "to": 1300.54,
+      "sid": 683,
+      "location": 2,
+      "content": "想真正看懂现实世界当中的另一面",
+      "music": 0.0
+    },
+    {
+      "from": 1300.54,
+      "to": 1301.78,
+      "sid": 684,
+      "location": 2,
+      "content": "了解其底层规则",
+      "music": 0.0
+    },
+    {
+      "from": 1301.78,
+      "to": 1303.6,
+      "sid": 685,
+      "location": 2,
+      "content": "也可以订阅我新开的会员频道",
+      "music": 0.0
+    },
+    {
+      "from": 1303.6,
+      "to": 1304.32,
+      "sid": 686,
+      "location": 2,
+      "content": "灰前系列",
+      "music": 0.0
+    },
+    {
+      "from": 1304.32,
+      "to": 1305.36,
+      "sid": 687,
+      "location": 2,
+      "content": "每月3~5期",
+      "music": 0.0
+    },
+    {
+      "from": 1305.36,
+      "to": 1307.36,
+      "sid": 688,
+      "location": 2,
+      "content": "记得点赞关注收藏分享",
+      "music": 0.0
+    },
+    {
+      "from": 1307.36,
+      "to": 1308.42,
+      "sid": 689,
+      "location": 2,
+      "content": "感谢大家的支持",
+      "music": 0.0
+    },
+    {
+      "from": 1308.42,
+      "to": 1310.24,
+      "sid": 690,
+      "location": 2,
+      "content": "我们下期视频再见",
+      "music": 0.0
+    }
+  ]
+}

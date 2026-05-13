@@ -1,0 +1,4 @@
+interface:
+  display_name: "Subtext Article"
+  short_description: "视频字幕转高保真中文长文"
+  default_prompt: "Use $subtext-article to turn this video transcript into a faithful Chinese article with Title, Overview, and Markdown sections."
