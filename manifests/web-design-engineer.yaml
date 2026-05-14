@@ -4,7 +4,7 @@ source:
   type: remote
   repo: https://github.com/ConardLi/garden-skills.git
   ref: main
-  commit: 0dc969b1dff2f30c5e8f9e4ca410a4dcc8ba33b9
+  commit: 242324434eef1ab76850bc62358b57081f7d3749
 status:
   stage: adapted
 entry:

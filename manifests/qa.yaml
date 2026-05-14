@@ -4,7 +4,7 @@ source:
   type: remote
   repo: https://github.com/mattpocock/skills
   ref: main
-  commit: 9f2e0bd0ea776eb6372eb81fa8a4a47814a8404a
+  commit: e74f0061bb67222181640effa98c675bdb2fdaa7
 status:
   stage: adapted
 entry:

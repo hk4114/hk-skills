@@ -3,14 +3,14 @@
     "type": "remote",
     "repo": "https://github.com/JimLiu/baoyu-skills",
     "ref": "main",
-    "commit": "adba24281bea8ed1935b5256e6de7019c7aecae1",
+    "commit": "dea9322d0db848b46af0e5a43df303537904a679",
     "local_path": "warehouse/remote/github.com_JimLiu_baoyu-skills@main"
   },
   "github.com_op7418_guizang-ppt-skill@main": {
     "type": "remote",
     "repo": "https://github.com/op7418/guizang-ppt-skill",
     "ref": "main",
-    "commit": "f6676c3f315e4cbf8abb41daa26377688a716a5f",
+    "commit": "f07de0060921bdd55d4dfd9dad3f2481a42a5719",
     "local_path": "warehouse/remote/github.com_op7418_guizang-ppt-skill@main"
   },
   "github.com_lijigang_ljg-skills@main": {
@@ -45,14 +45,14 @@
     "type": "remote",
     "repo": "https://github.com/mattpocock/skills",
     "ref": "main",
-    "commit": "9f2e0bd0ea776eb6372eb81fa8a4a47814a8404a",
+    "commit": "e74f0061bb67222181640effa98c675bdb2fdaa7",
     "local_path": "warehouse/remote/github.com_mattpocock_skills@main"
   },
   "github.com_ConardLi_garden-skills@main": {
     "type": "remote",
     "repo": "https://github.com/ConardLi/garden-skills.git",
     "ref": "main",
-    "commit": "0dc969b1dff2f30c5e8f9e4ca410a4dcc8ba33b9",
+    "commit": "242324434eef1ab76850bc62358b57081f7d3749",
     "local_path": "warehouse/remote/github.com_ConardLi_garden-skills@main"
   },
   "github.com_irenerachel_visual-style-ppt-skill@main": {
