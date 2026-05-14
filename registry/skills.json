@@ -875,5 +875,16 @@
     ],
     "updated_at": "2026-05-12T14:47:34.162Z",
     "source_id": "local-merge-drafts"
+  },
+  "article-analyzer": {
+    "manifest": "manifests/article-analyzer.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_global_ides": [],
+    "enabled_projects": [
+      "L1VzZXJzL2thbmVodWEvcHJvamVjdC9rYW5lX2luYm94"
+    ],
+    "updated_at": "2026-05-14T15:19:54.641Z",
+    "source_id": "local-article-analyzer"
   }
 }

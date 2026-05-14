@@ -103,5 +103,9 @@
   "local-merge-drafts": {
     "type": "local",
     "local_path": "warehouse/local/merge-drafts"
+  },
+  "local-article-analyzer": {
+    "type": "local",
+    "local_path": "warehouse/local/article-analyzer"
   }
 }
