@@ -4,15 +4,15 @@
 
 `purpose`: Move beyond direct analysis to construct a higher-level model. Identify thesis, antithesis, common goal, missing variable, synthesis, blind spot, test scenario, and action algorithm.
 
-`trigger`: Run only when the user explicitly asks for "提维", "升维", "认知升级", "底层模型", "新框架", "重构模型", "更高维度怎么看", or equivalent model reconstruction.
+`trigger`: Run as the third standard step in the default article package and the fourth standard step in the default paper package. Also run when the user explicitly asks for "提维", "升维", "认知升级", "底层模型", "新框架", "重构模型", "更高维度怎么看", or equivalent model reconstruction.
 
 `inputs`: Preferred input is `deep_analysis` output. Also accept a user-provided claim, view, argument, article, or conversation excerpt if it can support thesis/antithesis reconstruction.
 
-`outputs`: `upgrade_model`: author's original claim, thesis, antithesis, common goal, missing variable, synthesis model, cognitive blind spot, test scenario, and action algorithm.
+`outputs`: `upgrade_model` written to the assigned module file, after a source-faithful analysis file when the route requires one.
 
 `evidence_policy`: Treat the synthesis model as `创造性延展` by default. Preserve traceability back to source claims. Separate the author's view from the analyst's upgraded model. Mark unsupported background as `信息不足`.
 
-`skip_conditions`: Skip unless the user requests cognitive upgrade or model reconstruction. Skip when the source is too thin to support a meaningful thesis/antithesis pair. Skip when the user asks for faithful summary, academic review, or evidence-only analysis.
+`skip_conditions`: Skip only when the user explicitly says not to do cognitive upgrade, asks for a narrow evidence-only output, or the source is too thin to support a meaningful thesis/antithesis pair. When the source is thin, still create the `cognitive_upgrade` file and mark the upgrade as blocked by `信息不足` unless the user explicitly asked to skip the module.
 
 `reference_prompt`: `references/cognitive_upgrade.md`
 
@@ -27,9 +27,9 @@ If no prior `deep_analysis` exists, first do a compact internal extraction:
 - hidden assumption;
 - boundary of what the source can support.
 
-Do not output a full `analysis_report` unless the user asks for combined output. The final answer must clearly separate source analysis from creative synthesis.
+Do not merge source-faithful analysis and creative synthesis into one undifferentiated report. When the source is an article, paper, or long argument, write a prior `deep_analysis` file unless the user supplied an already analyzed claim. The upgrade file must clearly separate source claims from creative synthesis.
 
-When this module is selected for output, generate a standalone `upgrade_model` report and end it with `本模块小结`. In `combined` mode, place it after source-faithful analysis reports and before the overall `最终总结`.
+When this module is selected for output, write a standalone `upgrade_model` document in the output folder and end it with `本模块小结`. Place it after source-faithful analysis files and before `99-summary.md`.
 
 ## Upgrade Algorithm
 

@@ -8,7 +8,7 @@
 
 `inputs`: Paper text, abstract, notes, extracted content, method section, experiment summary, benchmark table, or user focus such as method, contribution, limitation, application, or critique.
 
-`outputs`: `paper_brief`: core pain point, prior bottleneck, solution mechanism, innovation delta, critical boundary, and napkin-level model.
+`outputs`: `paper_brief` written to the assigned module file, normally `01-paper_scan.md`.
 
 `evidence_policy`: Use `原文明确`, `合理推断`, and `信息不足` on every comparison or performance claim. Do not assert SOTA improvement unless the paper itself provides comparison evidence or the user provides context.
 
@@ -24,7 +24,7 @@ Do not turn paper scanning into a full article analysis. The output should be co
 
 If the paper does not provide enough evidence for novelty, benchmark comparison, dataset quality, baseline strength, or generality, say `信息不足`.
 
-When this module is selected for output, generate a standalone `paper_brief` and end it with `本模块小结`. In `combined` mode, this report comes before deeper analysis, refinement, or upgrade reports. Do not produce downstream reports unless the router selected those modules.
+When this module is selected for output, write a standalone `paper_brief` document in the output folder and end it with `本模块小结`. In `combined` mode, this file comes before deeper analysis, refinement, or upgrade files. Do not produce downstream files unless the router selected those modules.
 
 ## Output Template: paper_brief
 

@@ -8,7 +8,7 @@
 
 `inputs`: Source text, file content, URL content, excerpt, previous `paper_scan` output, optional target reader roles, and optional analysis focus.
 
-`outputs`: `analysis_report`, or compact internal notes when another module is the final output.
+`outputs`: `analysis_report` written to the assigned module file. Compact internal notes are allowed only for explicitly narrowed direct refinement tasks.
 
 `evidence_policy`: Use `原文明确`, `合理推断`, `创造性延展`, and `信息不足`. Separate source claims from your inference. Mark author background, writing context, publication context, data source, intended audience, and external controversy as `信息不足` when absent from the source.
 
@@ -22,9 +22,9 @@ Read the source as an argument system, not as a paragraph sequence. Identify the
 
 Do not turn missing context into biography or background knowledge. If a claim requires outside verification, mark it `信息不足` and name the missing evidence.
 
-If this module is only a pre-step for `thought_refine` or `cognitive_upgrade`, keep it internal and compact. Extract only core thesis, source anchors, assumptions, and boundaries. Do not output a full `analysis_report` unless the selected output mode requires it.
+In the default package, always write a standalone `analysis_report` file. If the user explicitly asks for direct refinement only, this module may be a hidden pre-step: extract only core thesis, source anchors, assumptions, and boundaries, and do not write a standalone `analysis_report` file.
 
-When this module is selected for output, generate a standalone `analysis_report` and end it with `本模块小结`. In `combined` mode, this report is one step in the chain; the overall final synthesis is produced after all selected module reports.
+When this module is selected for output, write a standalone `analysis_report` document in the output folder and end it with `本模块小结`. In `combined` mode, this file is one step in the chain; the overall final synthesis goes into `99-summary.md` after all selected module files.
 
 ## Output Template: analysis_report
 

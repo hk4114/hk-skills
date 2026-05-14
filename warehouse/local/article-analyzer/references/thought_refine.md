@@ -4,15 +4,15 @@
 
 `purpose`: Convert analysis or verbose source material into sharp, high-density thinking output. Produce a conclusion-first thesis, not a line-by-line summary.
 
-`trigger`: Run when the user asks for "思想精炼", "提炼主线", "压缩观点", "高密度表达", "结论先行", "把啰嗦内容变清楚", or when communication clarity is the explicit output goal.
+`trigger`: Run as the second standard step after `deep_analysis` in the default article package, and as the third standard step after `paper_scan -> deep_analysis` in the default paper package. Also run when the user asks for "思想精炼", "提炼主线", "压缩观点", "高密度表达", "结论先行", "把啰嗦内容变清楚", or when communication clarity is the explicit output goal.
 
 `inputs`: Preferred input is `deep_analysis` output. Also accept raw notes, conversation excerpts, rough drafts, verbose claims, or article text when the user directly asks for refinement.
 
-`outputs`: `refined_thesis`: optional diagnosis, one core idea, communication purpose, conclusion-first structure, three or fewer support points unless the source requires more, and refined expression.
+`outputs`: `refined_thesis` written to the assigned module file, normally `01-thought_refine.md` for direct refinement or later-numbered in combined mode.
 
 `evidence_policy`: Preserve the author's actual claim. Mark sharpened interpretations as `合理推断` when they go beyond explicit wording. Do not add new examples, claims, statistics, context, or outside knowledge.
 
-`skip_conditions`: Skip when the user asks for full deep analysis only. Skip when preserving the original order is more important than communication clarity.
+`skip_conditions`: Skip only when the user explicitly asks for full deep analysis only, asks to preserve original order, or says not to refine. Default package runs this module.
 
 `reference_prompt`: `references/thought_refine.md`
 
@@ -26,9 +26,9 @@ If no prior `deep_analysis` exists, do only a lightweight internal extraction be
 - source anchors that must not be changed;
 - meaning boundaries and missing evidence.
 
-Do not output a full `analysis_report`. Do not expand the task into article analysis. The final answer should be `refined_thesis` only unless the user explicitly requests a combined output.
+Do not write a full `analysis_report` file for the lightweight internal extraction. Do not expand the task into article analysis. The module file should contain `refined_thesis` only unless the router selected a combined chain with earlier module files.
 
-When this module is selected for output, generate a standalone `refined_thesis` report and end it with `本模块小结`. If a lightweight internal `deep_analysis` was used only to extract the core claim, do not expose it as a separate report.
+When this module is selected for output, write a standalone `refined_thesis` document in the output folder and end it with `本模块小结`. If a lightweight internal `deep_analysis` was used only to extract the core claim, do not expose it as a separate file.
 
 ## Refinement Process
 
