@@ -79,3 +79,5 @@ components.d.ts
 # Local-only internal notes
 CODING_STANDARD.md
 SETUP_JAVASCRIPT_ONLY.md
+
+manifests/
