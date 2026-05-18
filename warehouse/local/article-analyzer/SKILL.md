@@ -32,7 +32,8 @@ Before output, do a short internal routing pass:
 2. Infer user goal.
 3. Build the default full package route unless the user explicitly asks to skip or narrow modules.
 4. Load only the matching reference prompt files.
-5. Create an output folder and write the selected module documents plus a synthesis document.
+5. If the task is complex research, multi-source synthesis, due diligence, literature review, opportunity discovery, or explicit rigorous critique, also load `references/research_operators.md` and select the smallest useful operator set.
+6. Create an output folder and write the selected module documents plus a synthesis document.
 
 If the source type is ambiguous, default to `article` and run the article full package: `deep_analysis -> thought_refine -> cognitive_upgrade`.
 
@@ -56,12 +57,15 @@ If the source type is ambiguous, default to `article` and run the article full p
 | explicit narrow deep analysis | 只做深度分析, 不要精炼, 不要提维 | `deep_analysis` |
 | explicit narrow thought refinement | 只做思想精炼, 只要高密度表达, 不要提维 | `deep_analysis -> thought_refine` |
 | explicit narrow cognitive upgrade | 只做提维, 已有分析结论 | `cognitive_upgrade` or `deep_analysis -> cognitive_upgrade` depending on source completeness |
+| research operator package | 文献综述, 尽调, 多来源对比, 证据地图, 隐含假设, 矛盾点, 研究空白, 实施蓝图, 严苛评审 | default module chain + selected operators from `references/research_operators.md` |
 
 When multiple goals are present, preserve this order:
 
 `paper_scan -> deep_analysis -> thought_refine -> cognitive_upgrade`
 
 Default to the full package route. Only remove a module when the user explicitly says "只做", "不要", "跳过", or gives an already completed upstream document.
+
+Research operators are analysis lenses, not a separate workflow. Do not run all operators by default. Use them to strengthen the selected module files and summarize the selected operator set in `99-summary.md`.
 
 ## Module Protocol
 
@@ -84,6 +88,7 @@ Every module follows this shape: `purpose`, `trigger`, `inputs`, `outputs`, `evi
 - `inputs`: Source text, file content, URL content, excerpt, optional target reader roles, and optional analysis focus.
 - `outputs`: Core thesis, key concepts, argument structure, evidence and examples, background context, hidden assumptions, counterarguments, weaknesses, validity boundaries, reusable frameworks, and reader-specific value when target readers are known.
 - `evidence_policy`: Separate explicit evidence from inference. Mark author background, writing context, and intended audience as `信息不足` when absent. Infer target reader roles only when useful and label them `合理推断`.
+- `operator_policy`: For complex research, multi-source synthesis, due diligence, literature review, or explicit rigorous critique, load `references/research_operators.md` and integrate selected operator outputs into this module instead of creating a parallel workflow.
 - `skip_conditions`: Skip only when the user asks for pure paper quick read, pure text polishing, pure translation, or another non-analysis task.
 - `reference_prompt`: `references/deep_analysis.md`
 

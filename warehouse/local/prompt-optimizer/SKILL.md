@@ -56,6 +56,7 @@ Identify type and auto-select strategy:
 | Content Writing | Structural template + Style anchor |
 | Analysis & Reasoning | Step-by-step + Conclusion at end |
 | Decision & Advice | Evaluation framework + Comparison table |
+| Research / Literature Review | Operator selection + Evidence discipline |
 | Code Generation | Precise constraints + Verifiability |
 | Information Extraction | Format lock + Field constraints |
 | Workflow/SOP | Stage breakdown + Checkpoints |
@@ -147,6 +148,7 @@ After confirmation → proceed to State 3.
 |-----------|-------------------|
 | Creative | "Generate 3-5 distinctly different options with applicable scenarios." |
 | Analysis/Reasoning | "Analyze key variables first, then output conclusion." |
+| Research/Literature Review | "Select 1-3 relevant research operators from `../article-analyzer/references/research_operators.md`; include evidence labels, assumption checks, and unresolved evidence gaps." |
 | Stylized Writing | Allow role-playing: "You are a professional [field] expert..." |
 | Fact/Math/Code | Disable role-playing; prioritize precision and verifiability. |
 | Long Tasks | Add stage breakdowns, sub-tasks, checkpoints, self-check. |
