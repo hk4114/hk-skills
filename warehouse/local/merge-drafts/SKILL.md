@@ -36,7 +36,7 @@ Read every draft file and the optional `analysis.md`. For each draft, evaluate:
 
 Take notes on strengths and weaknesses of each draft.
 
-If drafts contain competing claims, conflicting data, or incompatible conclusions, read `../article-analyzer/references/research_operators.md` and use only the `contradiction_auditor` lens to record conflicts before choosing what to merge.
+If drafts contain competing claims, conflicting data, or incompatible conclusions, record the conflict locally before choosing what to merge: claim A, claim B, source file, supporting evidence, preferred resolution, and unresolved user decision if evidence is insufficient.
 
 ### Step 2: Select Base Draft
 
@@ -138,7 +138,7 @@ The final merged article should:
 | **Missing analysis.md** | Proceed without it; no dependency |
 | **Single draft provided** | Inform user that merging requires 2+ drafts; offer to polish the single draft instead |
 | **Very long drafts** (>5000 words each) | Consider chunking by sections; merge section by section |
-| **Research-heavy drafts** | Keep `article-analyzer` as the main research workflow. In this skill, only borrow `contradiction_auditor` for merge conflicts; do not run a full research operator package. |
+| **Research-heavy drafts** | Keep this skill focused on merging. Flag research conflicts in `merge_report.md`; do not run a separate research workflow unless the user explicitly asks for one. |
 
 ## Example
 
