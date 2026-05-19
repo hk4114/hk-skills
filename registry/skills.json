@@ -1066,10 +1066,24 @@
     "enabled_global": false,
     "enabled_global_ides": [],
     "enabled_projects": [
-      "L1VzZXJzL2thbmVodWEvcHJvamVjdC9rYW5lX2VjaG9lcw"
+      "L1VzZXJzL2thbmVodWEvcHJvamVjdC9rYW5lX2VjaG9lcw",
+      "L1VzZXJzL2thbmVodWEvcHJvamVjdC9rYW5lX3ZhdWx0"
     ],
-    "updated_at": "2026-05-19T11:15:59.401Z",
+    "updated_at": "2026-05-19T11:42:36.939Z",
     "source_id": "cdn.weread.qq.com_skills_weread-skills.zip",
+    "subpath": ""
+  },
+  "ima-skill": {
+    "manifest": "manifests/ima-skill.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_global_ides": [],
+    "enabled_projects": [
+      "L1VzZXJzL2thbmVodWEvcHJvamVjdC9rYW5lX2VjaG9lcw",
+      "L1VzZXJzL2thbmVodWEvcHJvamVjdC9rYW5lX3ZhdWx0"
+    ],
+    "updated_at": "2026-05-19T11:53:36.162Z",
+    "source_id": "app-dl.ima.qq.com_skills_ima-skills-1.1.7.zip",
     "subpath": ""
   }
 }

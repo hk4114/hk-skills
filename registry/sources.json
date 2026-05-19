@@ -117,5 +117,11 @@
     "repo": "https://cdn.weread.qq.com/skills/weread-skills.zip",
     "commit": "56a395f6889169d40a2cacf6690a92e47e68becf70aa8803c53748b98ca0c2f2",
     "local_path": "warehouse/remote/cdn.weread.qq.com_skills_weread-skills.zip"
+  },
+  "app-dl.ima.qq.com_skills_ima-skills-1.1.7.zip": {
+    "type": "remote",
+    "repo": "https://app-dl.ima.qq.com/skills/ima-skills-1.1.7.zip",
+    "commit": "bd5878416aed4c358deb2b9bc34dfd7602a0da9d9602582227794791289f73b2",
+    "local_path": "warehouse/remote/app-dl.ima.qq.com_skills_ima-skills-1.1.7.zip"
   }
 }
