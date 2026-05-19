@@ -669,4 +669,90 @@ describe("update", () => {
     expect(fetchRemoteSpy).toHaveBeenCalledTimes(1);
     expect(fetchRemoteSpy).toHaveBeenCalledWith(tempDir, "https://github.com/user/shared-repo", "main");
   });
+
+  it("updates a zip remote skill when commit changes", async () => {
+    const name = "zip-skill";
+    const repoUrl = "https://cdn.example.com/skills/zip-skill.zip";
+    const source_id = generateSourceId(repoUrl, "");
+
+    createRemoteSkill(tempDir, source_id, name);
+    createAdaptedSkill(tempDir, name);
+    createSkillManifest(tempDir, name, "remote", { repo: repoUrl, ref: "", commit: "abc123" });
+    saveSourcesRegistry(tempDir, {
+      [source_id]: { type: "remote", repo: repoUrl, local_path: `warehouse/remote/${source_id}` },
+    });
+    saveSkillsRegistry(tempDir, {
+      [name]: {
+        manifest: `manifests/${name}.yaml`,
+        installed: true,
+        enabled_global: false,
+        enabled_projects: [],
+        updated_at: "2024-01-01T00:00:00Z",
+        source_id,
+      },
+    });
+
+    exitSpy.mockRestore();
+
+    await update(tempDir, name, {});
+
+    expect(fetchRemoteSpy).toHaveBeenCalledWith(tempDir, repoUrl, "");
+
+    const manifestPath = path.join(tempDir, "manifests", `${name}.yaml`);
+    const manifestContent = fs.readFileSync(manifestPath, "utf-8");
+    const manifest = parse(manifestContent) as Record<string, unknown>;
+    expect((manifest.source as Record<string, string>).commit).toBe("def456");
+  });
+
+  it("skips update when zip remote commit is unchanged", async () => {
+    const name = "zip-skill";
+    const repoUrl = "https://cdn.example.com/skills/zip-skill.zip";
+    const source_id = generateSourceId(repoUrl, "");
+
+    createRemoteSkill(tempDir, source_id, name);
+    createAdaptedSkill(tempDir, name);
+    createSkillManifest(tempDir, name, "remote", { repo: repoUrl, ref: "", commit: "def456" });
+    saveSourcesRegistry(tempDir, {
+      [source_id]: { type: "remote", repo: repoUrl, local_path: `warehouse/remote/${source_id}` },
+    });
+    saveSkillsRegistry(tempDir, {
+      [name]: {
+        manifest: `manifests/${name}.yaml`,
+        installed: true,
+        enabled_global: false,
+        enabled_projects: [],
+        updated_at: "2024-01-01T00:00:00Z",
+        source_id,
+      },
+    });
+
+    exitSpy.mockRestore();
+    adaptSpy.mockRestore();
+    adaptSpy = spyOn(adapter, "adapt").mockImplementation(() => {
+      throw new Error("adapt should not be called");
+    });
+
+    await update(tempDir, name, {});
+
+    expect(adaptSpy).not.toHaveBeenCalled();
+
+    adaptSpy.mockRestore();
+    adaptSpy = spyOn(adapter, "adapt").mockImplementation((inputPath, root, sourceType, repo, ref, commit) => {
+      const skillName = path.basename(inputPath);
+      const adaptedPath = path.join(getWarehousePath(root, "adapted"), skillName);
+      fs.mkdirSync(adaptedPath, { recursive: true });
+      fs.writeFileSync(path.join(adaptedPath, "SKILL.md"), `# ${skillName}\n`, "utf-8");
+      const manifestPath = path.join(root, "manifests", `${skillName}.yaml`);
+      fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
+      const manifest = {
+        name: skillName,
+        display_name: skillName,
+        source: { type: sourceType, repo, ref, commit },
+        status: { stage: "adapted" },
+        entry: { file: "SKILL.md" },
+      };
+      fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), "utf-8");
+      return { success: true, name: skillName, errors: [] };
+    });
+  });
 });

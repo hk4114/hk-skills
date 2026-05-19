@@ -1059,5 +1059,17 @@
     "updated_at": "2026-05-18T14:53:23.753Z",
     "source_id": "github.com_anthropics_skills@main",
     "subpath": "skills/xlsx"
+  },
+  "weread-skills": {
+    "manifest": "manifests/weread-skills.yaml",
+    "installed": true,
+    "enabled_global": false,
+    "enabled_global_ides": [],
+    "enabled_projects": [
+      "L1VzZXJzL2thbmVodWEvcHJvamVjdC9rYW5lX2VjaG9lcw"
+    ],
+    "updated_at": "2026-05-19T11:15:59.401Z",
+    "source_id": "cdn.weread.qq.com_skills_weread-skills.zip",
+    "subpath": ""
   }
 }

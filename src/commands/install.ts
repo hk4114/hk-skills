@@ -144,11 +144,11 @@ export async function install(root: string, source: string, options?: { local?: 
   saveSkillsRegistry(root, registry);
 
   const sources = loadSourcesRegistry(root);
-  if (sourceType === "remote" && repoUrl && ref) {
+  if (sourceType === "remote" && repoUrl) {
     sources[sourceId] = {
       type: "remote",
       repo: repoUrl,
-      ref,
+      ref: ref && ref.length > 0 ? ref : undefined,
       commit,
       local_path: path.relative(root, fetchedPath),
     };

@@ -236,3 +236,76 @@ describe("fetchRemote", () => {
     fs.rmSync(root, { recursive: true, force: true });
   });
 });
+
+describe("fetchRemote zip archive", () => {
+  function makeTempDir(): string {
+    return fs.mkdtempSync(path.join(os.tmpdir(), "fetcher-zip-test-"));
+  }
+
+  it("downloads and extracts a zip archive, returning sha256 as commit", async () => {
+    const root = makeTempDir();
+    const archiveUrl = "https://cdn.example.com/skills/my-skill.zip";
+    const zipContent = Buffer.from("fake-zip-content-for-testing");
+
+    const fetchSpy = spyOn(globalThis, "fetch").mockImplementation(async () => {
+      return new Response(zipContent);
+    });
+
+    const execSyncSpy = spyOn(childProcess, "execSync").mockImplementation((cmd: string) => {
+      if (cmd.includes("unzip")) {
+        const match = cmd.match(/-d "([^"]+)"/);
+        const targetDir = match?.[1];
+        if (targetDir) {
+          fs.mkdirSync(targetDir, { recursive: true });
+          fs.writeFileSync(path.join(targetDir, "SKILL.md"), "# My Skill\n");
+        }
+      }
+      return "" as never;
+    });
+
+    const result = await fetchRemote(root, archiveUrl);
+    expect(result.repoUrl).toBe(archiveUrl);
+    expect(result.name).toBe("my-skill");
+    expect(result.ref).toBe("");
+    expect(result.source_id).not.toContain("@");
+    expect(result.commit).toHaveLength(64);
+
+    const targetPath = path.join(root, "warehouse", "remote", result.source_id);
+    expect(fs.existsSync(path.join(targetPath, "SKILL.md"))).toBe(true);
+
+    fetchSpy.mockRestore();
+    execSyncSpy.mockRestore();
+    fs.rmSync(root, { recursive: true, force: true });
+  });
+
+  it("strips single root directory inside zip when it contains SKILL.md", async () => {
+    const root = makeTempDir();
+    const archiveUrl = "https://cdn.example.com/skills/nested-skill.zip";
+    const zipContent = Buffer.from("nested-zip-content");
+
+    const fetchSpy = spyOn(globalThis, "fetch").mockImplementation(async () => {
+      return new Response(zipContent);
+    });
+
+    const execSyncSpy = spyOn(childProcess, "execSync").mockImplementation((cmd: string) => {
+      if (cmd.includes("unzip")) {
+        const match = cmd.match(/-d "([^"]+)"/);
+        const targetDir = match?.[1];
+        if (targetDir) {
+          fs.mkdirSync(path.join(targetDir, "nested-skill"), { recursive: true });
+          fs.writeFileSync(path.join(targetDir, "nested-skill", "SKILL.md"), "# Nested Skill\n");
+        }
+      }
+      return "" as never;
+    });
+
+    const result = await fetchRemote(root, archiveUrl);
+    const targetPath = path.join(root, "warehouse", "remote", result.source_id);
+    expect(fs.existsSync(path.join(targetPath, "SKILL.md"))).toBe(true);
+    expect(fs.existsSync(path.join(targetPath, "nested-skill", "SKILL.md"))).toBe(false);
+
+    fetchSpy.mockRestore();
+    execSyncSpy.mockRestore();
+    fs.rmSync(root, { recursive: true, force: true });
+  });
+});

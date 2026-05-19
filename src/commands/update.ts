@@ -60,18 +60,27 @@ function resolveRemoteUrl(
   return null;
 }
 
+function isZipUrl(url: string | undefined): boolean {
+  return typeof url === "string" && /\.zip$/i.test(url);
+}
+
 function resolveRef(
   root: string,
   source_id: string,
   manifest: SkillManifest
 ): string {
+  const repoUrl = manifest.source?.repo;
+  if (isZipUrl(repoUrl)) {
+    return "";
+  }
+
   if (typeof manifest.source?.ref === "string" && manifest.source.ref.length > 0) {
     return manifest.source.ref;
   }
 
   const sources = loadSourcesRegistry(root);
   const entry = sources[source_id];
-  if (entry && typeof entry.ref === "string") {
+  if (entry && typeof entry.ref === "string" && entry.ref.length > 0) {
     return entry.ref;
   }
 
